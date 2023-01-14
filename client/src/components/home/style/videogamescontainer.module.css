@@ -1,0 +1,14 @@
+.videogamescontainer__div {
+  display: flex;
+}
+
+.videogamecontainer__navbarcontainer{
+  width: 25%;
+  position:fixed;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.videogamecontainer__homecontainer{
+  width: 75%;
+}

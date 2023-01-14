@@ -1,10 +1,10 @@
-import HeaderHome from './NavBarHome';
 import style from './style/NavBarContainer.module.css';
+import NavBarHome from './NavBarHome';
 
 const NavBarContainer = () => {
   return (
     <div className={style.navbarcontainer__div}>
-      <HeaderHome />
+      <NavBarHome />
     </div>
   );
 };

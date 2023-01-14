@@ -1,6 +1,7 @@
 import NavBarLogo from './NavBarLogo';
 import NavBarSocialMedia from './NavBarSocialMedia';
 import style from './style/NavBarHome.module.css';
+import search from './assets/search.png';
 import home from './assets/home.png';
 import profile from './assets/profile.png';
 import friends from './assets/friends.png';
@@ -18,6 +19,10 @@ const NavBarHome = () => {
   return (
     <div>
       <NavBarLogo />
+      <div className={style.navbarhome__div_img_h3}>
+        <img src={search} alt='Home' height='25rem' width='25rem' />
+        <h3 className={style.navbarhome__div__h3}>Search</h3>
+      </div>
       <div className={style.navbarhome__div_img_h3}>
         <img src={home} alt='Home' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3_prueba}>Home</h3>
