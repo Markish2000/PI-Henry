@@ -1,9 +1,9 @@
-.div_logo {
+.navbarlogo__div {
   display: flex;
   align-items: center;
 }
 
-.h2_logo {
+.navbarlogo__h2 {
   margin-left: 0.5em;
   color: #6019D9;
 }

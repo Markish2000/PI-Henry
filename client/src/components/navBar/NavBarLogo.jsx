@@ -3,9 +3,9 @@ import style from './style/NavBarLogo.module.css';
 
 const NavBarLogo = () => {
   return (
-    <div className={style.div_logo}>
+    <div className={style.navbarlogo__div}>
       <img src={logo} alt='Violet joystick' height='90em' width='90em' />
-      <h2 className={style.h2_logo}>
+      <h2 className={style.navbarlogo__h2}>
         <b>Markish</b>
       </h2>
     </div>

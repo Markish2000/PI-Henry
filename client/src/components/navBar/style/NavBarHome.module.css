@@ -1,3 +1,14 @@
-.navbarhome__div__h3 {
+.navbarhome__div_img_h3{
+  display: flex;
+  align-items: center;
+}
+
+.navbarhome__div__h3{
+  margin-left: 0.5em;
   color: #6F747A;
+}
+
+.navbarhome__div__h3_prueba{
+  margin-left: 0.5em;
+  color: #ffffff;
 }
