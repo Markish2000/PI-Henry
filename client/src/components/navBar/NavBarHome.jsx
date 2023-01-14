@@ -12,11 +12,8 @@ const NavBarHome = () => {
       <h3>Messages</h3>
       <h3>Developments</h3>
       <h3>Matches</h3>
-      <h3>Score</h3>
-      <h3>Tasks</h3>
+      <h3>Store</h3>
       <h3>Favorite</h3>
-      <h3>Tournaments</h3>
-      <h3>Balance</h3>
       <h3>Suggestions</h3>
       <NavBarSocialMedia />
       <h3>Help</h3>

@@ -1,7 +1,9 @@
 .div_logo {
   display: flex;
+  align-items: center;
 }
 
 .h2_logo {
+  margin-left: 0.5em;
   color: #6019D9;
 }
