@@ -1,5 +1,5 @@
 import style from './style/WelcomeImg.module.css';
-import videoHog from './img/video.mp4';
+import videoHog from './assets/video.mp4';
 
 // !! ARREGLAR PROBLEMA DE VIDEO (SE VE MAL)
 const WelcomeVideo = () => {
