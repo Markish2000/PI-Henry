@@ -1,0 +1,7 @@
+.navbarcontainer__div {
+  background-color: #191919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
