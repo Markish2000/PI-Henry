@@ -1,0 +1,26 @@
+.videoGamesContainer__div {
+  display: flex;
+}
+
+.videoGamesContainer__navBarContainer{
+  width: 20%;
+  height: 100%;
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.videoGamesContainer__navBarContainer::-webkit-scrollbar {
+  width: 5px;
+  background-color: #191919;
+}
+
+.videoGamesContainer__navBarContainer::-webkit-scrollbar-thumb{
+  background-color: #6019D9;
+  border-radius: 5px;
+}
+
+.videoGamesContainer__homeContainer{
+  width: 80%;
+  margin-left: 16em;
+}
