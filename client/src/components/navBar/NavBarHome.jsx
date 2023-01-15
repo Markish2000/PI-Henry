@@ -15,7 +15,7 @@ import favorite from './assets/favorite.png';
 import suggestions from './assets/suggestions.png';
 import help from './assets/help.png';
 import conditions from './assets/conditions.png';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 // !! Falta agregar rutas.
 const NavBarHome = () => {
@@ -26,18 +26,18 @@ const NavBarHome = () => {
         <img src={search} alt='Search' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Search</h3>
       </div>
-      <Link to='/'>
+      <NavLink className={style.pruebajeje} to='/'>
         <div className={style.navbarhome__div_img_h3}>
           <img src={home} alt='Home' height='25rem' width='25rem' />
           <h3 className={style.navbarhome__div__h3_prueba}>Home</h3>
         </div>
-      </Link>
-      <Link to='/games'>
+      </NavLink>
+      <NavLink className={style.pruebajeje} to='/games'>
         <div className={style.navbarhome__div_img_h3}>
           <img src={games} alt='Games' height='25rem' width='25rem' />
           <h3 className={style.navbarhome__div__h3}>Games</h3>
         </div>
-      </Link>
+      </NavLink>
       <div className={style.navbarhome__div_img_h3}>
         <img src={creategames} alt='Create Game' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Create Game</h3>
