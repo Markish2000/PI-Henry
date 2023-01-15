@@ -1,4 +1,5 @@
 import HeaderContainer from '../header/HeaderContainer';
+import HomeBestGamesContainer from './HomeBestGamesContainer';
 import HomeVideo from './HomeVideo';
 
 const HomeContainer = () => {
@@ -6,6 +7,7 @@ const HomeContainer = () => {
     <div>
       <HeaderContainer />
       <HomeVideo />
+      <HomeBestGamesContainer />
     </div>
   );
 };

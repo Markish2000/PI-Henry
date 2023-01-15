@@ -3,6 +3,8 @@ import NavBarSocialMedia from './NavBarSocialMedia';
 import style from './style/NavBarHome.module.css';
 import search from './assets/search.png';
 import home from './assets/home.png';
+import games from './assets/games.png';
+import creategames from './assets/creategames.png';
 import profile from './assets/profile.png';
 import friends from './assets/friends.png';
 import messages from './assets/messages.png';
@@ -20,7 +22,7 @@ const NavBarHome = () => {
     <div>
       <NavBarLogo />
       <div className={style.navbarhome__div_img_h3}>
-        <img src={search} alt='Home' height='25rem' width='25rem' />
+        <img src={search} alt='Search' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Search</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
@@ -28,44 +30,57 @@ const NavBarHome = () => {
         <h3 className={style.navbarhome__div__h3_prueba}>Home</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={profile} alt='Home' height='25rem' width='25rem' />
+        <img src={games} alt='Games' height='25rem' width='25rem' />
+        <h3 className={style.navbarhome__div__h3}>Games</h3>
+      </div>
+      <div className={style.navbarhome__div_img_h3}>
+        <img src={creategames} alt='Create Game' height='25rem' width='25rem' />
+        <h3 className={style.navbarhome__div__h3}>Create Game</h3>
+      </div>
+      <div className={style.navbarhome__div_img_h3}>
+        <img src={profile} alt='Profile' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Profile</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={friends} alt='Home' height='25rem' width='25rem' />
+        <img src={friends} alt='Friends' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Friends</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={messages} alt='Home' height='25rem' width='25rem' />
+        <img src={messages} alt='Messages' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Messages</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={developments} alt='Home' height='25rem' width='25rem' />
+        <img
+          src={developments}
+          alt='Developments'
+          height='25rem'
+          width='25rem'
+        />
         <h3 className={style.navbarhome__div__h3}>Developments</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={matches} alt='Home' height='25rem' width='25rem' />
+        <img src={matches} alt='Matches' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Matches</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={store} alt='Home' height='25rem' width='25rem' />
+        <img src={store} alt='Store' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Store</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={favorite} alt='Home' height='25rem' width='25rem' />
+        <img src={favorite} alt='Favorite' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Favorite</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={suggestions} alt='Home' height='25rem' width='25rem' />
+        <img src={suggestions} alt='Suggestions' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Suggestions</h3>
       </div>
       <NavBarSocialMedia />
       <div className={style.navbarhome__div_img_h3}>
-        <img src={help} alt='Home' height='25rem' width='25rem' />
+        <img src={help} alt='Help' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Help</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={conditions} alt='Home' height='25rem' width='25rem' />
+        <img src={conditions} alt='Conditions' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Conditions</h3>
       </div>
     </div>
