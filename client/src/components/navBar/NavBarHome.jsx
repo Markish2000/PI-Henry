@@ -26,13 +26,23 @@ const NavBarHome = () => {
         <img src={search} alt='Search' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Search</h3>
       </div>
-      <NavLink className={style.pruebajeje} to='/'>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? style.pruebajeje : style.pruebajojo
+        }
+        to='/'
+      >
         <div className={style.navbarhome__div_img_h3}>
           <img src={home} alt='Home' height='25rem' width='25rem' />
           <h3 className={style.navbarhome__div__h3_prueba}>Home</h3>
         </div>
       </NavLink>
-      <NavLink className={style.pruebajeje} to='/games'>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? style.pruebajeje : style.pruebajojo
+        }
+        to='/games'
+      >
         <div className={style.navbarhome__div_img_h3}>
           <img src={games} alt='Games' height='25rem' width='25rem' />
           <h3 className={style.navbarhome__div__h3}>Games</h3>

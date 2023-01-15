@@ -1,5 +1,5 @@
 import HeaderContainer from '../header/HeaderContainer';
-import HomeBestGamesContainer from './HomeBestGamesContainer';
+import HomeBestGamesContainer from './bestgames/HomeBestGamesContainer';
 import HomeVideo from './HomeVideo';
 
 const HomeContainer = () => {
