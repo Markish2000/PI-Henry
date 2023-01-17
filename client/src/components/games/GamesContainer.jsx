@@ -9,24 +9,23 @@ const GamesContainer = () => {
 
   useEffect(() => {
     dispatch(getAllGames());
-    console.log(cardArray.allGames);
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
-      <GamesCard />
-      {/* {cardArray.allGames?.map((game, index) => {
+      {cardArray.allGames.map((game, index) => (
         <div key={index}>
           <GamesCard
             id={game.id}
+            key={game.id}
             name={game.name}
             image={game.image}
             genres={game.genres}
             rating={game.rating}
             platforms={game.platforms}
           />
-        </div>;
-      })} */}
+        </div>
+      ))}
     </div>
   );
 };

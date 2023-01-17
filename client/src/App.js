@@ -4,8 +4,13 @@ import HomeContainer from './components/home/HomeContainer';
 import NavBarContainer from './components/navBar/NavBarContainer';
 import GamesContainer from './components/games/GamesContainer';
 
+// import WelcomeContainer from './components/welcome/WelcomeContainer';
+
 function App() {
   return (
+    // <div>
+    //   <WelcomeContainer />
+    // </div>
     <div className={style.videoGamesContainer__div}>
       <div className={style.videoGamesContainer__navBarContainer}>
         <NavBarContainer />

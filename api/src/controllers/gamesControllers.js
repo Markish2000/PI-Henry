@@ -1,14 +1,16 @@
 const { default: axios } = require('axios');
-const { Videogame } = require('../db');
-// const { API_KEY } = process.env;
+require('dotenv').config();
+// !! const { Videogame } = require('../db'); Consumir base de datos
+const { API_KEY } = process.env;
 
 const getInfoApi = async () => {
   let games = [];
 
   for (let i = 0; i < 5; i++) {
     let response = await axios.get(
-      `https://api.rawg.io/api/games?key=60d8dd3cb72a463baec920bdac904ba3&page=${1}`
+      `https://api.rawg.io/api/games?key=${API_KEY}&page=${1}`
     );
+
     response.data.results.map((element) => {
       games.push({
         id: element.id,
@@ -33,5 +35,5 @@ const allInfoGames = async () => {
 };
 
 module.exports = {
-  allInfoGames,
+  getInfoApi,
 };

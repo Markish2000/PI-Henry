@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { allInfoGames } = require('../controllers/gamesControllers');
+const { getInfoApi } = require('../controllers/gamesControllers');
 
 const gamesRouter = Router();
 
@@ -7,10 +7,10 @@ gamesRouter.get('/', async (req, res) => {
   const { name } = req.query;
   try {
     if (name) {
-      const games = await allInfoGames(name);
+      const games = await getInfoApi(name);
       return res.status(200).json(games);
     } else {
-      const games = await allInfoGames();
+      const games = await getInfoApi();
       return res.status(200).json(games);
     }
   } catch (error) {

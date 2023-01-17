@@ -1,16 +1,14 @@
-import style from './style/WelcomeImg.module.css';
 import videoHog from './assets/video.mp4';
 
-// !! ARREGLAR PROBLEMA DE VIDEO (SE VE MAL)
 const WelcomeVideo = () => {
   return (
-    <div className={style.div}>
+    <div>
       <video
         src={videoHog}
         autoPlay
         loop
         muted
-        width='711px'
+        width='1108em'
         height='auto'
       ></video>
     </div>
