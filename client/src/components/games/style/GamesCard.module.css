@@ -3,11 +3,11 @@
   border-radius: 1em;
   color: #ffffff;
   background-color: #121212;
-  /* background-color: aqua; */
 }
 
 .gamesCard__div:hover{
   background-color: #6019D9;
+  transform: scale(1.1);
 }
 
 .gamesCard__div_h3_img{
@@ -19,4 +19,11 @@
 
 .gamesCard__div_h3_img_h3{
   padding-right: 0.3em;
+}
+
+.gamesCard__div_flexCenter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

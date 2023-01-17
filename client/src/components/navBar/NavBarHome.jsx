@@ -15,13 +15,15 @@ import favorite from './assets/favorite.png';
 import suggestions from './assets/suggestions.png';
 import help from './assets/help.png';
 import conditions from './assets/conditions.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 // !! Falta agregar rutas.
 const NavBarHome = () => {
   return (
     <div>
-      <NavBarLogo />
+      <Link to='/'>
+        <NavBarLogo />
+      </Link>
       <div className={style.navbarhome__div_img_h3}>
         <img src={search} alt='Search' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Search</h3>

@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import HomeContainer from './components/home/HomeContainer';
 import NavBarContainer from './components/navBar/NavBarContainer';
 import GamesContainer from './components/games/GamesContainer';
+import ItemDetail from './components/itemDetail/ItemDetail';
 
 // import WelcomeContainer from './components/welcome/WelcomeContainer';
 
@@ -15,16 +16,17 @@ function App() {
       <div className={style.videoGamesContainer__navBarContainer}>
         <NavBarContainer />
       </div>
-      <Route exact path='/'>
-        <div className={style.videoGamesContainer__homeContainer}>
+      <div className={style.videoGamesContainer__homeContainer}>
+        <Route exact path='/'>
           <HomeContainer />
-        </div>
-      </Route>
-      <Route exact path='/games'>
-        <div className={style.videoGamesContainer__homeContainer}>
+        </Route>
+        <Route exact path='/games'>
           <GamesContainer />
-        </div>
-      </Route>
+        </Route>
+        <Route path='/games/:id'>
+          <ItemDetail />
+        </Route>
+      </div>
     </div>
   );
 }
