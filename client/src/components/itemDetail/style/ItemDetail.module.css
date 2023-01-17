@@ -1,0 +1,131 @@
+.itemDetail__div{
+  display: flex;
+}
+
+.itemDetail__div_div{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.itemDetail__div_img{
+  width: 30%;
+  display: flex;
+  position: absolute;
+  z-index: 1;
+}
+
+.itemDetail__div_img_border{
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.itemDetail__div_info{
+  color: #ffffff;
+  background-color: #724BA8;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.itemDetail__div_info_button{
+  color: #ffffff;
+  background-color: #724BA8;
+  border-radius: 1em;
+}
+
+.itemDetail__div_description{
+  width: 100%;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.itemDetail__div_description_p{
+  width: 20em;
+}
+
+.itemDetail__div_description_imgExtra{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemDetail__div_games{
+  color: #ffffff;
+  background-color: #191919;
+  margin: 4em 2em 0 2em;
+  border-radius: 1em;
+}
+
+.itemDetail__div_games_div_button{
+  margin-top: 3em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemDetail__div_games_h3{
+  font-size: 1.8em;
+  margin-left: 2em;
+}
+
+.itemDetail__div_games_div_button_border{
+  margin: 0.5em;
+  color: #6019D9;
+  font-size: 0.9em;
+  background-color: transparent;
+  border-width: 0.3em;
+  border-color: #6019D9;
+  border-radius: 100%;
+  height: 3.5em;
+  width: 3.5em;
+}
+
+.itemDetail__div_games_div_button_border:hover{
+  width: 4em;
+  height: 4em;
+  color: #ffffff;
+  background-color: #6019D9;
+  cursor: pointer;
+}
+
+.itemDetail__div_games_flex{
+  display: flex;
+}
+
+.itemDetail__div_games_flex_column{
+  width: 16em;
+  padding: 0 1em 1em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemDetail__div_games_h5{
+  font-size: 1em;
+}
+
+.itemDetail__div_games_div_button{
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.itemDetail__div_games_button{
+    color: #ffffff;
+    border-width: 0.1em;
+    border-color: #6019D9;
+    background-color: transparent;
+    border-radius: 1em;
+
+}

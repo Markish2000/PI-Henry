@@ -17,7 +17,7 @@ const GamesContainer = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={style.gamesContainer__div}>
       <video
         src={wodOfWars}
         width='100%'
@@ -26,6 +26,13 @@ const GamesContainer = () => {
         loop
         muted
       ></video>
+      <div className={style.gamesContainer__div_button}>
+        <button className={style.gamesContainer__div_button_pd}>1</button>
+        <button className={style.gamesContainer__div_button_pd}>2</button>
+        <button className={style.gamesContainer__div_button_pd}>3</button>
+        <button className={style.gamesContainer__div_button_pd}>4</button>
+        <button className={style.gamesContainer__div_button_pd}>5</button>
+      </div>
       <div className={style.gamesContainer__div_flex}>
         {cardArray.allGames.map((game, index) => (
           <NavLink to={game.id}>
