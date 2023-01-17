@@ -21,6 +21,10 @@
   padding-right: 0.3em;
 }
 
+.gamesCard__img{
+  border-radius: 0.7em;
+}
+
 .gamesCard__div_flexCenter{
   display: flex;
   flex-direction: column;

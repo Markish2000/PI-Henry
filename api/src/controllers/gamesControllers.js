@@ -1,14 +1,14 @@
 const { default: axios } = require('axios');
+const { Videogame } = require('../db');
 require('dotenv').config();
-// !! const { Videogame } = require('../db'); Consumir base de datos
 const { API_KEY } = process.env;
 
 const getInfoApi = async () => {
   let games = [];
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 1; i <= 5; i++) {
     let response = await axios.get(
-      `https://api.rawg.io/api/games?key=${API_KEY}&page=${1}`
+      `https://api.rawg.io/api/games?key=${API_KEY}&page=${i}`
     );
 
     response.data.results.map((element) => {
@@ -34,6 +34,39 @@ const allInfoGames = async () => {
   return allInfo;
 };
 
+//TODO --------------------------id-------------------------------------------->
+const infoById = async (id) => {
+  if (typeof id === 'string' && id.length > 8) {
+    const data_db = await Videogame.findByPk(id, {
+      include: {
+        model: Genre,
+        attributes: ['name'],
+        through: {
+          attributes: [],
+        },
+      },
+    });
+    return data_db;
+  } else {
+    let url_Id = `https://api.rawg.io/api/games/${id}?key=${API_KEY}`;
+    const gamesLoaded = await axios.get(url_Id);
+    const element = gamesLoaded.data;
+    const allInformation = {
+      id: element.id,
+      name: element.name,
+      image: element.background_image,
+      description: element.description_raw,
+      released: element.released,
+      rating: element.rating,
+      platform: element.platforms.map((element) => element.platform.name),
+      genres: element.genres.map((element) => element.name),
+    };
+    return allInformation;
+  }
+};
+//TODO --------------------------id-------------------------------------------->
+
 module.exports = {
   getInfoApi,
+  infoById,
 };
