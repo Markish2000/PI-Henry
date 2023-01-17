@@ -1,10 +1,22 @@
 .gamesCard__div{
   width: 17em;
+  border-radius: 1em;
   color: #ffffff;
-  /* background-color: #1C1C1C; */
-  background-color: aqua;
+  background-color: #121212;
+  /* background-color: aqua; */
 }
 
 .gamesCard__div:hover{
   background-color: #6019D9;
+}
+
+.gamesCard__div_h3_img{
+  padding-right: 1em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.gamesCard__div_h3_img_h3{
+  padding-right: 0.3em;
 }
