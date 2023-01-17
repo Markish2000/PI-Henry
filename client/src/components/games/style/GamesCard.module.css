@@ -1,0 +1,10 @@
+.gamesCard__div{
+  width: 17em;
+  color: #ffffff;
+  /* background-color: #1C1C1C; */
+  background-color: aqua;
+}
+
+.gamesCard__div:hover{
+  background-color: #6019D9;
+}
