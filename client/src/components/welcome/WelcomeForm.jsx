@@ -40,7 +40,6 @@ const WelcomeForm = () => {
     } else {
       setError({ ...error, checkBox: null });
     }
-    console.log(checkBoxValue);
   };
 
   return (
