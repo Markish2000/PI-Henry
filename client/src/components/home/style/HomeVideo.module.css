@@ -2,6 +2,7 @@
   background-image: url(../assets/prueba.jpg);
   background-size: cover;
   height: 30em;
+  width: 100%;
 }
 
 .homeVideo__div_h1{
