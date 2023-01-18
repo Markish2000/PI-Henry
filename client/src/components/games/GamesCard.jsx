@@ -17,6 +17,7 @@ const GamesCard = ({ id, name, image, genres, rating }) => {
           height='150em'
         />
         <h2>{name}</h2>
+        <hr className={style.gamesCard__hr} />
         <div>
           <h3>Genres</h3>
           <h3>{genres}</h3>

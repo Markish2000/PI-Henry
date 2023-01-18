@@ -31,3 +31,10 @@
   align-items: center;
   justify-content: center;
 }
+
+.gamesCard__hr{
+  background-color: #2A2A2A;
+  width: 100%;
+  height: 0.6em;
+  border-color: transparent;
+}
