@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getAllGames } from '../../redux/actions';
 import GamesCard from './GamesCard';
 import style from './style/GamesContainer.module.css';
@@ -9,8 +9,6 @@ import wodOfWars from './assets/wodofwars.mp4';
 const GamesContainer = () => {
   const cardArray = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { id } = useParams();
-  console.log(id);
 
   useEffect(() => {
     dispatch(getAllGames());
@@ -35,7 +33,7 @@ const GamesContainer = () => {
       </div>
       <div className={style.gamesContainer__div_flex}>
         {cardArray.allGames.map((game, index) => (
-          <NavLink to={game.id}>
+          <NavLink to={`/games/${game.id}`}>
             <div className={style.gamesContainer__div_map} key={index}>
               <GamesCard
                 id={game.id}

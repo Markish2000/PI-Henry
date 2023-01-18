@@ -5,7 +5,7 @@ import NavBarContainer from './components/navBar/NavBarContainer';
 import GamesContainer from './components/games/GamesContainer';
 import ItemDetail from './components/itemDetail/ItemDetail';
 import CreateGameContainer from './components/createGame/CreateGameContainer';
-import WelcomeContainer from './components/welcome/WelcomeContainer';
+// import WelcomeContainer from './components/welcome/WelcomeContainer';
 
 function App() {
   return (
@@ -17,18 +17,17 @@ function App() {
         <NavBarContainer />
       </div>
       <div className={style.videoGamesContainer__homeContainer}>
-        <Route exact path='/'>
-          <HomeContainer />
-        </Route>
-        <Route exact path='/games'>
-          <GamesContainer />
-        </Route>
-        <Route path='/games/:id'>
-          <ItemDetail />
-        </Route>
-        <Route exact path='/createGame'>
-          <CreateGameContainer />
-        </Route>
+        <Route exact path='/' render={() => <HomeContainer />} />
+        <Route exact path='/games' render={() => <GamesContainer />} />
+        <Route
+          path='/games/:id'
+          render={({ match }) => <ItemDetail id={match.params.id} />}
+        />
+        <Route
+          exact
+          path='/createGame'
+          render={() => <CreateGameContainer />}
+        />
       </div>
     </div>
   );
