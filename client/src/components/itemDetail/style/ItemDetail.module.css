@@ -1,4 +1,5 @@
 .itemDetail__div{
+  margin: 2em 0 0 5em;
   display: flex;
 }
 
@@ -34,6 +35,9 @@
 .itemDetail__div_info_button{
   color: #ffffff;
   background-color: #724BA8;
+  width: 9em;
+  height: 2em;
+  margin: 1em;
   border-radius: 1em;
 }
 
@@ -47,7 +51,7 @@
 }
 
 .itemDetail__div_description_p{
-  width: 20em;
+  width: 23em;
 }
 
 .itemDetail__div_description_imgExtra{
@@ -58,10 +62,14 @@
   align-items: center;
 }
 
+.itemDetail__div_description_imgExtra_img{
+  margin-top: 1em;
+}
+
 .itemDetail__div_games{
   color: #ffffff;
   background-color: #191919;
-  margin: 4em 2em 0 2em;
+  margin: 3em 2em 0 2em;
   border-radius: 1em;
 }
 
@@ -127,5 +135,4 @@
     border-color: #6019D9;
     background-color: transparent;
     border-radius: 1em;
-
 }

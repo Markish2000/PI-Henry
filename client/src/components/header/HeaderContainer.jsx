@@ -1,4 +1,4 @@
-import style from './style/headerContainer.module.css';
+import style from './style/HeaderContainer.module.css';
 import notification from './assets/notification.png';
 
 const HeaderContainer = () => {

@@ -1,7 +1,7 @@
 import harryPotter from './assets/prueba.jpg';
 import style from './style/HomeBestGamesCard.module.css';
 
-const HomeBestGamesCard = () => {
+const HomeBestGamesCard = (props) => {
   return (
     <div className={style.homeBestGamesCard__div}>
       <img

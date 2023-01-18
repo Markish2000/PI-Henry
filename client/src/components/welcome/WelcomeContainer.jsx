@@ -4,7 +4,7 @@ import style from './style/WelcomeContainer.module.css';
 
 const WelcomeContainer = () => {
   return (
-    <div className={style.div}>
+    <div className={style.welcomeContainer__div}>
       <WelcomeForm />
       <WelcomeVideo />
     </div>

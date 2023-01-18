@@ -21,15 +21,18 @@ const ItemDetail = (prop) => {
               Shooter
             </button>
             <h1>Rainbow Six Siege</h1>
-            <button className={style.itemDetail__div_info_button}>
-              PlayStation 5
-            </button>
-            <button className={style.itemDetail__div_info_button}>
-              X Box S
-            </button>
-            <button className={style.itemDetail__div_info_button}>xbox</button>
+            <div className={style.itemDetail__div_info_button_flex}>
+              <button className={style.itemDetail__div_info_button}>
+                PlayStation 5
+              </button>
+              <button className={style.itemDetail__div_info_button}>
+                X Box S
+              </button>
+              <button className={style.itemDetail__div_info_button}>Pc</button>
+            </div>
           </div>
           <div className={style.itemDetail__div_description}>
+            <h3>Description:</h3>
             <p className={style.itemDetail__div_description_p}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
               ipsum, aperiam obcaecati ducimus libero saepe nemo sunt tempore
@@ -39,9 +42,24 @@ const ItemDetail = (prop) => {
           </div>
         </div>
         <div className={style.itemDetail__div_description_imgExtra}>
-          <img src={prueba} alt='props.name' width='180em' />
-          <img src={prueba} alt='props.name' width='180em' />
-          <img src={prueba} alt='props.name' width='180em' />
+          <img
+            src={prueba}
+            alt='props.name'
+            width='180em'
+            className={style.itemDetail__div_description_imgExtra_img}
+          />
+          <img
+            src={prueba}
+            alt='props.name'
+            width='180em'
+            className={style.itemDetail__div_description_imgExtra_img}
+          />
+          <img
+            src={prueba}
+            alt='props.name'
+            width='180em'
+            className={style.itemDetail__div_description_imgExtra_img}
+          />
         </div>
       </div>
       <div className={style.itemDetail__div_games}>

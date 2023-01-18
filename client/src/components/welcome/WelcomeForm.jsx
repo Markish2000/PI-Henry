@@ -44,24 +44,41 @@ const WelcomeForm = () => {
   };
 
   return (
-    <form>
-      <h4>
-        <b>Complete</b> <b className={style.from__h4__text}>to be able to </b>
-        <b className={style.form__h4__enter}>enter</b>
+    <form className={style.welcomeForm__form}>
+      <h4 className={style.welcomeForm__h4}>
+        <b>Complete</b>{' '}
+        <b className={style.welcomeForm__h4__text}>to be able to </b>
+        <b className={style.welcomeForm__h4__enter}>enter</b>
       </h4>
-      <div className={style.div_input}>
-        <input type='text' onChange={nameChangeHandler} />
-        <label>Enter your name</label>
+      <div className={style.welcomeForm__div_input}>
+        <input
+          className={style.welcomeForm__input}
+          type='text'
+          onChange={nameChangeHandler}
+        />
+        <label className={style.welcomeForm__label}>Enter your name</label>
       </div>
       <div className={style.div_input}>
-        <input type='text' onChange={lastNameChangeHandler} />
-        <label>Enter your last name</label>
+        <input
+          className={style.welcomeForm__input}
+          type='text'
+          onChange={lastNameChangeHandler}
+        />
+        <label className={style.welcomeForm__label}>Enter your last name</label>
       </div>
       <div className={style.welcomeForm__flex}>
-        <input type='checkbox' onChange={checkBoxChangeHandler} />
-        <p>Are you sure you want to immerse yourself in the action?</p>
+        <input
+          className={style.welcomeForm__input}
+          type='checkbox'
+          onChange={checkBoxChangeHandler}
+        />
+        <p className={style.welcomeForm__p}>
+          Are you sure you want to immerse yourself in the action?
+        </p>
       </div>
-      <button type='submit'>start</button>
+      <button type='submit' className={style.welcomeForm__button}>
+        start
+      </button>
     </form>
   );
 };
