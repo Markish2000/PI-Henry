@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import style from './style/WelcomeForm.module.css';
 
 const WelcomeForm = () => {
+  const dispatch = useDispatch();
+
   const [form, setForm] = useState({
     name: '',
     lastName: '',
@@ -42,16 +45,27 @@ const WelcomeForm = () => {
     }
   };
 
+  const submitHandler = (event) => {
+    event.preventDefault();
+    dispatch(changeModal());
+  };
+
   return (
-    <form className={style.welcomeForm__form}>
+    <form onSubmit={submitHandler} className={style.welcomeForm__form}>
       <h4 className={style.welcomeForm__h4}>
-        <b>Complete</b>{' '}
+        <b>Complete</b>
         <b className={style.welcomeForm__h4__text}>to be able to </b>
         <b className={style.welcomeForm__h4__enter}>enter</b>
       </h4>
       <div className={style.welcomeForm__div_input}>
         <input
-          className={style.welcomeForm__input}
+          className={
+            error.name === ''
+              ? style.welcomeForm__input
+              : error.name === null
+              ? style.welcomeForm__input_validate
+              : style.welcomeForm__input_error
+          }
           type='text'
           onChange={nameChangeHandler}
         />
@@ -59,11 +73,17 @@ const WelcomeForm = () => {
       </div>
       <div className={style.div_input}>
         <input
-          className={style.welcomeForm__input}
+          className={
+            error.lastName === ''
+              ? style.welcomeForm__input
+              : error.lastName === null
+              ? style.welcomeForm__input_validate
+              : style.welcomeForm__input_error
+          }
           type='text'
           onChange={lastNameChangeHandler}
         />
-        <label className={style.welcomeForm__label}>Enter your last name</label>
+        {/* <label className={style.welcomeForm__label}>Enter your last name</label> */}
       </div>
       <div className={style.welcomeForm__flex}>
         <input

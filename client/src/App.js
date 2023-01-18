@@ -6,19 +6,23 @@ import GamesContainer from './components/games/GamesContainer';
 import ItemDetail from './components/itemDetail/ItemDetail';
 import CreateGameContainer from './components/createGame/CreateGameContainer';
 import WelcomeContainer from './components/welcome/WelcomeContainer';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 function App() {
-  const [open, setOpen] = useState(true);
+  const modalBoolean = useSelector((state) => state);
+
   return (
     <div>
-      {open && <WelcomeContainer />}
+      {/* Agregar Z-Index */}
+      {modalBoolean.modal && <WelcomeContainer />}
       <div className={style.videoGamesContainer__div}>
         <div className={style.videoGamesContainer__navBarContainer}>
-          {!open && <NavBarContainer />}
+          {!modalBoolean.modal && <NavBarContainer />}
         </div>
         <div className={style.videoGamesContainer__homeContainer}>
-          {!open && <Route exact path='/' render={() => <HomeContainer />} />}
+          {!modalBoolean.modal && (
+            <Route exact path='/' render={() => <HomeContainer />} />
+          )}
           <Route exact path='/games' render={() => <GamesContainer />} />
           <Route
             path='/games/:id'
