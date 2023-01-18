@@ -1,0 +1,27 @@
+.homeVideo__div{
+  background-image: url(../assets/prueba.jpg);
+  background-size: cover;
+  height: 30em;
+}
+
+.homeVideo__div_h1{
+  background-color: #000000a2;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.homeVideo__div_h1_h2 {
+  color: #ffffff;
+  font-size: 1.4em;
+  margin-left: 2.5em;
+}
+
+.homeVideo__b_grey{
+  color: #536069;
+}
+
+.homeVideo__b_violet{
+  color: #6019D9;
+}

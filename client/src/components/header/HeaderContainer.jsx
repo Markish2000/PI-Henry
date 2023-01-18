@@ -1,5 +1,6 @@
 import style from './style/HeaderContainer.module.css';
 import notification from './assets/notification.png';
+import perfil from './assets/perfil.jpeg';
 
 const HeaderContainer = () => {
   return (
@@ -10,10 +11,11 @@ const HeaderContainer = () => {
           placeholder='Search...'
           className={style.headerContainer__input}
         />
-        <img src={notification} alt='Notification' width='20em' />
       </div>
       <div>
-        <img src='' alt='' />
+        <h5>Marcos Parella</h5>
+        <img src={perfil} alt='prop.name' width='100em' />
+        <img src={notification} alt='Notification' width='20em' />
       </div>
     </div>
   );
