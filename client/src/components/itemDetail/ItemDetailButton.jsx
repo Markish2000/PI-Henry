@@ -1,7 +1,11 @@
-const ItemDetailButton = ({ platform }) => {
+import style from './style/ItemDetailButton.module.css';
+
+const ItemDetailButton = ({ genres }) => {
   return (
     <div>
-      <h3>{platform}</h3>
+      <button className={style.itemDetailButton__div_info_button}>
+        {genres}
+      </button>
     </div>
   );
 };
