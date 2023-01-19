@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import style from './style/WelcomeForm.module.css';
+import { changeModal } from '../../redux/actions';
 
 const WelcomeForm = () => {
+  const modalBoolean = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const [form, setForm] = useState({
@@ -47,7 +49,7 @@ const WelcomeForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(changeModal());
+    dispatch(changeModal(!modalBoolean.modal));
   };
 
   return (

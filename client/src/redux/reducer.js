@@ -3,6 +3,8 @@ import { GET_ALL_GAMES, CHANGE_MODAL } from './actions';
 let initialState = {
   allGames: [],
   modal: true,
+  favorite: [],
+  search: [],
 };
 
 function rootReducer(state = initialState, action) {

@@ -9,9 +9,9 @@ export const getAllGames = () => {
   };
 };
 
-export const changeModal = () => {
+export const changeModal = (payload) => {
   return {
     type: CHANGE_MODAL,
-    payload: false,
+    payload: payload,
   };
 };

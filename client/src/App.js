@@ -13,28 +13,28 @@ function App() {
 
   return (
     <div>
-      {/* Agregar Z-Index */}
-      {modalBoolean.modal && <WelcomeContainer />}
-      <div className={style.videoGamesContainer__div}>
-        <div className={style.videoGamesContainer__navBarContainer}>
-          {!modalBoolean.modal && <NavBarContainer />}
-        </div>
-        <div className={style.videoGamesContainer__homeContainer}>
-          {!modalBoolean.modal && (
+      {modalBoolean.modal ? (
+        <WelcomeContainer />
+      ) : (
+        <div className={style.videoGamesContainer__div}>
+          <div className={style.videoGamesContainer__navBarContainer}>
+            <NavBarContainer />
+          </div>
+          <div className={style.videoGamesContainer__homeContainer}>
             <Route exact path='/' render={() => <HomeContainer />} />
-          )}
-          <Route exact path='/games' render={() => <GamesContainer />} />
-          <Route
-            path='/games/:id'
-            render={({ match }) => <ItemDetail id={match.params.id} />}
-          />
-          <Route
-            exact
-            path='/createGame'
-            render={() => <CreateGameContainer />}
-          />
+            <Route exact path='/games' render={() => <GamesContainer />} />
+            <Route
+              path='/games/:id'
+              render={({ match }) => <ItemDetail id={match.params.id} />}
+            />
+            <Route
+              exact
+              path='/createGame'
+              render={() => <CreateGameContainer />}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
