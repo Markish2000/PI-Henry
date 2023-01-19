@@ -1,6 +1,6 @@
 import style from './style/HeaderContainer.module.css';
 import notification from './assets/notification.png';
-import perfil from './assets/perfil.jpeg';
+import perfil from './assets/perfil.jpg';
 import search from './assets/search.png';
 import { useSelector } from 'react-redux';
 

@@ -131,7 +131,20 @@ color: #8151D2
 
 .welcomeForm__label {
   position: absolute;
-  left: 16px;
+  left: 1em;
+  color: #ffffff;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.welcomeForm__label_none{
+  display: none;
+}
+
+.welcomeForm__label_lastName{
+  position: absolute;
+  left: 19.2em;
   color: #ffffff;
   pointer-events: none;
   transform: translateY(1rem);

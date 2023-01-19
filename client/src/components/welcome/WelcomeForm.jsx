@@ -86,7 +86,9 @@ const WelcomeForm = () => {
           type='text'
           onChange={lastNameChangeHandler}
         />
-        <label className={style.welcomeForm__label}>Enter your last name</label>
+        <label className={style.welcomeForm__label_lastName}>
+          Enter your last name
+        </label>
       </div>
       <div className={style.welcomeForm__flex}>
         <input
