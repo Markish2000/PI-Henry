@@ -2,8 +2,10 @@ import style from './style/HeaderContainer.module.css';
 import notification from './assets/notification.png';
 import perfil from './assets/perfil.jpeg';
 import search from './assets/search.png';
+import { useSelector } from 'react-redux';
 
 const HeaderContainer = () => {
+  const modalInfo = useSelector((state) => state);
   return (
     <div className={style.headerContainer__div}>
       <div className={style.headerContainer__div__input}>
@@ -24,11 +26,13 @@ const HeaderContainer = () => {
         />
       </div>
       <div className={style.headerContainer__div_h5_img}>
-        <h5 className={style.headerContainer__div_h5}>Marcos Parella</h5>
+        <h5 className={style.headerContainer__div_h5}>
+          {modalInfo.infoLoginModal}
+        </h5>
         <img
           src={perfil}
           className={style.headerContainer__div_img}
-          alt='prop.name'
+          alt={modalInfo.infoLoginModal}
         />
       </div>
     </div>

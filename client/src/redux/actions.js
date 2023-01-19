@@ -2,6 +2,7 @@ import axios from 'axios';
 export const GET_ALL_GAMES = 'GET_ALL_GAMES';
 export const CHANGE_MODAL = 'CHANGE_MODAL';
 export const GET_DETAIL = 'GET_DETAIL';
+export const SEND_INFO_LOGIN = 'SEND_INFO_LOGIN';
 
 export const getAllGames = () => {
   return async (dispatch) => {
@@ -20,6 +21,15 @@ export const changeModal = (payload) => {
 export const getDetail = (id) => {
   return async (dispatch) => {
     const response = await axios.get(`http://localhost:3001/games/${id}`);
-    dispatch({ type: 'GET_DETAIL', payload: response.data });
+    const array = [];
+    array.push(response.data);
+    dispatch({ type: 'GET_DETAIL', payload: array });
+  };
+};
+
+export const sendInfoLogin = (name, lastName) => {
+  return {
+    type: SEND_INFO_LOGIN,
+    payload: `${name} ${lastName}`,
   };
 };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './style/WelcomeForm.module.css';
-import { changeModal } from '../../redux/actions';
+import { changeModal, sendInfoLogin } from '../../redux/actions';
 
 const WelcomeForm = () => {
   const modalBoolean = useSelector((state) => state);
@@ -50,6 +50,7 @@ const WelcomeForm = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     dispatch(changeModal(!modalBoolean.modal));
+    dispatch(sendInfoLogin(form.name, form.lastName));
   };
 
   return (
@@ -85,7 +86,7 @@ const WelcomeForm = () => {
           type='text'
           onChange={lastNameChangeHandler}
         />
-        {/* <label className={style.welcomeForm__label}>Enter your last name</label> */}
+        <label className={style.welcomeForm__label}>Enter your last name</label>
       </div>
       <div className={style.welcomeForm__flex}>
         <input
@@ -97,7 +98,15 @@ const WelcomeForm = () => {
           Are you sure you want to immerse yourself in the action?
         </p>
       </div>
-      <button type='submit' className={style.welcomeForm__button}>
+      <button
+        type='submit'
+        className={style.welcomeForm__button}
+        disabled={
+          error.name !== null ||
+          error.lastName !== null ||
+          error.checkBox !== null
+        }
+      >
         start
       </button>
     </form>

@@ -1,8 +1,14 @@
-import { GET_ALL_GAMES, CHANGE_MODAL, GET_DETAIL } from './actions';
+import {
+  GET_ALL_GAMES,
+  CHANGE_MODAL,
+  GET_DETAIL,
+  SEND_INFO_LOGIN,
+} from './actions';
 
 let initialState = {
   allGames: [],
   modal: true,
+  infoLoginModal: [],
   favorite: [],
   search: [],
   detail: [],
@@ -26,6 +32,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         detail: action.payload,
+      };
+
+    case SEND_INFO_LOGIN:
+      return {
+        ...state,
+        infoLoginModal: action.payload,
       };
 
     default:
