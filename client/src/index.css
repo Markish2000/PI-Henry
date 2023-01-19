@@ -22,3 +22,7 @@ body::-webkit-scrollbar-thumb{
   background-color: #6C07C7;
   border-radius: 5px;
 }
+
+input:focus{
+  outline: none;
+}

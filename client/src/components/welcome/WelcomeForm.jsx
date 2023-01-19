@@ -55,7 +55,7 @@ const WelcomeForm = () => {
   return (
     <form onSubmit={submitHandler} className={style.welcomeForm__form}>
       <h4 className={style.welcomeForm__h4}>
-        <b>Complete</b>
+        <b>Complete </b>
         <b className={style.welcomeForm__h4__text}>to be able to </b>
         <b className={style.welcomeForm__h4__enter}>enter</b>
       </h4>

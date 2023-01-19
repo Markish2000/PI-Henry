@@ -55,6 +55,7 @@ const infoById = async (id) => {
       id: element.id,
       name: element.name,
       image: element.background_image,
+      imageExtra: element.background_image_additional,
       description: element.description_raw,
       released: element.released,
       rating: element.rating,

@@ -13,7 +13,7 @@ const HeaderContainer = () => {
           className={style.headerContainer__img_input}
         />
         <input
-          type='text'
+          type='search'
           placeholder='Search...'
           className={style.headerContainer__input}
         />

@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import prueba from './prueba.jpg';
 import style from './style/ItemDetail.module.css';
+import { getDetail } from '../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import ItemDetailButton from './ItemDetailButton';
 
-const ItemDetail = (prop) => {
+const ItemDetail = () => {
+  const infoDetail = useSelector((state) => state.detail);
+  const dispatch = useDispatch();
+  const params = useParams();
+
+  useEffect(() => {
+    dispatch(getDetail(params.id));
+  }, []);
+
   return (
     <div>
       <div className={style.itemDetail__div}>
@@ -10,8 +22,8 @@ const ItemDetail = (prop) => {
           <div className={style.itemDetail__div_img}>
             <img
               className={style.itemDetail__div_img_border}
-              src={prueba}
-              alt='prop.name'
+              src={infoDetail.image}
+              alt={infoDetail.name}
               width='100%'
               height='100%'
             />
@@ -20,44 +32,42 @@ const ItemDetail = (prop) => {
             <button className={style.itemDetail__div_info_button}>
               Shooter
             </button>
-            <h1>Rainbow Six Siege</h1>
-            <div className={style.itemDetail__div_info_button_flex}>
-              <button className={style.itemDetail__div_info_button}>
-                PlayStation 5
-              </button>
-              <button className={style.itemDetail__div_info_button}>
-                X Box S
-              </button>
-              <button className={style.itemDetail__div_info_button}>Pc</button>
-            </div>
+            <h1>{infoDetail.name}</h1>
+            {/* {
+              (infoDetail.platform.map = (element, index) => {
+                <div
+                  key={index}
+                  className={style.itemDetail__div_info_button_flex}
+                >
+                  <ItemDetailButton platform={element} />;
+                </div>;
+              })
+            } */}
           </div>
           <div className={style.itemDetail__div_description}>
             <h3>Description:</h3>
             <p className={style.itemDetail__div_description_p}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
-              ipsum, aperiam obcaecati ducimus libero saepe nemo sunt tempore
-              veniam reprehenderit reiciendis. Ut illum, tempore dicta debitis
-              consectetur libero? Quos, earum.
+              {infoDetail.description}
             </p>
           </div>
         </div>
         <div className={style.itemDetail__div_description_imgExtra}>
           <img
-            src={prueba}
+            src={infoDetail.imageExtra}
             alt='props.name'
-            width='180em'
+            width='80%'
             className={style.itemDetail__div_description_imgExtra_img}
           />
           <img
-            src={prueba}
+            src={infoDetail.image}
             alt='props.name'
-            width='180em'
+            width='80%'
             className={style.itemDetail__div_description_imgExtra_img}
           />
           <img
-            src={prueba}
+            src={infoDetail.imageExtra}
             alt='props.name'
-            width='180em'
+            width='80%'
             className={style.itemDetail__div_description_imgExtra_img}
           />
         </div>
@@ -75,74 +85,6 @@ const ItemDetail = (prop) => {
           </div>
         </div>
         <div className={style.itemDetail__div_games_flex}>
-          <div className={style.itemDetail__div_games_flex_column}>
-            <img src={prueba} alt='prop.name' width='200em' />
-            <h5 className={style.itemDetail__div_games_h5}>
-              Rainbow Six Siege
-            </h5>
-            <div className={style.itemDetail__div_games_div_button}>
-              <button className={style.itemDetail__div_games_button}>
-                PlayStation 5
-              </button>
-              <button className={style.itemDetail__div_games_button}>
-                X Box S
-              </button>
-              <button className={style.itemDetail__div_games_button}>
-                PlayStation 5
-              </button>
-            </div>
-          </div>
-          <div className={style.itemDetail__div_games_flex_column}>
-            <img src={prueba} alt='prop.name' width='200em' />
-            <h5 className={style.itemDetail__div_games_h5}>
-              Rainbow Six Siege
-            </h5>
-            <div className={style.itemDetail__div_games_div_button}>
-              <button className={style.itemDetail__div_games_button}>
-                PlayStation 5
-              </button>
-              <button className={style.itemDetail__div_games_button}>
-                X Box S
-              </button>
-              <button className={style.itemDetail__div_games_button}>
-                PlayStation 5
-              </button>
-            </div>
-          </div>
-          <div className={style.itemDetail__div_games_flex_column}>
-            <img src={prueba} alt='prop.name' width='200em' />
-            <h5 className={style.itemDetail__div_games_h5}>
-              Rainbow Six Siege
-            </h5>
-            <div className={style.itemDetail__div_games_div_button}>
-              <button className={style.itemDetail__div_games_button}>
-                PlayStation 5
-              </button>
-              <button className={style.itemDetail__div_games_button}>
-                X Box S
-              </button>
-              <button className={style.itemDetail__div_games_button}>
-                PlayStation 5
-              </button>
-            </div>
-          </div>
-          <div className={style.itemDetail__div_games_flex_column}>
-            <img src={prueba} alt='prop.name' width='200em' />
-            <h5 className={style.itemDetail__div_games_h5}>
-              Rainbow Six Siege
-            </h5>
-            <div className={style.itemDetail__div_games_div_button}>
-              <button className={style.itemDetail__div_games_button}>
-                PlayStation 5
-              </button>
-              <button className={style.itemDetail__div_games_button}>
-                X Box S
-              </button>
-              <button className={style.itemDetail__div_games_button}>
-                PlayStation 5
-              </button>
-            </div>
-          </div>
           <div className={style.itemDetail__div_games_flex_column}>
             <img src={prueba} alt='prop.name' width='200em' />
             <h5 className={style.itemDetail__div_games_h5}>

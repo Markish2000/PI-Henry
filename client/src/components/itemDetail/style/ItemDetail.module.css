@@ -51,7 +51,8 @@
 }
 
 .itemDetail__div_description_p{
-  width: 23em;
+  width: 50em;
+  margin-left: 22em;
 }
 
 .itemDetail__div_description_imgExtra{
