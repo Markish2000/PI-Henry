@@ -19,7 +19,6 @@ const GamesCard = ({ id, name, image, genres, rating }) => {
         <h2>{name}</h2>
         <hr className={style.gamesCard__hr} />
         <div>
-          <h3>Genres</h3>
           <h3>{genres}</h3>
         </div>
       </div>

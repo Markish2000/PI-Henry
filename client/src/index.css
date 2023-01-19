@@ -1,3 +1,7 @@
+* {
+  text-decoration: none;
+}
+
 body {
   background-color: #191919ec;
   margin: 0;
