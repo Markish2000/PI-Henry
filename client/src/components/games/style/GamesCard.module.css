@@ -1,8 +1,9 @@
 .gamesCard__div{
-  width: 17em;
-  border-radius: 1em;
   color: #ffffff;
   background-color: #121212;
+  width: 24em;
+  margin-bottom: 3em;
+  border-radius: 1em;
 }
 
 .gamesCard__div:hover{
