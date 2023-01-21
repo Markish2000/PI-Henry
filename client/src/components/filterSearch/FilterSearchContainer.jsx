@@ -1,16 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import GamesCard from '../games/GamesCard';
-import { getAllGames } from '../../redux/actions';
 
 const FilterSearchContainer = () => {
   const result = useSelector((state) => state);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllGames());
-  }, [dispatch]);
 
   return (
     <div>
