@@ -1,0 +1,20 @@
+.headerContainer__input{
+  font-size: 1em;
+  color:#ffffff;
+  padding: 0.4em 1em 0.4em 1em;
+  background-color: #313234;
+  margin: 0.5em 0 0.5em 1em;
+  border-radius: 0.3em;
+  border-color: transparent;
+}
+
+.prueba1{
+  color: #ffffff;
+  background-color: #000000;
+  width: 100%;
+  margin-left: 0.9em;
+  border-radius: 0.5em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+}

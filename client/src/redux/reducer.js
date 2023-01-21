@@ -3,15 +3,20 @@ import {
   CHANGE_MODAL,
   GET_DETAIL,
   SEND_INFO_LOGIN,
+  FILTER_BY_GENRE,
+  FILTER_BY_SEARCH,
 } from './actions';
 
 let initialState = {
   allGames: [],
-  modal: true,
+  modal: false,
   infoLoginModal: [],
   favorite: [],
   search: [],
   detail: [],
+  filterByGenre: [],
+  filterBySearch: [],
+  searchResult: '',
 };
 
 function rootReducer(state = initialState, action) {
@@ -20,6 +25,8 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allGames: action.payload,
+        filterByGenre: action.payload,
+        filterBySearch: action.payload,
       };
 
     case CHANGE_MODAL:
@@ -38,6 +45,30 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         infoLoginModal: action.payload,
+      };
+
+    case FILTER_BY_GENRE:
+      return {
+        ...state,
+        filterByGenre: [
+          ...state.allGames.filter((element) =>
+            element.genres.includes(action.payload)
+          ),
+        ],
+      };
+
+    case FILTER_BY_SEARCH:
+      return {
+        ...state,
+        filterBySearch: [
+          ...state.allGames.filter((element) =>
+            element.name
+              .toString()
+              .toLowerCase()
+              .includes(action.payload.toLowerCase())
+          ),
+        ],
+        searchResult: action.payload,
       };
 
     default:

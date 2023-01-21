@@ -5,6 +5,7 @@ import { getAllGames } from '../../redux/actions';
 import GamesCard from './GamesCard';
 import style from './style/GamesContainer.module.css';
 import wodOfWars from './assets/wodofwars.mp4';
+import GamesCardFilterContainer from './filter/GamesCardFilterContainer';
 
 const GamesContainer = () => {
   const cardArray = useSelector((state) => state);
@@ -24,6 +25,9 @@ const GamesContainer = () => {
         loop
         muted
       ></video>
+      <div>
+        <GamesCardFilterContainer />
+      </div>
       <div className={style.gamesContainer__div_button}>
         <button className={style.gamesContainer__div_button_pd}>1</button>
         <button className={style.gamesContainer__div_button_pd}>2</button>
@@ -32,7 +36,7 @@ const GamesContainer = () => {
         <button className={style.gamesContainer__div_button_pd}>5</button>
       </div>
       <div className={style.gamesContainer__div_flex}>
-        {cardArray.allGames.map((game, index) => (
+        {cardArray.filterBySearch.map((game, index) => (
           <NavLink to={`/games/${game.id}`}>
             <div className={style.gamesContainer__div_map} key={index}>
               <GamesCard

@@ -18,6 +18,7 @@ import conditions from './assets/conditions.png';
 import { NavLink, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeModal } from '../../redux/actions';
+import NavBarHomeSearch from './search/NavBarHomeSearch';
 
 // !! Falta agregar rutas.
 const NavBarHome = () => {
@@ -35,7 +36,7 @@ const NavBarHome = () => {
       </Link>
       <div className={style.navbarhome__div_img_h3}>
         <img src={search} alt='Search' height='25rem' width='25rem' />
-        <h3 className={style.navbarhome__div__h3}>Search</h3>
+        <NavBarHomeSearch />
       </div>
       <NavLink to='/'>
         <div className={style.navbarhome__div_img_h3}>
@@ -106,9 +107,14 @@ const NavBarHome = () => {
         <img src={conditions} alt='Conditions' height='25rem' width='25rem' />
         <h3 className={style.navbarhome__div__h3}>Conditions</h3>
       </div>
-      <div className={style.navbarhome__div_img_h3} onClick={() => openModal()}>
-        <h3 className={style.navbarhome__div__h3}>Log out</h3>
-      </div>
+      <NavLink to='/'>
+        <div
+          className={style.navbarhome__div_img_h3}
+          onClick={() => openModal()}
+        >
+          <h3 className={style.navbarhome__div__h3}>Log out</h3>
+        </div>
+      </NavLink>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import GamesContainer from './components/games/GamesContainer';
 import ItemDetail from './components/itemDetail/ItemDetail';
 import CreateGameContainer from './components/createGame/CreateGameContainer';
 import WelcomeContainer from './components/welcome/WelcomeContainer';
+import FilterSearchContainer from './components/filterSearch/FilterSearchContainer';
 import { useSelector } from 'react-redux';
 
 function App() {
@@ -31,6 +32,11 @@ function App() {
               exact
               path='/createGame'
               render={() => <CreateGameContainer />}
+            />
+            <Route
+              exact
+              path='/search'
+              render={() => <FilterSearchContainer />}
             />
           </div>
         </div>
