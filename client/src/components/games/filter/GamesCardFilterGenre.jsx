@@ -1,11 +1,10 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { filterByGenre } from '../../../redux/actions';
 import style from './style/GameCardFilterGenre.module.css';
 
 const GamesCardFilterGenre = () => {
   const dispatch = useDispatch();
-  // const genreSelect = useSelector((state) => state);
 
   const selectChangeHandler = (event) => {
     const genreValue = event.target.value;

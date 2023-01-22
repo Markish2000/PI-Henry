@@ -36,7 +36,7 @@ const GamesContainer = () => {
         <button className={style.gamesContainer__div_button_pd}>5</button>
       </div>
       <div className={style.gamesContainer__div_flex}>
-        {cardArray.filterBySearch.map((game, index) => (
+        {cardArray.filterByGenre.map((game, index) => (
           <NavLink to={`/games/${game.id}`}>
             <div className={style.gamesContainer__div_map} key={index}>
               <GamesCard
