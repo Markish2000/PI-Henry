@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getAllGames } from '../../redux/actions';
 import HomeBestGamesContainer from './bestgames/HomeBestGamesContainer';
+import HomeCards from './HomeCards';
 import HomeVideo from './HomeVideo';
 import style from './style/HomeContainer.module.css';
 
@@ -15,7 +16,12 @@ const HomeContainer = () => {
     <div>
       <HomeVideo />
       <div className={style.homeContainer__div}>
-        <HomeBestGamesContainer />
+        <div className={style.homeContainer_div_cards}>
+          <HomeCards />
+        </div>
+        <div className={style.homeContainer_div_bestGames}>
+          <HomeBestGamesContainer />
+        </div>
       </div>
     </div>
   );

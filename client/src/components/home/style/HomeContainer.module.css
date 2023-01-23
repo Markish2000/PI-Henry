@@ -1,5 +1,15 @@
 .homeContainer__div {
   margin: 2em 2em 0 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.homeContainer_div_cards{
+  margin-left: 2em;
+}
+
+.homeContainer_div_bestGames{
+  margin-right: 2em;
 }
