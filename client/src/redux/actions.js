@@ -44,8 +44,10 @@ export const filterByGenre = (genre) => {
 };
 
 export const filterBySearch = (value) => {
-  return {
-    type: FILTER_BY_SEARCH,
-    payload: value,
+  return async (dispatch) => {
+    const response = await axios.get(
+      `http://localhost:3001/games?name=${value}`
+    );
+    dispatch({ type: 'GET_ALL_GAMES', payload: response.data });
   };
 };

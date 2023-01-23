@@ -13,14 +13,13 @@ gamesRouter.get('/', async (req, res) => {
   try {
     if (name) {
       const games = allGames.filter((element) =>
-        element.name.toLowerCase().includes(name.toLocaleLowerCase())
+        element.name.toLowerCase().includes(name.toLowerCase())
       );
       return games.length
         ? res.status(200).json(games)
         : res.status(400).json(`No existe ${name} en nuestra base de datos`);
     } else {
-      const games = await getInfoApi();
-      return res.status(200).json(games);
+      return res.status(200).json(allGames);
     }
   } catch (error) {
     res.status(404).json({ error: error.message });

@@ -11,12 +11,9 @@ const ItemDetail = () => {
   const dispatch = useDispatch();
   const params = useParams();
 
-  useEffect(
-    () => {
-      dispatch(getDetail(params.id));
-    }
-    //!! , [] Me tiraba error
-  );
+  useEffect(() => {
+    dispatch(getDetail(params.id));
+  }, [dispatch]);
 
   return (
     <div>

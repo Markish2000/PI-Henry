@@ -60,14 +60,14 @@ function rootReducer(state = initialState, action) {
     case FILTER_BY_SEARCH:
       return {
         ...state,
-        filterBySearch: [
-          ...state.allGames.filter((element) =>
-            element.name
-              .toString()
-              .toLowerCase()
-              .includes(action.payload.toLowerCase())
-          ),
-        ],
+        // filterBySearch: [
+        //   ...state.allGames.filter((element) =>
+        //     element.name
+        //       .toString()
+        //       .toLowerCase()
+        //       .includes(action.payload.toLowerCase())
+        //   ),
+        // ],
         searchResult: action.payload,
       };
 

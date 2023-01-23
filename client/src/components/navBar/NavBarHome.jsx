@@ -34,10 +34,6 @@ const NavBarHome = () => {
       <Link to='/'>
         <NavBarLogo />
       </Link>
-      <div className={style.navbarhome__div_img_h3}>
-        <img src={search} alt='Search' height='25rem' width='25rem' />
-        <NavBarHomeSearch />
-      </div>
       <NavLink to='/'>
         <div className={style.navbarhome__div_img_h3}>
           <img src={home} alt='Home' height='25rem' width='25rem' />

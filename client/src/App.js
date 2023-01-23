@@ -8,6 +8,7 @@ import CreateGameContainer from './components/createGame/CreateGameContainer';
 import WelcomeContainer from './components/welcome/WelcomeContainer';
 import FilterSearchContainer from './components/filterSearch/FilterSearchContainer';
 import { useSelector } from 'react-redux';
+import HeaderContainer from './components/header/HeaderContainer';
 
 function App() {
   const modalBoolean = useSelector((state) => state);
@@ -22,6 +23,7 @@ function App() {
             <NavBarContainer />
           </div>
           <div className={style.videoGamesContainer__homeContainer}>
+            <HeaderContainer />
             <Route exact path='/' render={() => <HomeContainer />} />
             <Route exact path='/games' render={() => <GamesContainer />} />
             <Route
