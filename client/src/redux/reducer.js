@@ -7,14 +7,20 @@ import {
   FILTER_BY_SEARCH,
   GET_ALL_GENRES,
   GET_ALL_PLATFORMS,
+  INITIAL_PAGINATING,
+  PAGINATING_DYNAMIC,
+  INCREMENT_ACCUMULATOR,
+  DECREMENT_ACCUMULATOR,
 } from './actions';
 
 let initialState = {
+  modal: false,
   infoLoginModal: [],
   allGames: [],
+  paginating: [],
+  paginatingAccumulator: 0,
   allGenres: [],
   allPlatforms: [],
-  modal: false,
   favorite: [],
   search: [],
   detail: [],
@@ -85,6 +91,33 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allPlatforms: action.payload,
+      };
+
+    case INITIAL_PAGINATING:
+      return {
+        ...state,
+        paginating: [...state.allGames].splice(0, 15),
+      };
+
+    case PAGINATING_DYNAMIC:
+      return {
+        ...state,
+        paginating: [...state.allGames].splice(
+          state.paginatingAccumulator * 15,
+          15
+        ),
+      };
+
+    case INCREMENT_ACCUMULATOR:
+      return {
+        ...state,
+        paginatingAccumulator: state.paginatingAccumulator + 1,
+      };
+
+    case DECREMENT_ACCUMULATOR:
+      return {
+        ...state,
+        paginatingAccumulator: state.paginatingAccumulator - 1,
       };
 
     default:

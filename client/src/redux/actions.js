@@ -7,6 +7,10 @@ export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
 export const FILTER_BY_SEARCH = 'FILTER_BY_SEARCH';
 export const GET_ALL_GENRES = 'GET_ALL_GENRES';
 export const GET_ALL_PLATFORMS = 'GET_ALL_PLATFORMS';
+export const INCREMENT_ACCUMULATOR = 'INCREMENT_ACCUMULATOR';
+export const DECREMENT_ACCUMULATOR = 'DECREMENT_ACCUMULATOR';
+export const INITIAL_PAGINATING = 'INITIAL_PAGINATING';
+export const PAGINATING_DYNAMIC = 'PAGINATING_DYNAMIC';
 
 export const getAllGames = () => {
   return async (dispatch) => {
@@ -65,5 +69,29 @@ export const getAllPlatforms = () => {
   return async (dispatch) => {
     const response = await axios.get('http://localhost:3001/platforms');
     dispatch({ type: 'GET_ALL_PLATFORMS', payload: response.data });
+  };
+};
+
+export const initialPaginating = () => {
+  return {
+    type: INITIAL_PAGINATING,
+  };
+};
+
+export const paginatingDynamic = () => {
+  return {
+    type: PAGINATING_DYNAMIC,
+  };
+};
+
+export const incrementAccumulator = () => {
+  return {
+    type: INCREMENT_ACCUMULATOR,
+  };
+};
+
+export const decrementAccumulator = () => {
+  return {
+    type: DECREMENT_ACCUMULATOR,
   };
 };

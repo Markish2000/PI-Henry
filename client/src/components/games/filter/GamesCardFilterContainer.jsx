@@ -14,8 +14,10 @@ const GamesCardFilterContainer = () => {
   });
 
   useEffect(() => {
-    // dispatch(getAllGenres()),
     dispatch(getAllPlatforms());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(getAllGenres());
   }, [dispatch]);
 
   const selectChangeHandler = (event) => {

@@ -1,7 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getAllGames } from '../../redux/actions';
+import {
+  getAllGames,
+  initialPaginating,
+  decrementAccumulator,
+  incrementAccumulator,
+  paginatingDynamic,
+} from '../../redux/actions';
 import GamesCard from './GamesCard';
 import style from './style/GamesContainer.module.css';
 import wodOfWars from './assets/wodofwars.mp4';
@@ -14,6 +20,23 @@ const GamesContainer = () => {
   useEffect(() => {
     dispatch(getAllGames());
   }, [dispatch]);
+  useEffect(() => {
+    dispatch(initialPaginating());
+  }, [dispatch]);
+
+  const decrementClickHandler = () => {
+    if (cardArray.paginatingAccumulator > 1) {
+      dispatch(decrementAccumulator());
+      dispatch(paginatingDynamic());
+    }
+  };
+
+  const incrementClickHandler = () => {
+    if (cardArray.paginatingAccumulator < 6) {
+      dispatch(incrementAccumulator());
+      dispatch(paginatingDynamic());
+    }
+  };
 
   return (
     <div className={style.gamesContainer__div}>
@@ -29,14 +52,22 @@ const GamesContainer = () => {
         <GamesCardFilterContainer />
       </div>
       <div className={style.gamesContainer__div_button}>
-        <button className={style.gamesContainer__div_button_pd}>1</button>
-        <button className={style.gamesContainer__div_button_pd}>2</button>
-        <button className={style.gamesContainer__div_button_pd}>3</button>
-        <button className={style.gamesContainer__div_button_pd}>4</button>
-        <button className={style.gamesContainer__div_button_pd}>5</button>
+        <button
+          onClick={() => decrementClickHandler()}
+          className={style.gamesContainer__div_button_pd}
+        >
+          -
+        </button>
+        <p>{cardArray.paginatingAccumulator}</p>
+        <button
+          onClick={() => incrementClickHandler()}
+          className={style.gamesContainer__div_button_pd}
+        >
+          +
+        </button>
       </div>
       <div className={style.gamesContainer__div_flex}>
-        {cardArray.filterByGenre.map((game, index) => (
+        {cardArray.paginating.map((game, index) => (
           <NavLink to={`/games/${game.id}`}>
             <div className={style.gamesContainer__div_map} key={index}>
               <GamesCard
