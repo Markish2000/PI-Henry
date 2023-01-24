@@ -3,3 +3,21 @@
   color: #ffffff;
   font-size: 2em;
 }
+
+.gameCardFilter_div{
+  margin: 0 1em 0 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameCardFilterGenre__select{
+  color: #ffffff;
+  background-color: #121212;
+  font-size: 0.8em;
+  text-align: center;
+  padding: 0.2em 1em 0.2em 1em;
+  border-radius: 1em;
+  border-color: #6C07C7
+}

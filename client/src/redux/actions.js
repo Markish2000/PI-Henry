@@ -5,6 +5,8 @@ export const GET_DETAIL = 'GET_DETAIL';
 export const SEND_INFO_LOGIN = 'SEND_INFO_LOGIN';
 export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
 export const FILTER_BY_SEARCH = 'FILTER_BY_SEARCH';
+export const GET_ALL_GENRES = 'GET_ALL_GENRES';
+export const GET_ALL_PLATFORMS = 'GET_ALL_PLATFORMS';
 
 export const getAllGames = () => {
   return async (dispatch) => {
@@ -49,5 +51,19 @@ export const filterBySearch = (value) => {
       `http://localhost:3001/games?name=${value}`
     );
     dispatch({ type: 'GET_ALL_GAMES', payload: response.data });
+  };
+};
+
+export const getAllGenres = () => {
+  return async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/genres');
+    dispatch({ type: 'GET_ALL_GENRES', payload: response.data });
+  };
+};
+
+export const getAllPlatforms = () => {
+  return async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/platforms');
+    dispatch({ type: 'GET_ALL_PLATFORMS', payload: response.data });
   };
 };

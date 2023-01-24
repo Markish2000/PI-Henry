@@ -5,12 +5,16 @@ import {
   SEND_INFO_LOGIN,
   FILTER_BY_GENRE,
   FILTER_BY_SEARCH,
+  GET_ALL_GENRES,
+  GET_ALL_PLATFORMS,
 } from './actions';
 
 let initialState = {
-  allGames: [],
-  modal: false,
   infoLoginModal: [],
+  allGames: [],
+  allGenres: [],
+  allPlatforms: [],
+  modal: false,
   favorite: [],
   search: [],
   detail: [],
@@ -69,6 +73,18 @@ function rootReducer(state = initialState, action) {
         //   ),
         // ],
         searchResult: action.payload,
+      };
+
+    case GET_ALL_GENRES:
+      return {
+        ...state,
+        allGenres: action.payload,
+      };
+
+    case GET_ALL_PLATFORMS:
+      return {
+        ...state,
+        allPlatforms: action.payload,
       };
 
     default:
