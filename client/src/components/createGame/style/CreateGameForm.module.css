@@ -1,0 +1,27 @@
+.createGameForm__div{
+  padding-top: 1em;
+  color: #ffffff;
+}
+
+.createGameForm__div_input{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.createGameForm__div_input_input{
+  color: #ffffff;
+  background-color: #000000c4;
+  border: transparent;
+  width: 15em;
+  height: 2.5em;
+  border-radius: 0.3em;
+}
+
+.createGameForm__div_input_input::placeholder{
+  color: #ffffff;
+}
+
+.createGameForm__div_genresAndPlatforms{
+  display: flex;
+  justify-content: center;
+}

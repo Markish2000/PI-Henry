@@ -1,7 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import GamesCard from '../games/GamesCard';
+import style from './style/CreateGameForm.module.css';
+import { getAllGenres, getAllPlatforms } from '../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
 const CreateGameForm = () => {
+  const infoGame = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllGenres());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(getAllPlatforms());
+  }, [dispatch]);
+
   const [createGame, setCreateGame] = useState({
     name: '',
     genres: '',
@@ -39,31 +52,58 @@ const CreateGameForm = () => {
   toDay = year + '-' + mount + '-' + day;
 
   return (
-    <div>
+    <div className={style.createGameForm__div}>
       <form>
-        <input
-          type='text'
-          placeholder="Enter the videogame's name"
-          onChange={(event) => nameChangeHandler(event)}
-        />
-        <input
-          type='text'
-          placeholder="Enter the description's name"
-          onChange={(event) => descriptionChangeHandler(event)}
-        />
-        <label>Genres</label>
-        <input type='checkbox' />
-        <input
-          type='text'
-          placeholder="Enter the link's game"
-          onChange={(event) => imageChangeHandler(event)}
-        />
-        <input
-          type='number'
-          max='5'
-          onChange={(event) => ratingChangeHandler(event)}
-        />
-        <input type='date' max={toDay} />
+        <div className={style.createGameForm__div_input}>
+          <input
+            className={style.createGameForm__div_input_input}
+            type='text'
+            placeholder="Enter the videogame's name"
+            onChange={(event) => nameChangeHandler(event)}
+          />
+          <input
+            className={style.createGameForm__div_input_input}
+            type='text'
+            placeholder="Enter the description's name"
+            onChange={(event) => descriptionChangeHandler(event)}
+          />
+          <input
+            className={style.createGameForm__div_input_input}
+            type='text'
+            placeholder="Enter the link's game"
+            onChange={(event) => imageChangeHandler(event)}
+          />
+          <input
+            className={style.createGameForm__div_input_input}
+            type='number'
+            min='0'
+            max='5'
+            onChange={(event) => ratingChangeHandler(event)}
+          />
+          <input type='date' max={toDay} />
+        </div>
+        <div className={style.createGameForm__div_genresAndPlatforms}>
+          <div>
+            {infoGame.allGenres.map((element, index) => {
+              return (
+                <div key={index}>
+                  <label>{element.name}</label>
+                  <input type='checkbox' name={element.name} id={element.id} />
+                </div>
+              );
+            })}
+          </div>
+          <div>
+            {infoGame.allPlatforms.map((element, index) => {
+              return (
+                <div key={index}>
+                  <label>{element.name}</label>
+                  <input type='checkbox' name={element.name} id={element.id} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
         <button type='submit'>CREATE</button>
       </form>
       <GamesCard
