@@ -15,8 +15,7 @@
 }
 
 .headerContainer__img_input{
-  margin-top: 2.2em;
-  margin-right: 34.5em;
+  margin: 2.4em 30.6em 0 0;
   position: absolute;
   width: 2em;
   height: 2em;
@@ -51,13 +50,6 @@
 .headerContainer__button:hover{
   cursor: pointer;
   background-color:  #6C07C7
-}
-
-.headerContainer__notification{
-  box-shadow: 0 0 17px 0  #ffffff5f;
-  margin: 2.6em 0 0 1em;
-  height: 3em;
-  width: 3em;
 }
 
 .headerContainer__div_h5_img{

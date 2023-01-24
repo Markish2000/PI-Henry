@@ -1,5 +1,4 @@
 import style from './style/HeaderContainer.module.css';
-import notification from './assets/notification.png';
 import perfil from './assets/perfil.jpg';
 import search from './assets/search.png';
 import { useDispatch, useSelector } from 'react-redux';
@@ -39,11 +38,6 @@ const HeaderContainer = () => {
             </button>
           </Link>
         </form>
-        <img
-          src={notification}
-          alt='Notification'
-          className={style.headerContainer__notification}
-        />
       </div>
       <div className={style.headerContainer__div_h5_img}>
         <h5 className={style.headerContainer__div_h5}>
