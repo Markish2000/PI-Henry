@@ -1,7 +1,6 @@
 import NavBarLogo from './NavBarLogo';
 import NavBarSocialMedia from './NavBarSocialMedia';
 import style from './style/NavBarHome.module.css';
-import search from './assets/search.png';
 import home from './assets/home.png';
 import games from './assets/games.png';
 import creategames from './assets/creategames.png';
@@ -18,7 +17,6 @@ import conditions from './assets/conditions.png';
 import { NavLink, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeModal } from '../../redux/actions';
-import NavBarHomeSearch from './search/NavBarHomeSearch';
 
 // !! Falta agregar rutas.
 const NavBarHome = () => {

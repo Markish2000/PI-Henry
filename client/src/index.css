@@ -27,6 +27,17 @@ body::-webkit-scrollbar-thumb{
   border-radius: 5px;
 }
 
+
+select::-webkit-scrollbar{
+  width: 7px;
+  background-color: #191919;
+}
+
+select::-webkit-scrollbar-thumb{
+  background-color: #6C07C7;
+  border-radius: 5px;
+}
+
 input:focus{
   outline: none;
 }

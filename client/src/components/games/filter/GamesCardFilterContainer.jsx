@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './style/GameCardFilterContainer.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllGenres, getAllPlatforms } from '../../../redux/actions';
@@ -6,6 +6,12 @@ import { getAllGenres, getAllPlatforms } from '../../../redux/actions';
 const GamesCardFilterContainer = () => {
   const filterCard = useSelector((state) => state);
   const dispatch = useDispatch();
+  const [filter, setFilter] = useState({
+    genres: '',
+    platforms: '',
+    alphabet: '',
+    rating: '',
+  });
 
   useEffect(() => {
     // dispatch(getAllGenres()),
