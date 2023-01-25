@@ -4,6 +4,7 @@ import {
   GET_DETAIL,
   SEND_INFO_LOGIN,
   FILTER_BY_GENRE,
+  FILTER_BY_PLATFORM,
   FILTER_BY_SEARCH,
   GET_ALL_GENRES,
   GET_ALL_PLATFORMS,
@@ -11,6 +12,10 @@ import {
   PAGINATING_DYNAMIC,
   INCREMENT_ACCUMULATOR,
   DECREMENT_ACCUMULATOR,
+  ASCENDING_RATING,
+  DESCENDING_RATING,
+  ASCENDING_ALPHABET,
+  DESCENDING_ALPHABET,
 } from './actions';
 
 let initialState = {
@@ -18,13 +23,13 @@ let initialState = {
   infoLoginModal: [],
   allGames: [],
   paginating: [],
+  auxPaginating: [],
   paginatingAccumulator: 0,
   allGenres: [],
   allPlatforms: [],
   favorite: [],
   search: [],
   detail: [],
-  filterByGenre: [],
   filterBySearch: [],
   searchResult: '',
 };
@@ -35,7 +40,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allGames: action.payload,
-        filterByGenre: action.payload,
         filterBySearch: action.payload,
       };
 
@@ -60,9 +64,19 @@ function rootReducer(state = initialState, action) {
     case FILTER_BY_GENRE:
       return {
         ...state,
-        filterByGenre: [
-          ...state.allGames.filter((element) =>
+        paginating: [
+          ...state.auxPaginating.filter((element) =>
             element.genres.includes(action.payload)
+          ),
+        ],
+      };
+
+    case FILTER_BY_PLATFORM:
+      return {
+        ...state,
+        paginating: [
+          ...state.auxPaginating.filter((element) =>
+            element.platforms.includes(action.payload)
           ),
         ],
       };
@@ -97,12 +111,17 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         paginating: [...state.allGames].splice(0, 15),
+        auxPaginating: [...state.allGames].splice(0, 15),
       };
 
     case PAGINATING_DYNAMIC:
       return {
         ...state,
         paginating: [...state.allGames].splice(
+          state.paginatingAccumulator * 15,
+          15
+        ),
+        auxPaginating: [...state.allGames].splice(
           state.paginatingAccumulator * 15,
           15
         ),
@@ -118,6 +137,38 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         paginatingAccumulator: state.paginatingAccumulator - 1,
+      };
+
+    case ASCENDING_RATING:
+      return {
+        ...state,
+        paginating: [...state.auxPaginating].sort(
+          (a, b) => b.rating - a.rating
+        ),
+      };
+
+    case DESCENDING_RATING:
+      return {
+        ...state,
+        paginating: [...state.auxPaginating].sort(
+          (a, b) => a.rating - b.rating
+        ),
+      };
+
+    case ASCENDING_ALPHABET:
+      return {
+        ...state,
+        paginating: [...state.auxPaginating].sort((a, b) =>
+          b.name.localeCompare(a.name)
+        ),
+      };
+
+    case DESCENDING_ALPHABET:
+      return {
+        ...state,
+        paginating: [...state.auxPaginating].sort((a, b) =>
+          a.name.localeCompare(b.name)
+        ),
       };
 
     default:

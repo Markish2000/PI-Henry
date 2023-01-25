@@ -4,6 +4,7 @@ export const CHANGE_MODAL = 'CHANGE_MODAL';
 export const GET_DETAIL = 'GET_DETAIL';
 export const SEND_INFO_LOGIN = 'SEND_INFO_LOGIN';
 export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
+export const FILTER_BY_PLATFORM = 'FILTER_BY_PLATFORM';
 export const FILTER_BY_SEARCH = 'FILTER_BY_SEARCH';
 export const GET_ALL_GENRES = 'GET_ALL_GENRES';
 export const GET_ALL_PLATFORMS = 'GET_ALL_PLATFORMS';
@@ -11,6 +12,10 @@ export const INCREMENT_ACCUMULATOR = 'INCREMENT_ACCUMULATOR';
 export const DECREMENT_ACCUMULATOR = 'DECREMENT_ACCUMULATOR';
 export const INITIAL_PAGINATING = 'INITIAL_PAGINATING';
 export const PAGINATING_DYNAMIC = 'PAGINATING_DYNAMIC';
+export const ASCENDING_RATING = 'ASCENDING_RATING';
+export const DESCENDING_RATING = 'DESCENDING_RATING';
+export const ASCENDING_ALPHABET = 'ASCENDING_ALPHABET';
+export const DESCENDING_ALPHABET = 'DESCENDING_ALPHABET';
 
 export const getAllGames = () => {
   return async (dispatch) => {
@@ -46,6 +51,13 @@ export const filterByGenre = (genre) => {
   return {
     type: FILTER_BY_GENRE,
     payload: genre,
+  };
+};
+
+export const filterByPlatforms = (platform) => {
+  return {
+    type: FILTER_BY_PLATFORM,
+    payload: platform,
   };
 };
 
@@ -93,5 +105,35 @@ export const incrementAccumulator = () => {
 export const decrementAccumulator = () => {
   return {
     type: DECREMENT_ACCUMULATOR,
+  };
+};
+
+export const ascendingRating = () => {
+  return {
+    type: ASCENDING_RATING,
+  };
+};
+
+export const descendingRating = () => {
+  return {
+    type: DESCENDING_RATING,
+  };
+};
+
+export const ascendingAlphabet = () => {
+  return {
+    type: ASCENDING_ALPHABET,
+  };
+};
+
+export const descendingAlphabet = () => {
+  return {
+    type: DESCENDING_ALPHABET,
+  };
+};
+
+export const filterBy = () => {
+  return {
+    type: DESCENDING_ALPHABET,
   };
 };

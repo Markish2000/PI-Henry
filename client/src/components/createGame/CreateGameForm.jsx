@@ -29,14 +29,28 @@ const CreateGameForm = () => {
     setCreateGame({ ...createGame, name: nameValue });
   };
 
+  const genresChangeHandler = (event) => {
+    const genresCheck = event.target.checked;
+    const genresValue = event.target.name;
+    if (genresCheck === true) {
+      setCreateGame({ ...createGame, genres: genresValue });
+    } else {
+      setCreateGame({
+        ...createGame,
+        genres: createGame.filter((element) => element !== genresValue),
+      });
+    }
+    console.log(createGame.genres);
+  };
+
   const ratingChangeHandler = (event) => {
     const ratingValue = event.target.value;
     setCreateGame({ ...createGame, rating: ratingValue });
   };
 
   const imageChangeHandler = (event) => {
-    const emailValue = event.target.value;
-    setCreateGame({ ...createGame, image: emailValue });
+    const imageValue = event.target.value;
+    setCreateGame({ ...createGame, image: imageValue });
   };
 
   const descriptionChangeHandler = (event) => {
@@ -84,20 +98,29 @@ const CreateGameForm = () => {
         </div>
         <div className={style.createGameForm__div_genresAndPlatforms}>
           <div>
+            <h3>Genres</h3>
             {infoGame.allGenres.map((element, index) => {
               return (
                 <div key={index}>
                   <label>{element.name}</label>
-                  <input type='checkbox' name={element.name} id={element.id} />
+                  <input
+                    onChange={(event) => genresChangeHandler(event)}
+                    type='checkbox'
+                    name={element.name}
+                    id={element.id}
+                  />
                 </div>
               );
             })}
           </div>
           <div>
+            <h3>Platforms</h3>
             {infoGame.allPlatforms.map((element, index) => {
               return (
                 <div key={index}>
-                  <label>{element.name}</label>
+                  <label className={style.createGameForm__div_platforms_label}>
+                    {element.name}
+                  </label>
                   <input type='checkbox' name={element.name} id={element.id} />
                 </div>
               );
