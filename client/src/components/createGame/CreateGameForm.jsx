@@ -90,6 +90,7 @@ const CreateGameForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    console.log(createGame);
     dispatch(createGameByPost(createGame));
   };
 

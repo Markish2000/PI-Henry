@@ -58,9 +58,13 @@ const GamesCardFilterContainer = () => {
     event.preventDefault();
     if (filter.genres !== 'All') {
       dispatch(filterByGenre(filter.genres));
+    } else {
+      dispatch(paginatingDynamic());
     }
     if (filter.platforms !== 'All') {
       dispatch(filterByPlatforms(filter.platforms));
+    } else {
+      dispatch(paginatingDynamic());
     }
     if (filter.alphabet === 'A ~ Z') {
       dispatch(descendingAlphabet());

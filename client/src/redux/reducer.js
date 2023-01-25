@@ -23,8 +23,7 @@ let initialState = {
   infoLoginModal: [],
   allGames: [],
   paginating: [],
-  auxPaginating: [],
-  paginatingAccumulator: 0,
+  paginatingAccumulator: 1,
   allGenres: [],
   allPlatforms: [],
   favorite: [],
@@ -64,21 +63,17 @@ function rootReducer(state = initialState, action) {
     case FILTER_BY_GENRE:
       return {
         ...state,
-        paginating: [
-          ...state.paginating.filter((element) =>
-            element.genres.includes(action.payload)
-          ),
-        ],
+        paginating: [...state.allGames].filter((element) =>
+          element.genres.includes(action.payload)
+        ),
       };
 
     case FILTER_BY_PLATFORM:
       return {
         ...state,
-        paginating: [
-          ...state.paginating.filter((element) =>
-            element.platforms.includes(action.payload)
-          ),
-        ],
+        paginating: [...state.paginating].filter((element) =>
+          element.platforms.includes(action.payload)
+        ),
       };
 
     case FILTER_BY_SEARCH:
@@ -111,17 +106,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         paginating: [...state.allGames].splice(0, 15),
-        auxPaginating: [...state.allGames].splice(0, 15),
       };
 
     case PAGINATING_DYNAMIC:
       return {
         ...state,
         paginating: [...state.allGames].splice(
-          state.paginatingAccumulator * 15,
-          15
-        ),
-        auxPaginating: [...state.allGames].splice(
           state.paginatingAccumulator * 15,
           15
         ),

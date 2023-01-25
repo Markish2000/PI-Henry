@@ -38,14 +38,16 @@ gamesRouter.get('/:id', async (req, res) => {
 
 gamesRouter.post('/', async (req, res) => {
   try {
-    const { name, description, released, rating, genres, platforms } = req.body;
+    const { name, description, released, rating, genres, platform, image } =
+      req.body;
     const newGame = await createGame(
       name,
       description,
       released,
+      image,
       rating,
       genres,
-      platforms
+      platform
     );
     res.status(200).json(newGame);
   } catch (error) {
