@@ -16,10 +16,11 @@ import {
   DESCENDING_RATING,
   ASCENDING_ALPHABET,
   DESCENDING_ALPHABET,
+  FILTER_PAGINATION_BY_SEARCH,
 } from './actions';
 
 let initialState = {
-  modal: false,
+  modal: true,
   infoLoginModal: [],
   allGames: [],
   paginating: [],
@@ -60,33 +61,10 @@ function rootReducer(state = initialState, action) {
         infoLoginModal: action.payload,
       };
 
-    case FILTER_BY_GENRE:
-      return {
-        ...state,
-        paginating: [...state.allGames].filter((element) =>
-          element.genres.includes(action.payload)
-        ),
-      };
-
-    case FILTER_BY_PLATFORM:
-      return {
-        ...state,
-        paginating: [...state.paginating].filter((element) =>
-          element.platforms.includes(action.payload)
-        ),
-      };
-
     case FILTER_BY_SEARCH:
       return {
         ...state,
-        // filterBySearch: [
-        //   ...state.allGames.filter((element) =>
-        //     element.name
-        //       .toString()
-        //       .toLowerCase()
-        //       .includes(action.payload.toLowerCase())
-        //   ),
-        // ],
+
         searchResult: action.payload,
       };
 
@@ -135,6 +113,22 @@ function rootReducer(state = initialState, action) {
         paginating: [...state.paginating].sort((a, b) => b.rating - a.rating),
       };
 
+    case FILTER_BY_GENRE:
+      return {
+        ...state,
+        paginating: [...state.paginating].filter((element) =>
+          element.genres.includes(action.payload)
+        ),
+      };
+
+    case FILTER_BY_PLATFORM:
+      return {
+        ...state,
+        paginating: [...state.paginating].filter((element) =>
+          element.platforms.includes(action.payload)
+        ),
+      };
+
     case DESCENDING_RATING:
       return {
         ...state,
@@ -154,6 +148,17 @@ function rootReducer(state = initialState, action) {
         ...state,
         paginating: [...state.paginating].sort((a, b) =>
           a.name.localeCompare(b.name)
+        ),
+      };
+
+    case FILTER_PAGINATION_BY_SEARCH:
+      return {
+        ...state,
+        paginating: [...state.paginating].filter((element) =>
+          element.name
+            .toString()
+            .toLowerCase()
+            .includes(action.payload.toLowerCase())
         ),
       };
 

@@ -11,6 +11,7 @@ import {
   filterByGenre,
   filterByPlatforms,
   paginatingDynamic,
+  filterPaginationBySearch,
 } from '../../../redux/actions';
 
 const GamesCardFilterContainer = () => {
@@ -48,6 +49,11 @@ const GamesCardFilterContainer = () => {
   const selectRatingChangeHandler = (event) => {
     const ratingValue = event.target.value;
     setFilter({ ...filter, rating: ratingValue });
+  };
+
+  const searchChangeHandler = (event) => {
+    const searchValue = event.target.value;
+    dispatch(filterPaginationBySearch(searchValue));
   };
 
   const clearFilterClickHandler = () => {
@@ -139,6 +145,13 @@ const GamesCardFilterContainer = () => {
             <option value='Ascending'>Ascending</option>
             <option value='Descending'>Descending</option>
           </select>
+        </div>
+        <div>
+          <input
+            onChange={(event) => searchChangeHandler(event)}
+            type='text'
+            placeholder='Search...'
+          />
         </div>
         <div>
           <button type='submit'>Filter</button>

@@ -20,7 +20,8 @@ const WelcomeForm = () => {
 
   const nameChangeHandler = (event) => {
     const nameValue = event.target.value;
-    if (form.name.length < 3) {
+    console.log(form.name);
+    if (form.name.length < 2) {
       setError({ ...error, name: 'Invalid name' });
     } else {
       setError({ ...error, name: null });
@@ -70,9 +71,11 @@ const WelcomeForm = () => {
               : style.welcomeForm__input_error
           }
           type='text'
-          onChange={nameChangeHandler}
+          onChange={(event) => nameChangeHandler(event)}
         />
-        <label className={style.welcomeForm__label}>Enter your name</label>
+        {!form.name && (
+          <label className={style.welcomeForm__label}>Enter your name</label>
+        )}
       </div>
       <div className={style.div_input}>
         <input
@@ -86,9 +89,11 @@ const WelcomeForm = () => {
           type='text'
           onChange={lastNameChangeHandler}
         />
-        <label className={style.welcomeForm__label_lastName}>
-          Enter your last name
-        </label>
+        {!form.lastName && (
+          <label className={style.welcomeForm__label_lastName}>
+            Enter your last name
+          </label>
+        )}
       </div>
       <div className={style.welcomeForm__flex}>
         <input

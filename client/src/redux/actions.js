@@ -16,6 +16,7 @@ export const ASCENDING_RATING = 'ASCENDING_RATING';
 export const DESCENDING_RATING = 'DESCENDING_RATING';
 export const ASCENDING_ALPHABET = 'ASCENDING_ALPHABET';
 export const DESCENDING_ALPHABET = 'DESCENDING_ALPHABET';
+export const FILTER_PAGINATION_BY_SEARCH = 'FILTER_PAGINATION_BY_SEARCH';
 
 export const getAllGames = () => {
   return async (dispatch) => {
@@ -132,9 +133,10 @@ export const descendingAlphabet = () => {
   };
 };
 
-export const filterBy = () => {
+export const filterPaginationBySearch = (value) => {
   return {
-    type: DESCENDING_ALPHABET,
+    type: FILTER_PAGINATION_BY_SEARCH,
+    payload: value,
   };
 };
 
