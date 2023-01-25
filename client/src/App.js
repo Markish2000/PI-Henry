@@ -9,6 +9,7 @@ import WelcomeContainer from './components/welcome/WelcomeContainer';
 import FilterSearchContainer from './components/filterSearch/FilterSearchContainer';
 import { useSelector } from 'react-redux';
 import HeaderContainer from './components/header/HeaderContainer';
+import Error404 from './components/error404/Error404';
 
 function App() {
   const modalBoolean = useSelector((state) => state);
@@ -40,6 +41,7 @@ function App() {
               path='/search'
               render={() => <FilterSearchContainer />}
             />
+            <Route path='*' render={() => <Error404 />} />
           </div>
         </div>
       )}
