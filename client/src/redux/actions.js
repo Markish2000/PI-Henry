@@ -137,3 +137,13 @@ export const filterBy = () => {
     type: DESCENDING_ALPHABET,
   };
 };
+
+export const createGameByPost = (newGame) => {
+  return async () => {
+    const createGamePost = await axios.post(
+      'http://localhost:3001/games',
+      newGame
+    );
+    return createGamePost;
+  };
+};

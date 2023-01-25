@@ -20,9 +20,6 @@ const GamesContainer = () => {
   useEffect(() => {
     dispatch(getAllGames());
   }, [dispatch]);
-  useEffect(() => {
-    dispatch(initialPaginating());
-  }, [dispatch]);
 
   const decrementClickHandler = () => {
     if (cardArray.paginatingAccumulator > 1) {

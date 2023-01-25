@@ -65,7 +65,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         paginating: [
-          ...state.auxPaginating.filter((element) =>
+          ...state.paginating.filter((element) =>
             element.genres.includes(action.payload)
           ),
         ],
@@ -75,7 +75,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         paginating: [
-          ...state.auxPaginating.filter((element) =>
+          ...state.paginating.filter((element) =>
             element.platforms.includes(action.payload)
           ),
         ],
@@ -142,23 +142,19 @@ function rootReducer(state = initialState, action) {
     case ASCENDING_RATING:
       return {
         ...state,
-        paginating: [...state.auxPaginating].sort(
-          (a, b) => b.rating - a.rating
-        ),
+        paginating: [...state.paginating].sort((a, b) => b.rating - a.rating),
       };
 
     case DESCENDING_RATING:
       return {
         ...state,
-        paginating: [...state.auxPaginating].sort(
-          (a, b) => a.rating - b.rating
-        ),
+        paginating: [...state.paginating].sort((a, b) => a.rating - b.rating),
       };
 
     case ASCENDING_ALPHABET:
       return {
         ...state,
-        paginating: [...state.auxPaginating].sort((a, b) =>
+        paginating: [...state.paginating].sort((a, b) =>
           b.name.localeCompare(a.name)
         ),
       };
@@ -166,7 +162,7 @@ function rootReducer(state = initialState, action) {
     case DESCENDING_ALPHABET:
       return {
         ...state,
-        paginating: [...state.auxPaginating].sort((a, b) =>
+        paginating: [...state.paginating].sort((a, b) =>
           a.name.localeCompare(b.name)
         ),
       };

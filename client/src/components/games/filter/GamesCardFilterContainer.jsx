@@ -10,6 +10,7 @@ import {
   descendingAlphabet,
   filterByGenre,
   filterByPlatforms,
+  paginatingDynamic,
 } from '../../../redux/actions';
 
 const GamesCardFilterContainer = () => {
@@ -49,6 +50,10 @@ const GamesCardFilterContainer = () => {
     setFilter({ ...filter, rating: ratingValue });
   };
 
+  const clearFilterClickHandler = () => {
+    dispatch(paginatingDynamic());
+  };
+
   const submitChangeHandler = (event) => {
     event.preventDefault();
     if (filter.genres !== 'All') {
@@ -72,68 +77,71 @@ const GamesCardFilterContainer = () => {
   };
 
   return (
-    <form
-      className={style.gameCardFilterContainer_div}
-      onSubmit={submitChangeHandler}
-    >
-      <div className={style.gameCardFilter_div}>
-        <h5>Genres</h5>
-        <select
-          onChange={(event) => selectGenresChangeHandler(event)}
-          className={style.gameCardFilterGenre__select}
-        >
-          <option value='All'>All</option>
-          {filterCard.allGenres.map((element) => {
-            return (
-              <option key={element.id} value={element.name}>
-                {element.name}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-      <div className={style.gameCardFilter_div}>
-        <h5>Platforms</h5>
-        <select
-          onChange={(event) => selectPlatformChangeHandler(event)}
-          className={style.gameCardFilterGenre__select}
-        >
-          <option value='All'>All</option>
-          {filterCard.allPlatforms.map((element) => {
-            return (
-              <option key={element.id} value={element.name}>
-                {element.name}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-      <div className={style.gameCardFilter_div}>
-        <h5>Alphabet</h5>
-        <select
-          onChange={(event) => selectAlphabetChangeHandler(event)}
-          className={style.gameCardFilterGenre__select}
-        >
-          <option value='None'>None</option>
-          <option value='A ~ Z'>A ~ Z</option>
-          <option value='Z ~ A'>Z ~ A</option>
-        </select>
-      </div>
-      <div className={style.gameCardFilter_div}>
-        <h5>Rating</h5>
-        <select
-          onChange={(event) => selectRatingChangeHandler(event)}
-          className={style.gameCardFilterGenre__select}
-        >
-          <option value='None'>None</option>
-          <option value='Ascending'>Ascending</option>
-          <option value='Descending'>Descending</option>
-        </select>
-      </div>
-      <div>
-        <button type='submit'>Filter</button>
-      </div>
-    </form>
+    <div>
+      <form
+        className={style.gameCardFilterContainer_div}
+        onSubmit={submitChangeHandler}
+      >
+        <div className={style.gameCardFilter_div}>
+          <h5>Genres</h5>
+          <select
+            onChange={(event) => selectGenresChangeHandler(event)}
+            className={style.gameCardFilterGenre__select}
+          >
+            <option value='All'>All</option>
+            {filterCard.allGenres.map((element) => {
+              return (
+                <option key={element.id} value={element.name}>
+                  {element.name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <div className={style.gameCardFilter_div}>
+          <h5>Platforms</h5>
+          <select
+            onChange={(event) => selectPlatformChangeHandler(event)}
+            className={style.gameCardFilterGenre__select}
+          >
+            <option value='All'>All</option>
+            {filterCard.allPlatforms.map((element) => {
+              return (
+                <option key={element.id} value={element.name}>
+                  {element.name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <div className={style.gameCardFilter_div}>
+          <h5>Alphabet</h5>
+          <select
+            onChange={(event) => selectAlphabetChangeHandler(event)}
+            className={style.gameCardFilterGenre__select}
+          >
+            <option value='None'>None</option>
+            <option value='A ~ Z'>A ~ Z</option>
+            <option value='Z ~ A'>Z ~ A</option>
+          </select>
+        </div>
+        <div className={style.gameCardFilter_div}>
+          <h5>Rating</h5>
+          <select
+            onChange={(event) => selectRatingChangeHandler(event)}
+            className={style.gameCardFilterGenre__select}
+          >
+            <option value='None'>None</option>
+            <option value='Ascending'>Ascending</option>
+            <option value='Descending'>Descending</option>
+          </select>
+        </div>
+        <div>
+          <button type='submit'>Filter</button>
+          <button onClick={clearFilterClickHandler}>Clear filter</button>
+        </div>
+      </form>
+    </div>
   );
 };
 export default GamesCardFilterContainer;

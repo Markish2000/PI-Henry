@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import GamesCard from '../games/GamesCard';
 import style from './style/CreateGameForm.module.css';
-import { getAllGenres, getAllPlatforms } from '../../redux/actions';
+import {
+  getAllGenres,
+  getAllPlatforms,
+  createGameByPost,
+} from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 const CreateGameForm = () => {
@@ -21,6 +25,7 @@ const CreateGameForm = () => {
     platform: '',
     rating: '',
     image: '',
+    released: '',
     description: '',
   });
 
@@ -32,15 +37,35 @@ const CreateGameForm = () => {
   const genresChangeHandler = (event) => {
     const genresCheck = event.target.checked;
     const genresValue = event.target.name;
-    if (genresCheck === true) {
-      setCreateGame({ ...createGame, genres: genresValue });
+    if (genresCheck) {
+      setCreateGame({
+        ...createGame,
+        genres: [...createGame.genres, genresValue],
+      });
     } else {
       setCreateGame({
         ...createGame,
-        genres: createGame.filter((element) => element !== genresValue),
+        genres: createGame.genres.filter((element) => element !== genresValue),
       });
     }
-    console.log(createGame.genres);
+  };
+
+  const platformsChangeHandler = (event) => {
+    const platformCheck = event.target.checked;
+    const platformValue = event.target.name;
+    if (platformCheck) {
+      setCreateGame({
+        ...createGame,
+        platform: [...createGame.platform, platformValue],
+      });
+    } else {
+      setCreateGame({
+        ...createGame,
+        platform: createGame.platform.filter(
+          (element) => element !== platformValue
+        ),
+      });
+    }
   };
 
   const ratingChangeHandler = (event) => {
@@ -58,6 +83,16 @@ const CreateGameForm = () => {
     setCreateGame({ ...createGame, description: descriptionValue });
   };
 
+  const dateChangeHandler = (event) => {
+    const dateValue = event.target.value;
+    setCreateGame({ ...createGame, released: dateValue });
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    dispatch(createGameByPost(createGame));
+  };
+
   let toDay = new Date();
   let day = String(toDay.getDate()).padStart(2, '0');
   let mount = String(toDay.getMonth() + 1).padStart(2, '0');
@@ -67,7 +102,7 @@ const CreateGameForm = () => {
 
   return (
     <div className={style.createGameForm__div}>
-      <form>
+      <form onSubmit={(event) => submitHandler(event)}>
         <div className={style.createGameForm__div_input}>
           <input
             className={style.createGameForm__div_input_input}
@@ -94,7 +129,11 @@ const CreateGameForm = () => {
             max='5'
             onChange={(event) => ratingChangeHandler(event)}
           />
-          <input type='date' max={toDay} />
+          <input
+            onChange={(event) => dateChangeHandler(event)}
+            type='date'
+            max={toDay}
+          />
         </div>
         <div className={style.createGameForm__div_genresAndPlatforms}>
           <div>
@@ -121,7 +160,12 @@ const CreateGameForm = () => {
                   <label className={style.createGameForm__div_platforms_label}>
                     {element.name}
                   </label>
-                  <input type='checkbox' name={element.name} id={element.id} />
+                  <input
+                    onChange={(event) => platformsChangeHandler(event)}
+                    type='checkbox'
+                    name={element.name}
+                    id={element.id}
+                  />
                 </div>
               );
             })}
