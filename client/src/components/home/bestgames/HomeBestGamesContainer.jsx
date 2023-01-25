@@ -8,7 +8,7 @@ const HomeBestGamesContainer = () => {
   return (
     <div className={style.homeBestGamesContainer__div}>
       <h3 className={style.homeBestGamesContainer__div__h3}>Best games</h3>
-      {games.allGames.splice(0, 10).map((element, index) => (
+      {games.allGames.splice(0, 9).map((element, index) => (
         <NavLink to={`/games/${element.id}`}>
           <div key={index}>
             <HomeBestGamesCard

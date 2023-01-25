@@ -2,8 +2,8 @@ import style from './style/HomeBestGamesCard.module.css';
 
 const HomeBestGamesCard = ({ image, name, genres }) => {
   return (
-    <div>
-      <div className={style.homeBestGamesCard__div}>
+    <div className={style.homeBestGamesCard__div}>
+      <div className={style.homeBestGamesCard__div_img}>
         <img
           src={image}
           alt={name}

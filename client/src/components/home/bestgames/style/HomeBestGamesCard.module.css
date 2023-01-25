@@ -4,6 +4,12 @@
   justify-content: center;
 }
 
+.homeBestGamesCard__div_img{
+  padding-top: 0.4em;
+  display: flex;
+  width: 17em;
+}
+
 .homeBestGamesCard__div__img{
   border-radius: 0.5em;
 }
