@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './style/WelcomeForm.module.css';
 import { changeModal, sendInfoLogin } from '../../redux/actions';
+import { useHistory } from 'react-router-dom';
 
 const WelcomeForm = () => {
   const modalBoolean = useSelector((state) => state);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [form, setForm] = useState({
     name: '',
@@ -50,6 +52,7 @@ const WelcomeForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    history.push('/');
     dispatch(changeModal(!modalBoolean.modal));
     dispatch(sendInfoLogin(form.name, form.lastName));
   };

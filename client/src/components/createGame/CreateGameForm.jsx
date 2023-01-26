@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import GamesCard from '../games/GamesCard';
-import style from './style/CreateGameForm.module.css';
+import React, { useEffect, useState } from "react";
+import GamesCard from "../games/GamesCard";
+import style from "./style/CreateGameForm.module.css";
 import {
   getAllGenres,
   getAllPlatforms,
   createGameByPost,
-} from '../../redux/actions';
-import { useDispatch, useSelector } from 'react-redux';
+} from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const CreateGameForm = () => {
   const infoGame = useSelector((state) => state);
@@ -20,13 +20,13 @@ const CreateGameForm = () => {
   }, [dispatch]);
 
   const [createGame, setCreateGame] = useState({
-    name: '',
-    genres: '',
-    platform: '',
-    rating: '',
-    image: '',
-    released: '',
-    description: '',
+    name: "",
+    genres: "",
+    platform: "",
+    rating: "",
+    image: "",
+    released: "",
+    description: "",
   });
 
   const nameChangeHandler = (event) => {
@@ -95,11 +95,11 @@ const CreateGameForm = () => {
   };
 
   let toDay = new Date();
-  let day = String(toDay.getDate()).padStart(2, '0');
-  let mount = String(toDay.getMonth() + 1).padStart(2, '0');
+  let day = String(toDay.getDate()).padStart(2, "0");
+  let mount = String(toDay.getMonth() + 1).padStart(2, "0");
   let year = toDay.getFullYear();
 
-  toDay = year + '-' + mount + '-' + day;
+  toDay = year + "-" + mount + "-" + day;
 
   return (
     <div className={style.createGameForm__div}>

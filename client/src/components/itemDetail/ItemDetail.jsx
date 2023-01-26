@@ -70,21 +70,21 @@ const ItemDetail = () => {
           <div className={style.itemDetail__div_description_imgExtra}>
             <img
               src={element.imageExtra}
-              alt='props.name'
+              alt={element.name}
               width='90%'
               height='170em'
               className={style.itemDetail__div_description_imgExtra_img}
             />
             <img
               src={element.image}
-              alt='props.name'
+              alt={element.name}
               width='90%'
               height='170em'
               className={style.itemDetail__div_description_imgExtra_img}
             />
             <img
               src={element.imageExtra}
-              alt='props.name'
+              alt={element.name}
               width='90%'
               height='170em'
               className={style.itemDetail__div_description_imgExtra_img}

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import {
-  getAllGames,
   initialPaginating,
   decrementAccumulator,
   incrementAccumulator,
@@ -18,14 +17,11 @@ const GamesContainer = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllGames());
-  }, [dispatch]);
-  useEffect(() => {
     dispatch(initialPaginating());
   }, [dispatch]);
 
   const decrementClickHandler = () => {
-    if (cardArray.paginatingAccumulator > 1) {
+    if (cardArray.paginatingAccumulator > 0) {
       dispatch(decrementAccumulator());
       dispatch(paginatingDynamic());
     }

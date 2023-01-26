@@ -17,11 +17,18 @@ export const DESCENDING_RATING = 'DESCENDING_RATING';
 export const ASCENDING_ALPHABET = 'ASCENDING_ALPHABET';
 export const DESCENDING_ALPHABET = 'DESCENDING_ALPHABET';
 export const FILTER_PAGINATION_BY_SEARCH = 'FILTER_PAGINATION_BY_SEARCH';
+export const BEST_GAMES = 'BEST_GAMES';
 
 export const getAllGames = () => {
   return async (dispatch) => {
     const response = await axios.get('http://localhost:3001/games');
     dispatch({ type: 'GET_ALL_GAMES', payload: response.data });
+  };
+};
+
+export const bestGames = () => {
+  return {
+    type: BEST_GAMES,
   };
 };
 

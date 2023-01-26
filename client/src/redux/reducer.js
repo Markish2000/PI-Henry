@@ -1,5 +1,6 @@
 import {
   GET_ALL_GAMES,
+  BEST_GAMES,
   CHANGE_MODAL,
   GET_DETAIL,
   SEND_INFO_LOGIN,
@@ -20,11 +21,12 @@ import {
 } from './actions';
 
 let initialState = {
-  modal: false,
+  modal: true,
   infoLoginModal: [],
   allGames: [],
   paginating: [],
-  paginatingAccumulator: 1,
+  bestGames: [],
+  paginatingAccumulator: 0,
   allGenres: [],
   allPlatforms: [],
   favorite: [],
@@ -41,6 +43,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         allGames: action.payload,
         filterBySearch: action.payload,
+      };
+
+    case BEST_GAMES:
+      return {
+        ...state,
+        bestGames: [...state.allGames].splice(0, 9),
       };
 
     case CHANGE_MODAL:
@@ -64,7 +72,6 @@ function rootReducer(state = initialState, action) {
     case FILTER_BY_SEARCH:
       return {
         ...state,
-
         searchResult: action.payload,
       };
 

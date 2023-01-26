@@ -83,7 +83,6 @@ const createGame = async (
     platform,
     image,
   });
-
   return newGame;
 };
 
