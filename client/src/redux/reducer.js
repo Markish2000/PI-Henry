@@ -20,7 +20,7 @@ import {
 } from './actions';
 
 let initialState = {
-  modal: true,
+  modal: false,
   infoLoginModal: [],
   allGames: [],
   paginating: [],

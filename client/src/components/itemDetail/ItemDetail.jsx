@@ -5,6 +5,7 @@ import { getDetail } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ItemDetailButton from './ItemDetailButton';
+import imgRating from '../games/assets/rating.png';
 
 const ItemDetail = () => {
   const infoDetail = useSelector((state) => state.detail);
@@ -21,25 +22,34 @@ const ItemDetail = () => {
         <div key={index} className={style.itemDetail__div}>
           <div className={style.itemDetail__div_div}>
             <div className={style.itemDetail__div_img}>
-              <img
-                className={style.itemDetail__div_img_border}
-                src={element.image}
-                alt={element.name}
-                width='100%'
-                height='100%'
-              />
+              <div className={style.itemDetail__div_img_h3}>
+                <img
+                  className={style.itemDetail__div_img_border}
+                  src={element.image}
+                  alt={element.name}
+                  width='350em'
+                  height='250em'
+                />
+                <h3 className={style.itemDetail__div_img_h3_released}>
+                  {element.released}
+                </h3>
+              </div>
             </div>
             <div className={style.itemDetail__div_info}>
-              <div className={style.itemDetail__div_info_button_flex}>
-                {element.genres.map((elementB, indexB) => (
-                  <div key={indexB}>
-                    <ItemDetailButton genres={elementB} />
-                  </div>
-                ))}
-                <h3>{element.released}</h3>
+              <div className={style.itemDetail__div__rating}>
+                <div className={style.itemDetail__div_info_button_flex}>
+                  {element.genres.map((elementB, indexB) => (
+                    <div key={indexB}>
+                      <ItemDetailButton genres={elementB} />
+                    </div>
+                  ))}
+                </div>
+                <h3 className={style.itemDetail__div__rating_h3}>
+                  {element.rating}
+                </h3>
+                <img src={imgRating} alt='star' height='25em' width='25em' />
               </div>
-              <h3>{element.rating} Rating</h3>
-              <h1>{element.name}</h1>
+              <h1 className={style.itemDetail_h1}>{element.name}</h1>
               <div className={style.itemDetail__div_info_button_flex}>
                 {element.platform.map((elementC, indexC) => (
                   <div className={style.prueba} key={indexC}>
@@ -59,19 +69,22 @@ const ItemDetail = () => {
             <img
               src={element.imageExtra}
               alt='props.name'
-              width='80%'
+              width='90%'
+              height='170em'
               className={style.itemDetail__div_description_imgExtra_img}
             />
             <img
               src={element.image}
               alt='props.name'
-              width='80%'
+              width='90%'
+              height='170em'
               className={style.itemDetail__div_description_imgExtra_img}
             />
             <img
               src={element.imageExtra}
               alt='props.name'
-              width='80%'
+              width='90%'
+              height='170em'
               className={style.itemDetail__div_description_imgExtra_img}
             />
           </div>
