@@ -1,14 +1,19 @@
 import React, { useEffect } from 'react';
-import prueba from './prueba.jpg';
 import style from './style/ItemDetail.module.css';
-import { getDetail } from '../../redux/actions';
+import {
+  getDetail,
+  initialPaginatingDetail,
+  decrementAccumulatorDetail,
+  incrementAccumulatorDetail,
+  paginatingDynamicDetail,
+} from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import ItemDetailButton from './ItemDetailButton';
 import imgRating from '../games/assets/rating.png';
 
 const ItemDetail = () => {
-  const infoDetail = useSelector((state) => state.detail);
+  const infoDetail = useSelector((state) => state);
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -16,9 +21,27 @@ const ItemDetail = () => {
     dispatch(getDetail(params.id));
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(initialPaginatingDetail());
+  }, [dispatch]);
+
+  const decrementClickHandler = () => {
+    if (infoDetail.paginatingDetailAccumulator > 0) {
+      dispatch(decrementAccumulatorDetail());
+      dispatch(paginatingDynamicDetail());
+    }
+  };
+
+  const incrementClickHandler = () => {
+    if (infoDetail.paginatingDetailAccumulator < 19) {
+      dispatch(incrementAccumulatorDetail());
+      dispatch(paginatingDynamicDetail());
+    }
+  };
+
   return (
     <div>
-      {infoDetail.map((element, index) => (
+      {infoDetail.detail.map((element, index) => (
         <div key={index} className={style.itemDetail__div}>
           <div className={style.itemDetail__div_div}>
             <div className={style.itemDetail__div_img}>
@@ -96,32 +119,39 @@ const ItemDetail = () => {
         <div className={style.itemDetail__div_games_div_button}>
           <h3 className={style.itemDetail__div_games_h3}>Our games</h3>
           <div>
-            <button className={style.itemDetail__div_games_div_button_border}>
+            <button
+              onClick={() => decrementClickHandler()}
+              className={style.itemDetail__div_games_div_button_border}
+            >
               ◀
             </button>
-            <button className={style.itemDetail__div_games_div_button_border}>
+            <button
+              onClick={() => incrementClickHandler()}
+              className={style.itemDetail__div_games_div_button_border}
+            >
               ▶
             </button>
           </div>
         </div>
         <div className={style.itemDetail__div_games_flex}>
-          <div className={style.itemDetail__div_games_flex_column}>
-            <img src={prueba} alt='prop.name' width='200em' />
-            <h5 className={style.itemDetail__div_games_h5}>
-              Rainbow Six Siege
-            </h5>
-            <div className={style.itemDetail__div_games_div_button}>
-              <button className={style.itemDetail__div_games_button}>
-                PlayStation 5
-              </button>
-              <button className={style.itemDetail__div_games_button}>
-                X Box S
-              </button>
-              <button className={style.itemDetail__div_games_button}>
-                PlayStation 5
-              </button>
-            </div>
-          </div>
+          {infoDetail.paginatingDetail.map((elementK, index) => (
+            <NavLink to={`/games/${elementK.id}`}>
+              <div
+                key={index}
+                className={style.itemDetail__div_games_flex_column}
+              >
+                <img
+                  src={elementK.image}
+                  alt={elementK.name}
+                  width='200em'
+                  height='100em'
+                />
+                <h5 className={style.itemDetail__div_games_h5}>
+                  {elementK.name}
+                </h5>
+              </div>
+            </NavLink>
+          ))}
         </div>
       </div>
     </div>

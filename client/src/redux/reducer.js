@@ -18,15 +18,21 @@ import {
   ASCENDING_ALPHABET,
   DESCENDING_ALPHABET,
   FILTER_PAGINATION_BY_SEARCH,
+  INITIAL_PAGINATING_DETAIL,
+  PAGINATING_DYNAMIC_DETAIL,
+  INCREMENT_ACCUMULATOR_DETAIL,
+  DECREMENT_ACCUMULATOR_DETAIL,
 } from './actions';
 
 let initialState = {
   modal: false,
   infoLoginModal: [],
   allGames: [],
+  paginatingAccumulator: 0,
   paginating: [],
   bestGames: [],
-  paginatingAccumulator: 0,
+  paginatingDetailAccumulator: 0,
+  paginatingDetail: [],
   allGenres: [],
   allPlatforms: [],
   favorite: [],
@@ -48,7 +54,9 @@ function rootReducer(state = initialState, action) {
     case BEST_GAMES:
       return {
         ...state,
-        bestGames: [...state.allGames].splice(0, 10),
+        bestGames: [...state.allGames]
+          .splice(0, 12)
+          .sort((a, b) => b.rating - a.rating),
       };
 
     case CHANGE_MODAL:
@@ -87,6 +95,8 @@ function rootReducer(state = initialState, action) {
         allPlatforms: action.payload,
       };
 
+    // TODO: PAGINADO DE GAMES
+
     case INITIAL_PAGINATING:
       return {
         ...state,
@@ -113,6 +123,39 @@ function rootReducer(state = initialState, action) {
         ...state,
         paginatingAccumulator: state.paginatingAccumulator - 1,
       };
+
+    // TODO: PAGINADO DE GAMES
+
+    // TODO: PAGINADO DE DETAIL
+
+    case INITIAL_PAGINATING_DETAIL:
+      return {
+        ...state,
+        paginatingDetail: [...state.allGames].splice(0, 5),
+      };
+
+    case PAGINATING_DYNAMIC_DETAIL:
+      return {
+        ...state,
+        paginatingDetail: [...state.allGames].splice(
+          state.paginatingDetailAccumulator * 5,
+          5
+        ),
+      };
+
+    case INCREMENT_ACCUMULATOR_DETAIL:
+      return {
+        ...state,
+        paginatingDetailAccumulator: state.paginatingDetailAccumulator + 1,
+      };
+
+    case DECREMENT_ACCUMULATOR_DETAIL:
+      return {
+        ...state,
+        paginatingDetailAccumulator: state.paginatingDetailAccumulator - 1,
+      };
+
+    // TODO: PAGINADO DE DETAIL
 
     case ASCENDING_RATING:
       return {

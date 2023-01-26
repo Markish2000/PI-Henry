@@ -148,15 +148,25 @@
 }
 
 .itemDetail__div_games_flex_column{
+  background-color: #000000;
+  border-radius: 1em;
   width: 16em;
-  padding: 0 1em 1em 1em;
+  padding-top: 2em;
+  margin: 0 1em 1em 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.itemDetail__div_games_flex_column:hover{
+  background-color: #6C07C7;
+}
+
 .itemDetail__div_games_h5{
+  padding: 0 0.5em 0 0.5em;
+  text-align: center;
+  color: #ffffff;
   font-size: 1em;
 }
 

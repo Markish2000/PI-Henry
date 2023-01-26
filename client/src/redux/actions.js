@@ -18,6 +18,10 @@ export const ASCENDING_ALPHABET = 'ASCENDING_ALPHABET';
 export const DESCENDING_ALPHABET = 'DESCENDING_ALPHABET';
 export const FILTER_PAGINATION_BY_SEARCH = 'FILTER_PAGINATION_BY_SEARCH';
 export const BEST_GAMES = 'BEST_GAMES';
+export const INITIAL_PAGINATING_DETAIL = 'INITIAL_PAGINATING_DETAIL';
+export const PAGINATING_DYNAMIC_DETAIL = 'PAGINATING_DYNAMIC_DETAIL';
+export const INCREMENT_ACCUMULATOR_DETAIL = 'INCREMENT_ACCUMULATOR_DETAIL';
+export const DECREMENT_ACCUMULATOR_DETAIL = 'DECREMENT_ACCUMULATOR_DETAIL';
 
 export const getAllGames = () => {
   return async (dispatch) => {
@@ -115,6 +119,34 @@ export const decrementAccumulator = () => {
     type: DECREMENT_ACCUMULATOR,
   };
 };
+
+// !!
+
+export const initialPaginatingDetail = () => {
+  return {
+    type: INITIAL_PAGINATING_DETAIL,
+  };
+};
+
+export const paginatingDynamicDetail = () => {
+  return {
+    type: PAGINATING_DYNAMIC_DETAIL,
+  };
+};
+
+export const incrementAccumulatorDetail = () => {
+  return {
+    type: INCREMENT_ACCUMULATOR_DETAIL,
+  };
+};
+
+export const decrementAccumulatorDetail = () => {
+  return {
+    type: DECREMENT_ACCUMULATOR_DETAIL,
+  };
+};
+
+// !!
 
 export const ascendingRating = () => {
   return {
