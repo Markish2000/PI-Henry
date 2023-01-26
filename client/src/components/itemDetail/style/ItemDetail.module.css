@@ -82,6 +82,11 @@
   align-items: center;
 }
 
+.itemDetail__div_description_h3{
+  font-size: 2em;
+  margin: 0.5em 5em 0 0;
+}
+
 .itemDetail__div_description_p{
   width: 47em;
   margin-left: 24em;

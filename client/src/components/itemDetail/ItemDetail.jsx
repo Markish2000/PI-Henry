@@ -59,7 +59,9 @@ const ItemDetail = () => {
               </div>
             </div>
             <div className={style.itemDetail__div_description}>
-              <h3>Description:</h3>
+              <h3 className={style.itemDetail__div_description_h3}>
+                Description:
+              </h3>
               <p className={style.itemDetail__div_description_p}>
                 {element.description}
               </p>
