@@ -21,7 +21,7 @@ import {
 } from './actions';
 
 let initialState = {
-  modal: true,
+  modal: false,
   infoLoginModal: [],
   allGames: [],
   paginating: [],
@@ -48,7 +48,7 @@ function rootReducer(state = initialState, action) {
     case BEST_GAMES:
       return {
         ...state,
-        bestGames: [...state.allGames].splice(0, 9),
+        bestGames: [...state.allGames].splice(0, 10),
       };
 
     case CHANGE_MODAL:
