@@ -160,6 +160,7 @@
 }
 
 .itemDetail__div_games_flex_column:hover{
+  transform: scale(1.1);
   background-color: #6C07C7;
 }
 
