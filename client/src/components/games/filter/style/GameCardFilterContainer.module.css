@@ -1,7 +1,70 @@
 .gameCardFilterContainer_div{
   display: flex;
+  flex-direction: column;
   color: #ffffff;
   font-size: 2em;
+}
+
+.gameCardFilter_div_all_flex_input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gamesCardFilterContainer_div_input{
+  width: 80%;
+}
+
+.gamesCardFilterContainer_input{
+  width: 100%;
+  padding: 0.5em 0 0.5em 1em;
+  margin-top: 1em;
+  font-size: 0.7em;
+  color:#ffffff;
+  background-color: #000000b9;
+  box-shadow: 0 0 17px 0  #ffffff5f;
+  border-radius: 0.3em;
+  border-color: #6C07C7;
+}
+
+.gamesCardFilterContainer_input::placeholder{
+  color: #ffffff;
+}
+
+.gamesCardFilterContainer_div_searchButton{
+  margin: 0 0 0.5em 1em;
+  display: flex;
+}
+
+.gamesCardFilterContainer_searchButton{
+  font-size: 0.5em;
+  color: #ffffff;
+  background-color: #000000b9;
+  box-shadow: 0 0 17px 0  #ffffff5f;
+  border-radius: 0.5em;
+  margin-top: 2.4em;
+  margin-left: 1em;
+  width: 5em;
+  height: 3.2em;
+  border-color: #6C07C7;
+}
+
+.gamesCardFilterContainer_searchButton:hover{
+  cursor: pointer;
+  font-size: 0.5em;
+  color: #ffffff;
+  background-color: #6C07C7;
+  box-shadow: 0 0 17px 0  #ffffff5f;
+  border-radius: 0.5em;
+  margin-top: 2.4em;
+  margin-left: 1em;
+  width: 5em;
+  height: 3.2em;
+  border-color: #000000b9;
+}
+
+.gameCardFilter_div_all_flex{
+  display: flex;
 }
 
 .gameCardFilter_div{
@@ -19,5 +82,5 @@
   text-align: center;
   padding: 0.2em 1em 0.2em 1em;
   border-radius: 1em;
-  border-color: #6C07C7
+  border-color: #6C07C7;
 }

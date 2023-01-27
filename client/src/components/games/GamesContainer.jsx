@@ -50,14 +50,24 @@ const GamesContainer = () => {
       <div className={style.gamesContainer__div_button}>
         <button
           onClick={() => decrementClickHandler()}
-          className={style.gamesContainer__div_button_pd}
+          className={
+            cardArray.paginatingAccumulator === 0
+              ? style.gamesContainer__div_button_pd_stop
+              : style.gamesContainer__div_button_pd
+          }
         >
           -
         </button>
-        <p>{cardArray.paginatingAccumulator}</p>
+        <p className={style.gamesContainer_paginating_p}>
+          {cardArray.paginatingAccumulator}
+        </p>
         <button
           onClick={() => incrementClickHandler()}
-          className={style.gamesContainer__div_button_pd}
+          className={
+            cardArray.paginatingAccumulator === 6
+              ? style.gamesContainer__div_button_pd_stop
+              : style.gamesContainer__div_button_pd
+          }
         >
           +
         </button>

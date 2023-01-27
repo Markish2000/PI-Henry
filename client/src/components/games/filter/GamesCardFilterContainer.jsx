@@ -92,70 +92,86 @@ const GamesCardFilterContainer = () => {
         className={style.gameCardFilterContainer_div}
         onSubmit={submitChangeHandler}
       >
-        <div className={style.gameCardFilter_div}>
-          <h5>Genres</h5>
-          <select
-            onChange={(event) => selectGenresChangeHandler(event)}
-            className={style.gameCardFilterGenre__select}
-          >
-            <option value='All'>All</option>
-            {filterCard.allGenres.map((element) => {
-              return (
-                <option key={element.id} value={element.name}>
-                  {element.name}
-                </option>
-              );
-            })}
-          </select>
+        <div className={style.gameCardFilter_div_all_flex_input}>
+          <div className={style.gamesCardFilterContainer_div_input}>
+            <input
+              className={style.gamesCardFilterContainer_input}
+              onChange={(event) => searchChangeHandler(event)}
+              type='text'
+              placeholder='Search...'
+            />
+          </div>
+          <div className={style.gamesCardFilterContainer_div_searchButton}>
+            <button
+              className={style.gamesCardFilterContainer_searchButton}
+              type='submit'
+            >
+              Filter
+            </button>
+            <button
+              className={style.gamesCardFilterContainer_searchButton}
+              onClick={clearFilterClickHandler}
+              type='submit'
+            >
+              Clear filter
+            </button>
+          </div>
         </div>
-        <div className={style.gameCardFilter_div}>
-          <h5>Platforms</h5>
-          <select
-            onChange={(event) => selectPlatformChangeHandler(event)}
-            className={style.gameCardFilterGenre__select}
-          >
-            <option value='All'>All</option>
-            {filterCard.allPlatforms.map((element) => {
-              return (
-                <option key={element.id} value={element.name}>
-                  {element.name}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        <div className={style.gameCardFilter_div}>
-          <h5>Alphabet</h5>
-          <select
-            onChange={(event) => selectAlphabetChangeHandler(event)}
-            className={style.gameCardFilterGenre__select}
-          >
-            <option value='None'>None</option>
-            <option value='A ~ Z'>A ~ Z</option>
-            <option value='Z ~ A'>Z ~ A</option>
-          </select>
-        </div>
-        <div className={style.gameCardFilter_div}>
-          <h5>Rating</h5>
-          <select
-            onChange={(event) => selectRatingChangeHandler(event)}
-            className={style.gameCardFilterGenre__select}
-          >
-            <option value='None'>None</option>
-            <option value='Ascending'>Ascending</option>
-            <option value='Descending'>Descending</option>
-          </select>
-        </div>
-        <div>
-          <input
-            onChange={(event) => searchChangeHandler(event)}
-            type='text'
-            placeholder='Search...'
-          />
-        </div>
-        <div>
-          <button type='submit'>Filter</button>
-          <button onClick={clearFilterClickHandler}>Clear filter</button>
+        <div className={style.gameCardFilter_div_all_flex}>
+          <div className={style.gameCardFilter_div}>
+            <h5>Genres</h5>
+            <select
+              onChange={(event) => selectGenresChangeHandler(event)}
+              className={style.gameCardFilterGenre__select}
+            >
+              <option value='All'>All</option>
+              {filterCard.allGenres.map((element) => {
+                return (
+                  <option key={element.id} value={element.name}>
+                    {element.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div className={style.gameCardFilter_div}>
+            <h5>Platforms</h5>
+            <select
+              onChange={(event) => selectPlatformChangeHandler(event)}
+              className={style.gameCardFilterGenre__select}
+            >
+              <option value='All'>All</option>
+              {filterCard.allPlatforms.map((element) => {
+                return (
+                  <option key={element.id} value={element.name}>
+                    {element.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div className={style.gameCardFilter_div}>
+            <h5>Alphabet</h5>
+            <select
+              onChange={(event) => selectAlphabetChangeHandler(event)}
+              className={style.gameCardFilterGenre__select}
+            >
+              <option value='None'>None</option>
+              <option value='A ~ Z'>A ~ Z</option>
+              <option value='Z ~ A'>Z ~ A</option>
+            </select>
+          </div>
+          <div className={style.gameCardFilter_div}>
+            <h5>Rating</h5>
+            <select
+              onChange={(event) => selectRatingChangeHandler(event)}
+              className={style.gameCardFilterGenre__select}
+            >
+              <option value='None'>None</option>
+              <option value='Ascending'>Ascending</option>
+              <option value='Descending'>Descending</option>
+            </select>
+          </div>
         </div>
       </form>
     </div>

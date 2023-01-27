@@ -25,6 +25,8 @@ const ItemDetail = () => {
     dispatch(initialPaginatingDetail());
   }, [dispatch]);
 
+  useEffect(() => {}, [params]);
+
   const decrementClickHandler = () => {
     if (infoDetail.paginatingDetailAccumulator > 0) {
       dispatch(decrementAccumulatorDetail());
