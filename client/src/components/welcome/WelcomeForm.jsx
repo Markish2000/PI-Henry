@@ -60,7 +60,7 @@ const WelcomeForm = () => {
   return (
     <form onSubmit={submitHandler} className={style.welcomeForm__form}>
       <h4 className={style.welcomeForm__h4}>
-        <b>Complete </b>
+        <b>complete </b>
         <b className={style.welcomeForm__h4__text}>to be able to </b>
         <b className={style.welcomeForm__h4__enter}>enter</b>
       </h4>
@@ -77,7 +77,7 @@ const WelcomeForm = () => {
           onChange={(event) => nameChangeHandler(event)}
         />
         {!form.name && (
-          <label className={style.welcomeForm__label}>Enter your name</label>
+          <label className={style.welcomeForm__label}>enter your name</label>
         )}
       </div>
       <div className={style.div_input}>
@@ -94,7 +94,7 @@ const WelcomeForm = () => {
         />
         {!form.lastName && (
           <label className={style.welcomeForm__label_lastName}>
-            Enter your last name
+            enter your last name
           </label>
         )}
       </div>
@@ -105,7 +105,7 @@ const WelcomeForm = () => {
           onChange={checkBoxChangeHandler}
         />
         <p className={style.welcomeForm__p}>
-          Are you sure you want to immerse yourself in the action?
+          are you sure you want to immerse yourself in the action?
         </p>
       </div>
       <button

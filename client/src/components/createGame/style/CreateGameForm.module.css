@@ -3,12 +3,23 @@
   color: #ffffff;
 }
 
+.createGameForm__div_h1{
+  font-size: 2em;
+  color: #6C07C7;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .createGameForm__div_input{
   display: flex;
   justify-content: space-evenly;
 }
 
 .createGameForm__div_input_input{
+  text-align: center;
+  box-shadow: 0 0 17px 0  #ffffff5f;
   color: #ffffff;
   background-color: #000000c4;
   border: transparent;
@@ -21,12 +32,93 @@
   color: #ffffff;
 }
 
+.createGameForm__input_date{
+  padding: 0 1em 0 1em;
+  color: #ffffff;
+  background-color: #000000c4;
+  box-shadow: 0 0 17px 0  #ffffff5f;
+  border: transparent;
+  border-radius: 0.3em;
+}
+
+.createGameForm__input_date::-webkit-calendar-picker-indicator{
+  margin-left: 1em;
+  background-color: #ffffff;
+}
+
 .createGameForm__div_genresAndPlatforms{
+  margin: 2em 1em 0 1em;
+  border-radius: 1em;
+  background-color: #000000;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
-.createGameForm__div_platforms_label{
-  font-size: 1.3em;
-  padding-right: 0.5em;
+.createGameForm__div_genres_h3{
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em 0 1em 0;
+}
+
+.createGameForm__div_genres{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.createGameForm__div_genres_map{
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2em 1em 0;
+}
+
+.createGameForm__div_genres_map_div_input{
+  margin-left: 0.5em;
+}
+
+.createGameForm_hr{
+  background-color: #2A2A2A;
+  border: transparent;
+  width: 100%;
+  height: 2em;
+}
+
+.createGameForm_div_buttonSubmit{
+  margin: 1em 1em 0 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.createGameForm_buttonSubmit{
+  text-transform: uppercase;
+  color: #ffffff;
+  border-color: #6C07C7;
+  background-color: #000000c4;
+  box-shadow: 0 0 17px 0  #ffffff5f;
+  padding: 0.5em;
+  font-size: 1.5em;
+  border-radius: 1em;
+}
+
+.createGameForm_buttonSubmit:hover{
+  background-color: #6C07C7;
+  transform: scale(1.1);
+  cursor: pointer;
+  padding: 0.5em;
+  font-size: 1.5em;
+  border-radius: 1em;
+}
+
+.createGameForm_gamesCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

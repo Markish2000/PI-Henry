@@ -56,7 +56,7 @@ const GamesContainer = () => {
               : style.gamesContainer__div_button_pd
           }
         >
-          -
+          ◀
         </button>
         <p className={style.gamesContainer_paginating_p}>
           {cardArray.paginatingAccumulator}
@@ -69,7 +69,7 @@ const GamesContainer = () => {
               : style.gamesContainer__div_button_pd
           }
         >
-          +
+          ▶
         </button>
       </div>
       <div className={style.gamesContainer__div_flex}>

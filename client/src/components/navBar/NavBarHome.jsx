@@ -35,78 +35,78 @@ const NavBarHome = () => {
       <NavLink to='/'>
         <div className={style.navbarhome__div_img_h3}>
           <img src={home} alt='Home' height='25rem' width='25rem' />
-          <h3 className={style.navbarhome__div__h3_prueba}>Home</h3>
+          <h3 className={style.navbarhome__div__h3_prueba}>home</h3>
         </div>
       </NavLink>
       <NavLink to='/games'>
         <div className={style.navbarhome__div_img_h3}>
           <img src={games} alt='Games' height='25rem' width='25rem' />
-          <h3 className={style.navbarhome__div__h3}>Games</h3>
+          <h3 className={style.navbarhome__div__h3}>games</h3>
         </div>
       </NavLink>
       <NavLink to='/createGame'>
         <div className={style.navbarhome__div_img_h3}>
           <img
             src={creategames}
-            alt='Create Game'
+            alt='create game'
             height='25rem'
             width='25rem'
           />
-          <h3 className={style.navbarhome__div__h3}>Create Game</h3>
+          <h3 className={style.navbarhome__div__h3}>create game</h3>
         </div>
       </NavLink>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={profile} alt='Profile' height='25rem' width='25rem' />
-        <h3 className={style.navbarhome__div__h3}>Profile</h3>
+        <img src={profile} alt='profile' height='25rem' width='25rem' />
+        <h3 className={style.navbarhome__div__h3}>profile</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={friends} alt='Friends' height='25rem' width='25rem' />
-        <h3 className={style.navbarhome__div__h3}>Friends</h3>
+        <img src={friends} alt='friends' height='25rem' width='25rem' />
+        <h3 className={style.navbarhome__div__h3}>friends</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={messages} alt='Messages' height='25rem' width='25rem' />
-        <h3 className={style.navbarhome__div__h3}>Messages</h3>
+        <img src={messages} alt='messages' height='25rem' width='25rem' />
+        <h3 className={style.navbarhome__div__h3}>messages</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
         <img
           src={developments}
-          alt='Developments'
+          alt='developments'
           height='25rem'
           width='25rem'
         />
-        <h3 className={style.navbarhome__div__h3}>Developments</h3>
+        <h3 className={style.navbarhome__div__h3}>developments</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={matches} alt='Matches' height='25rem' width='25rem' />
-        <h3 className={style.navbarhome__div__h3}>Matches</h3>
+        <img src={matches} alt='matches' height='25rem' width='25rem' />
+        <h3 className={style.navbarhome__div__h3}>matches</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={store} alt='Store' height='25rem' width='25rem' />
-        <h3 className={style.navbarhome__div__h3}>Store</h3>
+        <img src={store} alt='store' height='25rem' width='25rem' />
+        <h3 className={style.navbarhome__div__h3}>store</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={favorite} alt='Favorite' height='25rem' width='25rem' />
-        <h3 className={style.navbarhome__div__h3}>Favorite</h3>
+        <img src={favorite} alt='favorite' height='25rem' width='25rem' />
+        <h3 className={style.navbarhome__div__h3}>favorite</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={suggestions} alt='Suggestions' height='25rem' width='25rem' />
-        <h3 className={style.navbarhome__div__h3}>Suggestions</h3>
+        <img src={suggestions} alt='suggestions' height='25rem' width='25rem' />
+        <h3 className={style.navbarhome__div__h3}>suggestions</h3>
       </div>
       <NavBarSocialMedia />
       <div className={style.navbarhome__div_img_h3}>
-        <img src={help} alt='Help' height='25rem' width='25rem' />
-        <h3 className={style.navbarhome__div__h3}>Help</h3>
+        <img src={help} alt='help' height='25rem' width='25rem' />
+        <h3 className={style.navbarhome__div__h3}>help</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
-        <img src={conditions} alt='Conditions' height='25rem' width='25rem' />
-        <h3 className={style.navbarhome__div__h3}>Conditions</h3>
+        <img src={conditions} alt='conditions' height='25rem' width='25rem' />
+        <h3 className={style.navbarhome__div__h3}>conditions</h3>
       </div>
       <NavLink to='/'>
         <div
           className={style.navbarhome__div_img_h3}
           onClick={() => openModal()}
         >
-          <h3 className={style.navbarhome__div__h3}>Log out</h3>
+          <h3 className={style.navbarhome__div__h3}>log out</h3>
         </div>
       </NavLink>
     </div>

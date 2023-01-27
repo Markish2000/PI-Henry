@@ -98,7 +98,7 @@ const GamesCardFilterContainer = () => {
               className={style.gamesCardFilterContainer_input}
               onChange={(event) => searchChangeHandler(event)}
               type='text'
-              placeholder='Search...'
+              placeholder='search...'
             />
           </div>
           <div className={style.gamesCardFilterContainer_div_searchButton}>
@@ -106,14 +106,14 @@ const GamesCardFilterContainer = () => {
               className={style.gamesCardFilterContainer_searchButton}
               type='submit'
             >
-              Filter
+              filter
             </button>
             <button
               className={style.gamesCardFilterContainer_searchButton}
               onClick={clearFilterClickHandler}
               type='submit'
             >
-              Clear filter
+              clear filter
             </button>
           </div>
         </div>
@@ -124,7 +124,7 @@ const GamesCardFilterContainer = () => {
               onChange={(event) => selectGenresChangeHandler(event)}
               className={style.gameCardFilterGenre__select}
             >
-              <option value='All'>All</option>
+              <option value='All'>all</option>
               {filterCard.allGenres.map((element) => {
                 return (
                   <option key={element.id} value={element.name}>
@@ -135,12 +135,12 @@ const GamesCardFilterContainer = () => {
             </select>
           </div>
           <div className={style.gameCardFilter_div}>
-            <h5>Platforms</h5>
+            <h5>platforms</h5>
             <select
               onChange={(event) => selectPlatformChangeHandler(event)}
               className={style.gameCardFilterGenre__select}
             >
-              <option value='All'>All</option>
+              <option value='All'>all</option>
               {filterCard.allPlatforms.map((element) => {
                 return (
                   <option key={element.id} value={element.name}>
@@ -151,25 +151,25 @@ const GamesCardFilterContainer = () => {
             </select>
           </div>
           <div className={style.gameCardFilter_div}>
-            <h5>Alphabet</h5>
+            <h5>alphabet</h5>
             <select
               onChange={(event) => selectAlphabetChangeHandler(event)}
               className={style.gameCardFilterGenre__select}
             >
-              <option value='None'>None</option>
+              <option value='None'>none</option>
               <option value='A ~ Z'>A ~ Z</option>
               <option value='Z ~ A'>Z ~ A</option>
             </select>
           </div>
           <div className={style.gameCardFilter_div}>
-            <h5>Rating</h5>
+            <h5>rating</h5>
             <select
               onChange={(event) => selectRatingChangeHandler(event)}
               className={style.gameCardFilterGenre__select}
             >
-              <option value='None'>None</option>
-              <option value='Ascending'>Ascending</option>
-              <option value='Descending'>Descending</option>
+              <option value='None'>none</option>
+              <option value='Ascending'>ascending</option>
+              <option value='Descending'>descending</option>
             </select>
           </div>
         </div>

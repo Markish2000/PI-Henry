@@ -22,19 +22,19 @@ const HeaderContainer = () => {
       <div className={style.headerContainer__div__input}>
         <img
           src={search}
-          alt='Search'
+          alt='search'
           className={style.headerContainer__img_input}
         />
         <form onSubmit={(event) => submitHandler(event)}>
           <input
             onChange={(event) => inputChangeHandler(event)}
             type='search'
-            placeholder='Search...'
+            placeholder='search...'
             className={style.headerContainer__input}
           />
           <Link to='/search'>
             <button type='submit' className={style.headerContainer__button}>
-              Search
+              search
             </button>
           </Link>
         </form>

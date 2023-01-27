@@ -85,7 +85,7 @@ const ItemDetail = () => {
             </div>
             <div className={style.itemDetail__div_description}>
               <h3 className={style.itemDetail__div_description_h3}>
-                Description:
+                description:
               </h3>
               <p className={style.itemDetail__div_description_p}>
                 {element.description}
@@ -119,7 +119,7 @@ const ItemDetail = () => {
       ))}
       <div className={style.itemDetail__div_games}>
         <div className={style.itemDetail__div_games_div_button}>
-          <h3 className={style.itemDetail__div_games_h3}>Our games</h3>
+          <h3 className={style.itemDetail__div_games_h3}>our games</h3>
           <div>
             <button
               onClick={() => decrementClickHandler()}

@@ -6,7 +6,7 @@ const GamesCard = ({ id, name, image, genres, rating }) => {
     <div key={id} className={style.gamesCard__div}>
       <div className={style.gamesCard__div_h3_img}>
         <h3 className={style.gamesCard__div_h3_img_h3}>{rating}</h3>
-        <img src={imgRating} alt='Rating' width='20em' height='20em' />
+        <img src={imgRating} alt='rating' width='20em' height='20em' />
       </div>
       <div className={style.gamesCard__div_flexCenter}>
         <img
@@ -18,7 +18,7 @@ const GamesCard = ({ id, name, image, genres, rating }) => {
         />
         <h2>{name}</h2>
         <hr className={style.gamesCard__hr} />
-        <div>
+        <div className={style.gamesCard__h3_genres}>
           <h3>{genres}</h3>
         </div>
       </div>
