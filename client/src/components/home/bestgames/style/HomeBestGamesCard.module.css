@@ -4,6 +4,14 @@
   justify-content: center;
 }
 
+.homeBestGamesCard__div:hover{
+  border-radius: 1em;
+  padding-left: 1em;
+  color: #ffffff;
+  transform: scale(1.1);
+  background-color: #6C07C7;
+}
+
 .homeBestGamesCard__div_img{
   padding-top: 0.4em;
   display: flex;
