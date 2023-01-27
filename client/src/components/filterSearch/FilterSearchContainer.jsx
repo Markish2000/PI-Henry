@@ -2,14 +2,19 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import GamesCard from '../games/GamesCard';
+import style from './style/FilterSearchContainer.module.css';
 
 const FilterSearchContainer = () => {
   const result = useSelector((state) => state);
 
   return (
     <div>
-      <h2>{`You typed: ${result.searchResult}`}</h2>
-      <div>
+      <div className={style.filterSearchContainer__div_bgImage}>
+        <div className={style.filterSearchContainer__div_bgImage_flex}>
+          <h2>{`You typed: " ${result.filterBySearchValue} "`}</h2>
+        </div>
+      </div>
+      <div className={style.filterSearchContainer__div_cards}>
         {result.filterBySearch.map((game, index) => (
           <NavLink to={`/games/${game.id}`}>
             <div key={index}>

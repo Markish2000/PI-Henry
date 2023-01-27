@@ -15,17 +15,15 @@ import imgRating from '../games/assets/rating.png';
 const ItemDetail = () => {
   const infoDetail = useSelector((state) => state);
   const dispatch = useDispatch();
-  const params = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    dispatch(getDetail(params.id));
+    dispatch(getDetail(id));
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(initialPaginatingDetail());
   }, [dispatch]);
-
-  useEffect(() => {}, [params]);
 
   const decrementClickHandler = () => {
     if (infoDetail.paginatingDetailAccumulator > 0) {

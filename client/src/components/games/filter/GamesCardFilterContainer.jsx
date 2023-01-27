@@ -60,8 +60,7 @@ const GamesCardFilterContainer = () => {
     dispatch(paginatingDynamic());
   };
 
-  const submitChangeHandler = (event) => {
-    event.preventDefault();
+  const submitFilterChangeHandler = () => {
     if (filter.genres !== 'All') {
       dispatch(filterByGenre(filter.genres));
     } else {
@@ -87,93 +86,89 @@ const GamesCardFilterContainer = () => {
   };
 
   return (
-    <div>
-      <form
-        className={style.gameCardFilterContainer_div}
-        onSubmit={submitChangeHandler}
-      >
-        <div className={style.gameCardFilter_div_all_flex_input}>
-          <div className={style.gamesCardFilterContainer_div_input}>
-            <input
-              className={style.gamesCardFilterContainer_input}
-              onChange={(event) => searchChangeHandler(event)}
-              type='text'
-              placeholder='search...'
-            />
-          </div>
-          <div className={style.gamesCardFilterContainer_div_searchButton}>
-            <button
-              className={style.gamesCardFilterContainer_searchButton}
-              type='submit'
-            >
-              filter
-            </button>
-            <button
-              className={style.gamesCardFilterContainer_searchButton}
-              onClick={clearFilterClickHandler}
-              type='submit'
-            >
-              clear filter
-            </button>
-          </div>
+    <div className={style.gameCardFilterContainer_div}>
+      <div className={style.gameCardFilter_div_all_flex_input}>
+        <div className={style.gamesCardFilterContainer_div_input}>
+          <input
+            className={style.gamesCardFilterContainer_input}
+            onChange={(event) => searchChangeHandler(event)}
+            type='text'
+            placeholder='search...'
+          />
         </div>
-        <div className={style.gameCardFilter_div_all_flex}>
-          <div className={style.gameCardFilter_div}>
-            <h5>Genres</h5>
-            <select
-              onChange={(event) => selectGenresChangeHandler(event)}
-              className={style.gameCardFilterGenre__select}
-            >
-              <option value='All'>all</option>
-              {filterCard.allGenres.map((element) => {
-                return (
-                  <option key={element.id} value={element.name}>
-                    {element.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-          <div className={style.gameCardFilter_div}>
-            <h5>platforms</h5>
-            <select
-              onChange={(event) => selectPlatformChangeHandler(event)}
-              className={style.gameCardFilterGenre__select}
-            >
-              <option value='All'>all</option>
-              {filterCard.allPlatforms.map((element) => {
-                return (
-                  <option key={element.id} value={element.name}>
-                    {element.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-          <div className={style.gameCardFilter_div}>
-            <h5>alphabet</h5>
-            <select
-              onChange={(event) => selectAlphabetChangeHandler(event)}
-              className={style.gameCardFilterGenre__select}
-            >
-              <option value='None'>none</option>
-              <option value='A ~ Z'>A ~ Z</option>
-              <option value='Z ~ A'>Z ~ A</option>
-            </select>
-          </div>
-          <div className={style.gameCardFilter_div}>
-            <h5>rating</h5>
-            <select
-              onChange={(event) => selectRatingChangeHandler(event)}
-              className={style.gameCardFilterGenre__select}
-            >
-              <option value='None'>none</option>
-              <option value='Ascending'>ascending</option>
-              <option value='Descending'>descending</option>
-            </select>
-          </div>
+        <div className={style.gamesCardFilterContainer_div_searchButton}>
+          <button
+            className={style.gamesCardFilterContainer_searchButton}
+            type='submit'
+            onClick={submitFilterChangeHandler}
+          >
+            filter
+          </button>
+          <button
+            className={style.gamesCardFilterContainer_searchButton}
+            onClick={clearFilterClickHandler}
+            type='submit'
+          >
+            clear filter
+          </button>
         </div>
-      </form>
+      </div>
+      <div className={style.gameCardFilter_div_all_flex}>
+        <div className={style.gameCardFilter_div}>
+          <h5>Genres</h5>
+          <select
+            onChange={(event) => selectGenresChangeHandler(event)}
+            className={style.gameCardFilterGenre__select}
+          >
+            <option value='All'>all</option>
+            {filterCard.allGenres.map((element) => {
+              return (
+                <option key={element.id} value={element.name}>
+                  {element.name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <div className={style.gameCardFilter_div}>
+          <h5>platforms</h5>
+          <select
+            onChange={(event) => selectPlatformChangeHandler(event)}
+            className={style.gameCardFilterGenre__select}
+          >
+            <option value='All'>all</option>
+            {filterCard.allPlatforms.map((element) => {
+              return (
+                <option key={element.id} value={element.name}>
+                  {element.name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <div className={style.gameCardFilter_div}>
+          <h5>alphabet</h5>
+          <select
+            onChange={(event) => selectAlphabetChangeHandler(event)}
+            className={style.gameCardFilterGenre__select}
+          >
+            <option value='None'>none</option>
+            <option value='A ~ Z'>A ~ Z</option>
+            <option value='Z ~ A'>Z ~ A</option>
+          </select>
+        </div>
+        <div className={style.gameCardFilter_div}>
+          <h5>rating</h5>
+          <select
+            onChange={(event) => selectRatingChangeHandler(event)}
+            className={style.gameCardFilterGenre__select}
+          >
+            <option value='None'>none</option>
+            <option value='Ascending'>ascending</option>
+            <option value='Descending'>descending</option>
+          </select>
+        </div>
+      </div>
     </div>
   );
 };

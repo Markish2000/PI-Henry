@@ -6,6 +6,7 @@ export const SEND_INFO_LOGIN = 'SEND_INFO_LOGIN';
 export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
 export const FILTER_BY_PLATFORM = 'FILTER_BY_PLATFORM';
 export const FILTER_BY_SEARCH = 'FILTER_BY_SEARCH';
+export const FILTER_BY_SEARCH_VALUE = 'FILTER_BY_SEARCH_VALUE';
 export const GET_ALL_GENRES = 'GET_ALL_GENRES';
 export const GET_ALL_PLATFORMS = 'GET_ALL_PLATFORMS';
 export const INCREMENT_ACCUMULATOR = 'INCREMENT_ACCUMULATOR';
@@ -78,7 +79,14 @@ export const filterBySearch = (value) => {
     const response = await axios.get(
       `http://localhost:3001/games?name=${value}`
     );
-    dispatch({ type: 'GET_ALL_GAMES', payload: response.data });
+    dispatch({ type: 'FILTER_BY_SEARCH', payload: response.data });
+  };
+};
+
+export const filterBySearchValue = (valueInput) => {
+  return {
+    type: FILTER_BY_SEARCH_VALUE,
+    payload: valueInput,
   };
 };
 

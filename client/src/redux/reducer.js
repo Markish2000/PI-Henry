@@ -7,6 +7,7 @@ import {
   FILTER_BY_GENRE,
   FILTER_BY_PLATFORM,
   FILTER_BY_SEARCH,
+  FILTER_BY_SEARCH_VALUE,
   GET_ALL_GENRES,
   GET_ALL_PLATFORMS,
   INITIAL_PAGINATING,
@@ -30,6 +31,7 @@ let initialState = {
   allGames: [],
   paginatingAccumulator: 0,
   paginating: [],
+  auxPaginating: [],
   bestGames: [],
   paginatingDetailAccumulator: 0,
   paginatingDetail: [],
@@ -39,6 +41,7 @@ let initialState = {
   search: [],
   detail: [],
   filterBySearch: [],
+  filterBySearchValue: [],
   searchResult: '',
 };
 
@@ -48,7 +51,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allGames: action.payload,
-        filterBySearch: action.payload,
       };
 
     case BEST_GAMES:
@@ -80,7 +82,13 @@ function rootReducer(state = initialState, action) {
     case FILTER_BY_SEARCH:
       return {
         ...state,
-        searchResult: action.payload,
+        filterBySearch: action.payload,
+      };
+
+    case FILTER_BY_SEARCH_VALUE:
+      return {
+        ...state,
+        filterBySearchValue: action.payload,
       };
 
     case GET_ALL_GENRES:
@@ -101,12 +109,17 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         paginating: [...state.allGames].splice(0, 15),
+        auxPaginating: [...state.allGames].splice(0, 15),
       };
 
     case PAGINATING_DYNAMIC:
       return {
         ...state,
         paginating: [...state.allGames].splice(
+          state.paginatingAccumulator * 15,
+          15
+        ),
+        auxPaginating: [...state.allGames].splice(
           state.paginatingAccumulator * 15,
           15
         ),

@@ -2,7 +2,7 @@ import style from './style/HeaderContainer.module.css';
 import perfil from './assets/perfil.jpg';
 import search from './assets/search.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterBySearch } from '../../redux/actions';
+import { filterBySearch, filterBySearchValue } from '../../redux/actions';
 import { Link } from 'react-router-dom';
 
 const HeaderContainer = () => {
@@ -12,11 +12,13 @@ const HeaderContainer = () => {
   const inputChangeHandler = (event) => {
     const inputValue = event.target.value;
     dispatch(filterBySearch(inputValue));
+    dispatch(filterBySearchValue(inputValue));
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
   };
+
   return (
     <div className={style.headerContainer__div}>
       <div className={style.headerContainer__div__input}>
@@ -29,7 +31,7 @@ const HeaderContainer = () => {
         <form onSubmit={(event) => submitHandler(event)}>
           <input
             onChange={(event) => inputChangeHandler(event)}
-            type='search'
+            type='text'
             placeholder='search...'
             className={style.headerContainer__input}
           />
