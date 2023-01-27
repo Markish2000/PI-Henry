@@ -49,6 +49,7 @@ const ItemDetail = () => {
             <div className={style.itemDetail__div_img}>
               <div className={style.itemDetail__div_img_h3}>
                 <img
+                  loading='lazy'
                   className={style.itemDetail__div_img_border}
                   src={element.image}
                   alt={element.name}
@@ -72,7 +73,13 @@ const ItemDetail = () => {
                 <h3 className={style.itemDetail__div__rating_h3}>
                   {element.rating}
                 </h3>
-                <img src={imgRating} alt='star' height='25em' width='25em' />
+                <img
+                  loading='lazy'
+                  src={imgRating}
+                  alt='star'
+                  height='25em'
+                  width='25em'
+                />
               </div>
               <h1 className={style.itemDetail_h1}>{element.name}</h1>
               <div className={style.itemDetail__div_info_button_flex}>
@@ -94,6 +101,7 @@ const ItemDetail = () => {
           </div>
           <div className={style.itemDetail__div_description_imgExtra}>
             <img
+              loading='lazy'
               src={element.imageExtra}
               alt={element.name}
               width='90%'
@@ -101,6 +109,7 @@ const ItemDetail = () => {
               className={style.itemDetail__div_description_imgExtra_img}
             />
             <img
+              loading='lazy'
               src={element.image}
               alt={element.name}
               width='90%'
@@ -108,6 +117,7 @@ const ItemDetail = () => {
               className={style.itemDetail__div_description_imgExtra_img}
             />
             <img
+              loading='lazy'
               src={element.imageExtra}
               alt={element.name}
               width='90%'
@@ -143,6 +153,7 @@ const ItemDetail = () => {
                 className={style.itemDetail__div_games_flex_column}
               >
                 <img
+                  loading='lazy'
                   src={elementK.image}
                   alt={elementK.name}
                   width='200em'

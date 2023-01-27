@@ -5,6 +5,7 @@ const HomeBestGamesCard = ({ image, name, genres }) => {
     <div className={style.homeBestGamesCard__div}>
       <div className={style.homeBestGamesCard__div_img}>
         <img
+          loading='lazy'
           src={image}
           alt={name}
           className={style.homeBestGamesCard__div__img}

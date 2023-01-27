@@ -21,6 +21,7 @@ const HeaderContainer = () => {
     <div className={style.headerContainer__div}>
       <div className={style.headerContainer__div__input}>
         <img
+          loading='lazy'
           src={search}
           alt='search'
           className={style.headerContainer__img_input}
@@ -44,6 +45,7 @@ const HeaderContainer = () => {
           {modalInfo.infoLoginModal}
         </h5>
         <img
+          loading='lazy'
           src={perfil}
           className={style.headerContainer__div_img}
           alt={modalInfo.infoLoginModal}

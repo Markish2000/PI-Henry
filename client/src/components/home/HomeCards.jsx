@@ -6,6 +6,7 @@ const HomeCards = () => {
     <div className={style.homeCards__div}>
       <div className={style.homeCards__div_forza}></div>
       <img
+        loading='lazy'
         src={gtaPng}
         className={style.homeCards__div_gta_img}
         alt='Grand Theft Auto'
