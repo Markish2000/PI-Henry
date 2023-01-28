@@ -19,7 +19,7 @@ const ItemDetail = () => {
 
   useEffect(() => {
     dispatch(getDetail(id));
-  }, [dispatch]);
+  }, [id]);
 
   useEffect(() => {
     dispatch(initialPaginatingDetail());
