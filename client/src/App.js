@@ -41,7 +41,7 @@ function App() {
               path='/search'
               render={() => <FilterSearchContainer />}
             />
-            {/* <Route path='/*' render={() => <Error404 />} /> */}
+            {/* <Route exact path='/*' render={() => <Error404 />} /> */}
           </div>
         </div>
       )}

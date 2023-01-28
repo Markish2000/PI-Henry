@@ -9,7 +9,6 @@ import friends from './assets/friends.png';
 import messages from './assets/messages.png';
 import developments from './assets/developments.png';
 import matches from './assets/matches.png';
-import store from './assets/store.png';
 import favorite from './assets/favorite.png';
 import suggestions from './assets/suggestions.png';
 import help from './assets/help.png';
@@ -118,16 +117,6 @@ const NavBarHome = () => {
           width='25rem'
         />
         <h3 className={style.navbarhome__div__h3}>matches</h3>
-      </div>
-      <div className={style.navbarhome__div_img_h3}>
-        <img
-          loading='lazy'
-          src={store}
-          alt='store'
-          height='25rem'
-          width='25rem'
-        />
-        <h3 className={style.navbarhome__div__h3}>store</h3>
       </div>
       <div className={style.navbarhome__div_img_h3}>
         <img

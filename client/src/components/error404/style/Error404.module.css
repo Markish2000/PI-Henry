@@ -1,8 +1,27 @@
 .error404__div{
   color: #ffffff;
-  font-size: 2em;
+  height: 100vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.error404__div_text{
+  margin-right: 7em;
+}
+
+.error404__div_h1{
+  margin: 0 0 0.1em 0;
+  font-size: 11em;
+}
+
+.error404__div_h2{
+  margin: 0;
+  font-size: 2em;
+}
+
+.error404__div_h3{
+  font-size: 1.5;
+  width: 20em;
 }
