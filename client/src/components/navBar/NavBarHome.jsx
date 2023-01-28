@@ -14,6 +14,7 @@ import favorite from './assets/favorite.png';
 import suggestions from './assets/suggestions.png';
 import help from './assets/help.png';
 import conditions from './assets/conditions.png';
+import logOut from './assets/logout.png';
 import { NavLink, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeModal } from '../../redux/actions';
@@ -174,6 +175,13 @@ const NavBarHome = () => {
           className={style.navbarhome__div_img_h3}
           onClick={() => openModal()}
         >
+          <img
+            loading='lazy'
+            src={logOut}
+            alt='logOut'
+            height='25rem'
+            width='25rem'
+          />
           <h3 className={style.navbarhome__div__h3}>log out</h3>
         </div>
       </NavLink>
