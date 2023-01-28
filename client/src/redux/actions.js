@@ -26,8 +26,12 @@ export const DECREMENT_ACCUMULATOR_DETAIL = 'DECREMENT_ACCUMULATOR_DETAIL';
 
 export const getAllGames = () => {
   return async (dispatch) => {
-    const response = await axios.get('http://localhost:3001/games');
-    dispatch({ type: 'GET_ALL_GAMES', payload: response.data });
+    try {
+      const response = await axios.get('http://localhost:3001/games');
+      dispatch({ type: 'GET_ALL_GAMES', payload: response.data });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
@@ -46,10 +50,14 @@ export const changeModal = (payload) => {
 
 export const getDetail = (id) => {
   return async (dispatch) => {
-    const response = await axios.get(`http://localhost:3001/games/${id}`);
-    const array = [];
-    array.push(response.data);
-    dispatch({ type: 'GET_DETAIL', payload: array });
+    try {
+      const response = await axios.get(`http://localhost:3001/games/${id}`);
+      const array = [];
+      array.push(response.data);
+      dispatch({ type: 'GET_DETAIL', payload: array });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
@@ -187,12 +195,17 @@ export const filterPaginationBySearch = (value) => {
   };
 };
 
-export const createGameByPost = (newGame) => {
-  return async () => {
-    const createGamePost = await axios.post(
-      'http://localhost:3001/games',
-      newGame
-    );
-    return createGamePost;
+export const createGameByPost = async (newGame) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios({
+        url: 'http://localhost:3001/games',
+        method: 'POST',
+        data: newGame,
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   };
 };

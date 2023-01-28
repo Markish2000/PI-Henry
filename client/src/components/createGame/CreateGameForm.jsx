@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import GamesCard from '../games/GamesCard';
 import style from './style/CreateGameForm.module.css';
@@ -53,6 +54,7 @@ const CreateGameForm = () => {
   const platformsChangeHandler = (event) => {
     const platformCheck = event.target.checked;
     const platformValue = event.target.name;
+    console.log(createGame.platform);
     if (platformCheck) {
       setCreateGame({
         ...createGame,
@@ -88,10 +90,18 @@ const CreateGameForm = () => {
     setCreateGame({ ...createGame, released: dateValue });
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
-    console.log(createGame);
-    dispatch(createGameByPost(createGame));
+    try {
+      const response = await axios({
+        url: 'http://localhost:3001/games',
+        method: 'POST',
+        data: createGame,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   let toDay = new Date();

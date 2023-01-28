@@ -12,7 +12,6 @@ import HeaderContainer from './components/header/HeaderContainer';
 import Error404 from './components/error404/Error404';
 import SpinnerContainer from './components/spinner/SpinnerContainer';
 import { useState } from 'react';
-import Search from './components/searchRoute/Search';
 
 function App() {
   const modalBoolean = useSelector((state) => state);
@@ -41,8 +40,12 @@ function App() {
               path='/createGame'
               render={() => <CreateGameContainer />}
             />
-            <Route exact path='/search' render={() => <Search />} />
-            {/* <Route path='*' render={() => <Error404 />} /> */}
+            <Route
+              exact
+              path='/search/:name'
+              render={() => <FilterSearchContainer />}
+            />
+            <Route path='*' render={() => <Error404 />} />
           </div>
         </div>
       )}

@@ -5,10 +5,12 @@ import { useDispatch } from 'react-redux';
 import { getAllGames } from '../../redux/actions';
 import { useEffect } from 'react';
 
-const WelcomeContainer = () => {
+const WelcomeContainer = ({ setLoading }) => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllGames());
+  useEffect(async () => {
+    setLoading(true);
+    await dispatch(getAllGames());
+    setLoading(false);
   }, [dispatch]);
 
   return (

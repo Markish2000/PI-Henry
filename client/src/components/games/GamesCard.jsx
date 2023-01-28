@@ -43,7 +43,7 @@ const GamesCard = ({ id, name, image, genres, rating }) => {
         <h2>{name}</h2>
         <hr className={style.gamesCard__hr} />
         <div className={style.gamesCard__h3_genres}>
-          <h3>{genres}</h3>
+          {/* <h3>{genres}</h3> */}
         </div>
       </div>
     </div>

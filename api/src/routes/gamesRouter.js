@@ -1,15 +1,16 @@
 const { Router } = require('express');
 const {
-  getInfoApi,
   infoById,
   createGame,
+  allInfoGames,
+  getInfoDB,
 } = require('../controllers/gamesControllers');
 
 const gamesRouter = Router();
 
 gamesRouter.get('/', async (req, res) => {
   const { name } = req.query;
-  const allGames = await getInfoApi();
+  const allGames = await allInfoGames();
   try {
     if (name) {
       const games = allGames.filter((element) =>
@@ -26,6 +27,15 @@ gamesRouter.get('/', async (req, res) => {
   }
 });
 
+gamesRouter.get('/db', async (req, res) => {
+  const allGameDB = await getInfoDB();
+  try {
+    res.status(200).send(allGameDB);
+  } catch (error) {
+    res.status(400).send('Me rompí');
+  }
+});
+
 gamesRouter.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -38,20 +48,20 @@ gamesRouter.get('/:id', async (req, res) => {
 
 gamesRouter.post('/', async (req, res) => {
   try {
-    const { name, description, released, rating, genres, platform, image } =
-      req.body;
+    const { name, description, released, rating, genres, platform } = req.body;
     const newGame = await createGame(
       name,
       description,
       released,
-      image,
       rating,
       genres,
       platform
     );
     res.status(200).json(newGame);
+    console.log('Línea 51 Back-End,', newGame);
   } catch (error) {
     res.status(400).json({ error: error.message });
+    console.log('Línea 54 Back-End,', error);
   }
 });
 

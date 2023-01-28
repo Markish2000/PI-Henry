@@ -58,7 +58,7 @@ const WelcomeForm = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     history.push('/');
-    dispatch(changeModal(!modalBoolean.modal));
+    dispatch(changeModal(false));
     dispatch(sendInfoLogin(form.name, form.lastName));
   };
 

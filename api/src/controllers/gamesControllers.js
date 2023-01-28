@@ -25,7 +25,18 @@ const getInfoApi = async () => {
   return games;
 };
 
-const getInfoDB = async () => {};
+const getInfoDB = async () => {
+  const responseDB = await Videogame.findAll({
+    include: {
+      model: Genre,
+      attribute: ['name'],
+      through: {
+        attributes: [],
+      },
+    },
+  });
+  return responseDB;
+};
 
 const allInfoGames = async () => {
   const infoApi = await getInfoApi();
@@ -71,23 +82,36 @@ const createGame = async (
   released,
   rating,
   genres,
-  platform,
-  image
+  platforms
 ) => {
-  const newGame = await Videogame.create({
-    name,
-    description,
-    released,
-    rating,
-    genres,
-    platform,
-    image,
-  });
-  return newGame;
+  console.log('Controlador');
+  const findVideoGame = await Videogame.findAll({ where: { name: name } });
+  console.log(findVideoGame);
+  console.log(platforms);
+  if (findVideoGame.length !== 0) {
+    throw new Error(`El juego ${name} ya existe`);
+  } else {
+    const newGame = await Videogame.create({
+      name,
+      description,
+      released,
+      rating,
+      platforms,
+    });
+
+    let genreDb = await Genre.findAll({
+      where: { name: genres },
+    });
+
+    newGame.addGenre(genreDb);
+
+    return 'El Videogame fue creado con éxito';
+  }
 };
 
 module.exports = {
-  getInfoApi,
+  allInfoGames,
   infoById,
   createGame,
+  getInfoDB,
 };

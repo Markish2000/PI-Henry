@@ -20,6 +20,10 @@ const GamesContainer = () => {
     dispatch(initialPaginating());
   }, [dispatch]);
 
+  useEffect(() => {
+    console.log(cardArray);
+  }, [cardArray]);
+
   const decrementClickHandler = () => {
     if (cardArray.paginatingAccumulator > 0) {
       dispatch(decrementAccumulator());
@@ -81,7 +85,7 @@ const GamesContainer = () => {
                 key={game.id}
                 name={game.name}
                 image={game.image}
-                genres={game.genres}
+                // genres={game.genres}
                 rating={game.rating}
               />
             </div>
