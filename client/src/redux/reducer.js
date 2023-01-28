@@ -26,7 +26,7 @@ import {
 } from './actions';
 
 let initialState = {
-  modal: false,
+  modal: true,
   infoLoginModal: [],
   allGames: [],
   paginatingAccumulator: 0,

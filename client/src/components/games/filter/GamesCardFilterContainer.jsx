@@ -26,8 +26,6 @@ const GamesCardFilterContainer = () => {
 
   useEffect(() => {
     dispatch(getAllPlatforms());
-  }, [dispatch]);
-  useEffect(() => {
     dispatch(getAllGenres());
   }, [dispatch]);
 
@@ -58,18 +56,21 @@ const GamesCardFilterContainer = () => {
 
   const clearFilterClickHandler = () => {
     dispatch(paginatingDynamic());
+    setFilter({
+      genres: 'All',
+      platforms: 'All',
+      alphabet: 'None',
+      rating: 'None',
+    });
   };
 
   const submitFilterChangeHandler = () => {
+    dispatch(paginatingDynamic());
     if (filter.genres !== 'All') {
       dispatch(filterByGenre(filter.genres));
-    } else {
-      dispatch(paginatingDynamic());
     }
     if (filter.platforms !== 'All') {
       dispatch(filterByPlatforms(filter.platforms));
-    } else {
-      dispatch(paginatingDynamic());
     }
     if (filter.alphabet === 'A ~ Z') {
       dispatch(descendingAlphabet());
@@ -119,6 +120,7 @@ const GamesCardFilterContainer = () => {
           <select
             onChange={(event) => selectGenresChangeHandler(event)}
             className={style.gameCardFilterGenre__select}
+            value={filter.genres}
           >
             <option value='All'>all</option>
             {filterCard.allGenres.map((element) => {
@@ -135,6 +137,7 @@ const GamesCardFilterContainer = () => {
           <select
             onChange={(event) => selectPlatformChangeHandler(event)}
             className={style.gameCardFilterGenre__select}
+            value={filter.platforms}
           >
             <option value='All'>all</option>
             {filterCard.allPlatforms.map((element) => {
@@ -151,6 +154,7 @@ const GamesCardFilterContainer = () => {
           <select
             onChange={(event) => selectAlphabetChangeHandler(event)}
             className={style.gameCardFilterGenre__select}
+            value={filter.alphabet}
           >
             <option value='None'>none</option>
             <option value='A ~ Z'>A ~ Z</option>
@@ -162,6 +166,7 @@ const GamesCardFilterContainer = () => {
           <select
             onChange={(event) => selectRatingChangeHandler(event)}
             className={style.gameCardFilterGenre__select}
+            value={filter.rating}
           >
             <option value='None'>none</option>
             <option value='Ascending'>ascending</option>

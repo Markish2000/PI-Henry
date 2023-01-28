@@ -19,6 +19,7 @@ const ItemDetail = () => {
 
   useEffect(() => {
     dispatch(getDetail(id));
+    // eslint-disable-next-line
   }, [id]);
 
   useEffect(() => {

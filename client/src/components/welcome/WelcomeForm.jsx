@@ -20,10 +20,12 @@ const WelcomeForm = () => {
     checkBox: 'Invalid check',
   });
 
+  // TODO Cambiar por switch
   const nameChangeHandler = (event) => {
     const nameValue = event.target.value;
-    console.log(form.name);
-    if (form.name.length < 2) {
+    if (nameValue === '') {
+      setError({ ...error, name: '' });
+    } else if (nameValue.length < 3) {
       setError({ ...error, name: 'Invalid name' });
     } else {
       setError({ ...error, name: null });
@@ -31,9 +33,12 @@ const WelcomeForm = () => {
     setForm({ ...form, name: nameValue });
   };
 
+  // TODO Cambiar por switch
   const lastNameChangeHandler = (event) => {
     const lastNameValue = event.target.value;
-    if (form.lastName.length < 3) {
+    if (lastNameValue === '') {
+      setError({ ...error, lastName: '' });
+    } else if (lastNameValue.length < 4) {
       setError({ ...error, lastName: 'Invalid last name' });
     } else {
       setError({ ...error, lastName: null });
@@ -74,7 +79,7 @@ const WelcomeForm = () => {
               : style.welcomeForm__input_error
           }
           type='text'
-          onChange={(event) => nameChangeHandler(event)}
+          onChange={nameChangeHandler}
         />
         {!form.name && (
           <label className={style.welcomeForm__label}>enter your name</label>
