@@ -174,12 +174,18 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         paginating: [...state.paginating].sort((a, b) => b.rating - a.rating),
+        auxPaginating: [...state.paginating].sort(
+          (a, b) => b.rating - a.rating
+        ),
       };
 
     case FILTER_BY_GENRE:
       return {
         ...state,
         paginating: [...state.paginating].filter((element) =>
+          element.genres.includes(action.payload)
+        ),
+        auxPaginating: [...state.paginating].filter((element) =>
           element.genres.includes(action.payload)
         ),
       };
@@ -190,18 +196,27 @@ function rootReducer(state = initialState, action) {
         paginating: [...state.paginating].filter((element) =>
           element.platforms.includes(action.payload)
         ),
+        auxPaginating: [...state.paginating].filter((element) =>
+          element.platforms.includes(action.payload)
+        ),
       };
 
     case DESCENDING_RATING:
       return {
         ...state,
         paginating: [...state.paginating].sort((a, b) => a.rating - b.rating),
+        auxPaginating: [...state.paginating].sort(
+          (a, b) => a.rating - b.rating
+        ),
       };
 
     case ASCENDING_ALPHABET:
       return {
         ...state,
         paginating: [...state.paginating].sort((a, b) =>
+          b.name.localeCompare(a.name)
+        ),
+        auxPaginating: [...state.paginating].sort((a, b) =>
           b.name.localeCompare(a.name)
         ),
       };
@@ -212,12 +227,15 @@ function rootReducer(state = initialState, action) {
         paginating: [...state.paginating].sort((a, b) =>
           a.name.localeCompare(b.name)
         ),
+        auxPaginating: [...state.paginating].sort((a, b) =>
+          a.name.localeCompare(b.name)
+        ),
       };
 
     case FILTER_PAGINATION_BY_SEARCH:
       return {
         ...state,
-        paginating: [...state.paginating].filter((element) =>
+        paginating: [...state.auxPaginating].filter((element) =>
           element.name
             .toString()
             .toLowerCase()
