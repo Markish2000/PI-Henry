@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import style from './style/WelcomeForm.module.css';
 import { changeModal, sendInfoLogin } from '../../redux/actions';
 import { useHistory } from 'react-router-dom';
 
 const WelcomeForm = () => {
-  const modalBoolean = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -20,7 +19,6 @@ const WelcomeForm = () => {
     checkBox: 'Invalid check',
   });
 
-  // TODO Cambiar por switch
   const nameChangeHandler = (event) => {
     const nameValue = event.target.value;
     if (nameValue === '') {
@@ -33,7 +31,6 @@ const WelcomeForm = () => {
     setForm({ ...form, name: nameValue });
   };
 
-  // TODO Cambiar por switch
   const lastNameChangeHandler = (event) => {
     const lastNameValue = event.target.value;
     if (lastNameValue === '') {
@@ -70,6 +67,17 @@ const WelcomeForm = () => {
         <b className={style.welcomeForm__h4__enter}>enter</b>
       </h4>
       <div className={style.welcomeForm__div_input}>
+        {error.name === '' ? (
+          <p className={style.welcomeForm__p_clear}>
+            your name must have at least 3 letters
+          </p>
+        ) : error.name === 'Invalid name' ? (
+          <p className={style.welcomeForm__p_error}>{`You are missing ${
+            3 - form.name.length
+          } letters to make your name correct`}</p>
+        ) : (
+          <p className={style.welcomeForm__p_correct}>correct name</p>
+        )}
         <input
           className={
             error.name === ''
@@ -85,7 +93,18 @@ const WelcomeForm = () => {
           <label className={style.welcomeForm__label}>enter your name</label>
         )}
       </div>
-      <div className={style.div_input}>
+      <div className={style.welcomeForm__div_input}>
+        {error.lastName === '' ? (
+          <p className={style.welcomeForm__p_clear}>
+            your last name must have at least 4 letters
+          </p>
+        ) : error.lastName === 'Invalid last name' ? (
+          <p className={style.welcomeForm__p_error}>{`You are missing ${
+            4 - form.lastName.length
+          } letters to make your last name correct`}</p>
+        ) : (
+          <p className={style.welcomeForm__p_correct}>correct last name</p>
+        )}
         <input
           className={
             error.lastName === ''
@@ -98,17 +117,13 @@ const WelcomeForm = () => {
           onChange={lastNameChangeHandler}
         />
         {!form.lastName && (
-          <label className={style.welcomeForm__label_lastName}>
+          <label className={style.welcomeForm__label}>
             enter your last name
           </label>
         )}
       </div>
       <div className={style.welcomeForm__flex}>
-        <input
-          className={style.welcomeForm__input}
-          type='checkbox'
-          onChange={checkBoxChangeHandler}
-        />
+        <input type='checkbox' onChange={checkBoxChangeHandler} />
         <p className={style.welcomeForm__p}>
           are you sure you want to immerse yourself in the action?
         </p>

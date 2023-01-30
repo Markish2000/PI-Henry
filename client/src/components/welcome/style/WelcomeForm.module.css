@@ -23,11 +23,17 @@ color: #8151D2
 }
 
 .welcomeForm__div_input{
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
   padding-bottom: 1em;
 }
 
 .welcomeForm__input {
+  width: 17em;
   border: solid 1.5px #8151D2;
   border-radius: 1rem;
   background: none;
@@ -176,4 +182,18 @@ color: #8151D2
 .welcomeForm__button:disabled{
   background-color: #0a0a0a;
   cursor: default;
+}
+
+.welcomeForm__p_clear{
+  margin: 0 0 1em 0;
+}
+
+.welcomeForm__p_error{
+  margin: 0 0 1em 0;
+  color: #ff0000;
+}
+
+.welcomeForm__p_correct{
+  margin: 0 0 1em 0;
+  color:#22ff00;
 }
