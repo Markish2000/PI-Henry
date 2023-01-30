@@ -1,17 +1,9 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getAllGames } from '../../redux/actions';
 import HomeBestGamesContainer from './bestgames/HomeBestGamesContainer';
 import HomeCards from './HomeCards';
 import HomeVideo from './HomeVideo';
 import style from './style/HomeContainer.module.css';
 
 const HomeContainer = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllGames());
-  }, [dispatch]);
   return (
     <div>
       <HomeVideo />

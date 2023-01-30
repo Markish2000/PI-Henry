@@ -41,7 +41,11 @@ function App() {
               path='/createGame'
               render={() => <CreateGameContainer />}
             />
-            <Route exact path='/search' render={() => <Search />} />
+            <Route
+              exact
+              path='/search'
+              render={() => <FilterSearchContainer />}
+            />
             {/* <Route path='*' render={() => <Error404 />} /> */}
           </div>
         </div>

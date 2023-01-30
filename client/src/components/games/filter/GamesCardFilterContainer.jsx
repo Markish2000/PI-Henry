@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import style from './style/GameCardFilterContainer.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  getAllGenres,
-  getAllPlatforms,
   ascendingRating,
   descendingRating,
   ascendingAlphabet,
@@ -23,11 +21,6 @@ const GamesCardFilterContainer = () => {
     alphabet: 'None',
     rating: 'None',
   });
-
-  useEffect(() => {
-    dispatch(getAllPlatforms());
-    dispatch(getAllGenres());
-  }, [dispatch]);
 
   const selectGenresChangeHandler = (event) => {
     const genreValue = event.target.value;

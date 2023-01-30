@@ -1,24 +1,13 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import GamesCard from '../games/GamesCard';
 import style from './style/CreateGameForm.module.css';
-import {
-  getAllGenres,
-  getAllPlatforms,
-  createGameByPost,
-} from '../../redux/actions';
+import { createGameByPost } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 const CreateGameForm = () => {
   const infoGame = useSelector((state) => state);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllGenres());
-  }, [dispatch]);
-  useEffect(() => {
-    dispatch(getAllPlatforms());
-  }, [dispatch]);
 
   const [createGame, setCreateGame] = useState({
     name: '',

@@ -41,7 +41,7 @@ const getInfoDB = async () => {
 const allInfoGames = async () => {
   const infoApi = await getInfoApi();
   const infoDB = await getInfoDB();
-  const allInfo = infoApi.concat(infoDB);
+  const allInfo = infoDB.concat(infoApi);
   return allInfo;
 };
 
@@ -82,7 +82,8 @@ const createGame = async (
   released,
   rating,
   genres,
-  platforms
+  platforms,
+  image
 ) => {
   console.log('Controlador');
   const findVideoGame = await Videogame.findAll({ where: { name: name } });
@@ -97,6 +98,7 @@ const createGame = async (
       released,
       rating,
       platforms,
+      image,
     });
 
     let genreDb = await Genre.findAll({
