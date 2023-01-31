@@ -43,7 +43,7 @@ const getInfoDB = async () => {
       image: element.image,
       genres: element.genres.map((genre) => genre.name).join(', '),
       rating: element.rating,
-      platforms: element.platforms.map((platform) => platform).join(', '),
+      platform: element.platform.map((platform) => platform).join(', '),
     });
   });
   return newDBArray;
@@ -104,7 +104,6 @@ const createGame = async (
     platforms,
     image,
   });
-  console.log(genres);
   let genreDb = await Genre.findAll({ where: { name: genres } });
   newGame.addGenre(genreDb);
   return `The videogame "${name}" was successfully created.`;

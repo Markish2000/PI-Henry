@@ -32,7 +32,7 @@ module.exports = (sequelize) => {
         defaultValue: 0.25,
       },
 
-      platforms: {
+      platform: {
         type: DataTypes.ARRAY(DataTypes.STRING),
         defaultValue: ['action'],
         allowNull: false,

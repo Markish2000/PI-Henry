@@ -63,13 +63,13 @@ const ItemDetail = () => {
             </div>
             <div className={style.itemDetail__div_info}>
               <div className={style.itemDetail__div__rating}>
-                <div className={style.itemDetail__div_info_button_flex}>
-                  {element.genres.map((elementB, indexB) => (
+                {/* <div className={style.itemDetail__div_info_button_flex}>
+                  {element.genres?.map((elementB, indexB) => (
                     <div key={indexB}>
                       <ItemDetailButton genres={elementB} />
                     </div>
                   ))}
-                </div>
+                </div> */}
                 <h3 className={style.itemDetail__div__rating_h3}>
                   {element.rating}
                 </h3>
@@ -83,7 +83,7 @@ const ItemDetail = () => {
               </div>
               <h1 className={style.itemDetail_h1}>{element.name}</h1>
               <div className={style.itemDetail__div_info_button_flex}>
-                {element.platform.map((elementC, indexC) => (
+                {element.platform?.map((elementC, indexC) => (
                   <div className={style.prueba} key={indexC}>
                     <ItemDetailButton genres={elementC} />
                   </div>

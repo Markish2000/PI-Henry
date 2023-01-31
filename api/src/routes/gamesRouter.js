@@ -59,7 +59,7 @@ gamesRouter.post('/', async (req, res) => {
       platform,
       image
     );
-    res.status(200).json(req.body);
+    res.status(200).json(newGame);
     console.log('Línea 51 Back-End,', newGame);
   } catch (error) {
     res.status(400).json({ error: error.message });
