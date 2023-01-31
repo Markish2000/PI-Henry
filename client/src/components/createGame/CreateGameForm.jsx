@@ -149,7 +149,7 @@ const CreateGameForm = () => {
     }
     alert('videogame created');
     history.push('/');
-    history.go(0);
+    // history.go(0);
   };
 
   return (

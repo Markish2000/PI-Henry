@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const {
   infoById,
+  getInfoBySearch,
   createGame,
   allInfoGames,
   getInfoDB,
@@ -11,11 +12,10 @@ const gamesRouter = Router();
 gamesRouter.get('/', async (req, res) => {
   const { name } = req.query;
   const allGames = await allInfoGames();
+  const getSearch = await getInfoBySearch(name);
   try {
     if (name) {
-      const games = allGames.filter((element) =>
-        element.name.toLowerCase().includes(name.toLowerCase())
-      );
+      const games = getSearch.filter((element) => element.name.toLowerCase());
       return games.length
         ? res.status(200).json(games.splice(0, 15))
         : res.status(400).json(`No existe ${name} en nuestra base de datos`);
