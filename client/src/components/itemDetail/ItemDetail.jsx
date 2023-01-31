@@ -42,8 +42,9 @@ const ItemDetail = () => {
 
   return (
     <div>
-      {infoDetail.detail.map((element, index) => (
+      {infoDetail.detail?.map((element, index) => (
         <div key={index} className={style.itemDetail__div}>
+          {console.log(element)}
           <div className={style.itemDetail__div_div}>
             <div className={style.itemDetail__div_img}>
               <div className={style.itemDetail__div_img_h3}>

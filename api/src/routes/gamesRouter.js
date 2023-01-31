@@ -47,9 +47,9 @@ gamesRouter.get('/:id', async (req, res) => {
 });
 
 gamesRouter.post('/', async (req, res) => {
+  const { name, description, released, rating, genres, platform, image } =
+    req.body;
   try {
-    const { name, description, released, rating, genres, platform, image } =
-      req.body;
     const newGame = await createGame(
       name,
       description,
@@ -59,7 +59,7 @@ gamesRouter.post('/', async (req, res) => {
       platform,
       image
     );
-    res.status(200).json(newGame);
+    res.status(200).json(req.body);
     console.log('Línea 51 Back-End,', newGame);
   } catch (error) {
     res.status(400).json({ error: error.message });

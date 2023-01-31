@@ -92,9 +92,22 @@ const GamesCardFilterContainer = () => {
         </div>
         <div className={style.gamesCardFilterContainer_div_searchButton}>
           <button
-            className={style.gamesCardFilterContainer_searchButton}
+            className={
+              filter.genres === 'All' &&
+              filter.platforms === 'All' &&
+              filter.alphabet === 'None' &&
+              filter.rating === 'None'
+                ? style.gamesCardFilterContainer_searchButton_clear
+                : style.gamesCardFilterContainer_searchButton
+            }
             type='submit'
             onClick={submitFilterChangeHandler}
+            disabled={
+              filter.genres === 'All' &&
+              filter.platforms === 'All' &&
+              filter.alphabet === 'None' &&
+              filter.rating === 'None'
+            }
           >
             filter
           </button>

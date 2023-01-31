@@ -14,17 +14,15 @@ import suggestions from './assets/suggestions.png';
 import help from './assets/help.png';
 import conditions from './assets/conditions.png';
 import logOut from './assets/logout.png';
-import { NavLink, Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeModal } from '../../redux/actions';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 
-// !! Falta agregar rutas.
 const NavBarHome = () => {
-  const modalBoolean = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const history = useHistory();
 
   const openModal = () => {
-    dispatch(changeModal(!modalBoolean.modal));
+    localStorage.setItem('modals', true);
+    history.push('/');
+    history.go(0);
   };
 
   return (

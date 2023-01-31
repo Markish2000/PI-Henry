@@ -29,7 +29,7 @@ module.exports = (sequelize) => {
 
       rating: {
         type: DataTypes.FLOAT,
-        defaultValue: 0,
+        defaultValue: 0.25,
       },
 
       platforms: {

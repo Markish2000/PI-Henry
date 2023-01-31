@@ -35,7 +35,6 @@ let initialState = {
   bestGames: [],
   paginatingDetailAccumulator: 0,
   paginatingDetail: [],
-  allGenres: [],
   allPlatforms: [],
   favorite: [],
   search: [],

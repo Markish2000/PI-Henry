@@ -7,7 +7,7 @@ const WelcomeVideo = () => {
         src={videoHog}
         autoPlay
         loop
-        muted
+        muted={true}
         width='1108em'
         height='auto'
       ></video>

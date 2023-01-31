@@ -42,7 +42,7 @@ const GamesContainer = () => {
         height='100%'
         autoPlay
         loop
-        muted
+        muted={true}
       ></video>
       <div>
         <GamesCardFilterContainer />

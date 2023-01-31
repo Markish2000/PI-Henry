@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import style from './style/WelcomeForm.module.css';
 import { changeModal, sendInfoLogin } from '../../redux/actions';
 import { useHistory } from 'react-router-dom';
+import imgLogo from '../navBar/assets/logo.png';
 
 const WelcomeForm = () => {
   const dispatch = useDispatch();
@@ -54,14 +55,23 @@ const WelcomeForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    history.push('/');
-    dispatch(changeModal(false));
     dispatch(sendInfoLogin(form.name, form.lastName));
+    dispatch(changeModal(false));
+    localStorage.setItem('modals', JSON.stringify(false));
+    history.push('/');
   };
 
   return (
     <form onSubmit={submitHandler} className={style.welcomeForm__form}>
       <h4 className={style.welcomeForm__h4}>
+        <div className={style.welcomeForm_logo}>
+          <img
+            src={imgLogo}
+            alt='Markish'
+            className={style.welcomeForm_logoImg}
+          />
+          <h3>markish</h3>
+        </div>
         <b>complete </b>
         <b className={style.welcomeForm__h4__text}>to be able to </b>
         <b className={style.welcomeForm__h4__enter}>enter</b>

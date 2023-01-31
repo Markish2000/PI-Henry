@@ -1,5 +1,5 @@
 import style from './app.module.css';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import HomeContainer from './components/home/HomeContainer';
 import NavBarContainer from './components/navBar/NavBarContainer';
 import GamesContainer from './components/games/GamesContainer';
@@ -12,7 +12,6 @@ import HeaderContainer from './components/header/HeaderContainer';
 import Error404 from './components/error404/Error404';
 import SpinnerContainer from './components/spinner/SpinnerContainer';
 import { useState } from 'react';
-import Search from './components/searchRoute/Search';
 
 function App() {
   const modalBoolean = useSelector((state) => state);
@@ -30,23 +29,25 @@ function App() {
           </div>
           <div className={style.videoGamesContainer__homeContainer}>
             <HeaderContainer />
-            <Route exact path='/' render={() => <HomeContainer />} />
-            <Route exact path='/games' render={() => <GamesContainer />} />
-            <Route
-              path='/games/:id'
-              render={({ match }) => <ItemDetail id={match.params.id} />}
-            />
-            <Route
-              exact
-              path='/createGame'
-              render={() => <CreateGameContainer />}
-            />
-            <Route
-              exact
-              path='/search'
-              render={() => <FilterSearchContainer />}
-            />
-            {/* <Route path='*' render={() => <Error404 />} /> */}
+            <Switch>
+              <Route exact path='/' render={() => <HomeContainer />} />
+              <Route exact path='/games' render={() => <GamesContainer />} />
+              <Route
+                path='/games/:id'
+                render={({ match }) => <ItemDetail id={match.params.id} />}
+              />
+              <Route
+                exact
+                path='/createGame'
+                render={() => <CreateGameContainer />}
+              />
+              <Route
+                exact
+                path='/search'
+                render={() => <FilterSearchContainer />}
+              />
+              <Route exact path='*' render={() => <Error404 />} />
+            </Switch>
           </div>
         </div>
       )}

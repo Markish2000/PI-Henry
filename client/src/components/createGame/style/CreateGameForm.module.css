@@ -5,7 +5,6 @@
 
 .createGameForm__div_h1{
   font-size: 2em;
-  color: #6C07C7;
   margin-bottom: 1em;
   display: flex;
   justify-content: center;
@@ -112,6 +111,29 @@
   background-color: #6C07C7;
   transform: scale(1.1);
   cursor: pointer;
+  padding: 0.5em;
+  font-size: 1.5em;
+  border-radius: 1em;
+}
+
+.createGameForm_buttonSubmit__error{
+  text-transform: uppercase;
+  color: #ffffff;
+  border-color: #2A2A2A;
+  background-color: #000000c4;
+  box-shadow: 0 0 17px 0  #ffffff5f;
+  padding: 0.5em;
+  font-size: 1.5em;
+  border-radius: 1em;
+}
+
+.createGameForm_buttonSubmit__error:hover{
+  cursor: default;
+  text-transform: uppercase;
+  color: #ffffff;
+  border-color: #2A2A2A;
+  background-color: #000000c4;
+  box-shadow: 0 0 17px 0  #ffffff5f;
   padding: 0.5em;
   font-size: 1.5em;
   border-radius: 1em;
