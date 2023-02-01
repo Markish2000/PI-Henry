@@ -1,22 +1,29 @@
 import style from './style/HeaderContainer.module.css';
 import perfil from './assets/perfil.jpg';
 import search from './assets/search.png';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { filterBySearch, filterBySearchValue } from '../../redux/actions';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const HeaderContainer = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
-  const modalInfo = useSelector((state) => state);
-
+  const [inputSearch, setInputSearch] = useState({
+    search: '',
+  });
+  const infoUser = localStorage.getItem('users');
+  const infoUserChange = infoUser.replace(/"/g, '');
   const inputChangeHandler = (event) => {
     const inputValue = event.target.value;
-    dispatch(filterBySearch(inputValue));
-    dispatch(filterBySearchValue(inputValue));
+    setInputSearch({ ...inputSearch, search: inputValue });
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
+    dispatch(filterBySearch(inputSearch.search));
+    dispatch(filterBySearchValue(inputSearch.search));
+    history.push('/search');
   };
 
   return (
@@ -35,22 +42,18 @@ const HeaderContainer = () => {
             placeholder='search...'
             className={style.headerContainer__input}
           />
-          <Link to='/search'>
-            <button type='submit' className={style.headerContainer__button}>
-              search
-            </button>
-          </Link>
+          <button type='submit' className={style.headerContainer__button}>
+            search
+          </button>
         </form>
       </div>
       <div className={style.headerContainer__div_h5_img}>
-        <h5 className={style.headerContainer__div_h5}>
-          {modalInfo.infoLoginModal}
-        </h5>
+        <h5 className={style.headerContainer__div_h5}>{infoUserChange}</h5>
         <img
           loading='lazy'
           src={perfil}
           className={style.headerContainer__div_img}
-          alt={modalInfo.infoLoginModal}
+          alt={infoUserChange}
         />
       </div>
     </div>

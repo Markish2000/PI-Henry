@@ -3,7 +3,6 @@ import {
   BEST_GAMES,
   CHANGE_MODAL,
   GET_DETAIL,
-  SEND_INFO_LOGIN,
   FILTER_BY_GENRE,
   FILTER_BY_PLATFORM,
   FILTER_BY_SEARCH,
@@ -27,7 +26,6 @@ import {
 
 let initialState = {
   modal: true,
-  infoLoginModal: [],
   allGames: [],
   paginatingAccumulator: 0,
   paginating: [],
@@ -70,12 +68,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         detail: action.payload,
-      };
-
-    case SEND_INFO_LOGIN:
-      return {
-        ...state,
-        infoLoginModal: action.payload,
       };
 
     case FILTER_BY_SEARCH:

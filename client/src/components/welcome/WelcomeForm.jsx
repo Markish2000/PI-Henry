@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import style from './style/WelcomeForm.module.css';
-import { changeModal, sendInfoLogin } from '../../redux/actions';
+import { changeModal } from '../../redux/actions';
 import { useHistory } from 'react-router-dom';
 import imgLogo from '../navBar/assets/logo.png';
 
@@ -55,8 +55,11 @@ const WelcomeForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(sendInfoLogin(form.name, form.lastName));
     dispatch(changeModal(false));
+    localStorage.setItem(
+      'users',
+      JSON.stringify(`${form.name} ${form.lastName}`)
+    );
     localStorage.setItem('modals', JSON.stringify(false));
     history.push('/');
   };
