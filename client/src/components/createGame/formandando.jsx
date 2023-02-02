@@ -103,6 +103,7 @@ const CreateGameForm = () => {
         genres: createGame.genres.filter((element) => element !== genresValue),
       });
     }
+    console.log(createGame.genres);
   };
 
   const platformsChangeHandler = (event) => {
@@ -121,6 +122,7 @@ const CreateGameForm = () => {
         ),
       });
     }
+    console.log(createGame.platform);
   };
 
   const submitHandler = async (event) => {
@@ -134,18 +136,20 @@ const CreateGameForm = () => {
       genres: createGame.genres,
       platform: createGame.platform,
     };
+    console.log(createNewGame);
     try {
       const response = await axios({
         url: 'http://localhost:3001/games',
         method: 'POST',
         data: createNewGame,
       });
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
     alert('videogame created');
     history.push('/');
-    history.go(0);
+    // history.go(0);
   };
 
   return (
@@ -153,132 +157,100 @@ const CreateGameForm = () => {
       <div className={style.createGameForm__div_h1}>
         <h1>create Game</h1>
       </div>
-      <form
-        className={style.createGameForm__form}
-        onSubmit={(event) => submitHandler(event)}
-      >
-        <div className={style.createGameForm__form__input}>
-          <div className={style.createGameForm__div__flex}>
-            <div className={style.createGameForm__div__flex_label_input}>
-              <label>enter videogame's name</label>
-              <input
-                className={style.createGameForm__div_input_input}
-                type='text'
-                placeholder="enter videogame's name"
-                onChange={(event) => nameChangeHandler(event)}
-              />
-            </div>
-            <div>
-              {createGameError.name === 'Invalid name' ? (
-                <p
-                  className={style.createGameForm__div_input_p_error}
-                >{`you are missing ${
-                  4 - createGame.name.length
-                } letters to make your name's videogame correct`}</p>
-              ) : createGameError.name === null ? (
-                <p className={style.createGameForm__div_input_p_validate}>
-                  name's videogame correct
-                </p>
-              ) : (
-                ''
-              )}
-            </div>
-          </div>
-          <div className={style.createGameForm__div__flex}>
-            <div className={style.createGameForm__div__flex_label_input}>
-              <label>enter description's videogame</label>
-              <input
-                className={style.createGameForm__div_input_input}
-                type='text'
-                placeholder="enter description's videogame"
-                onChange={(event) => descriptionChangeHandler(event)}
-              />
-            </div>
-            <div>
-              {createGameError.description === 'Invalid description' ? (
-                <p
-                  className={style.createGameForm__div_input_p_error}
-                >{`you are missing ${
-                  4 - createGame.description.length
-                } letters to make your description's videogame correct`}</p>
-              ) : createGameError.description === null ? (
-                <p className={style.createGameForm__div_input_p_validate}>
-                  description's videogame correct
-                </p>
-              ) : (
-                ''
-              )}
-            </div>
-          </div>
-          <div className={style.createGameForm__div__flex}>
-            <div className={style.createGameForm__div__flex_label_input}>
-              <label>enter image's videogame</label>
-              <input
-                className={style.createGameForm__div_input_input}
-                type='text'
-                placeholder="enter image's videogame"
-                onChange={(event) => imageChangeHandler(event)}
-              />
-            </div>
-            <div>
-              <p>Hola</p>
-            </div>
-          </div>
-          <div className={style.createGameForm__div__flex}>
-            <div className={style.createGameForm__div__flex_label_input}>
-              <label>enter rating's videogame</label>
-              <input
-                className={style.createGameForm__div_input_input}
-                type='number'
-                placeholder="enter rating's videogame"
-                min='0.25'
-                max='5'
-                step='0.25'
-                onChange={(event) => ratingChangeHandler(event)}
-              />
-            </div>
-            <div>
-              <p>Hola</p>
-            </div>
-          </div>
-          <div className={style.createGameForm__div__flex}>
-            <div className={style.createGameForm__div__flex_label_input}>
-              <label>enter released's videogame</label>
-              <input
-                className={style.createGameForm__input_date}
-                onChange={(event) => dateChangeHandler(event)}
-                type='date'
-                max={getDateActually()}
-              />
-            </div>
-            <div>
-              <p>Hola</p>
-            </div>
-          </div>
+      <form onSubmit={(event) => submitHandler(event)}>
+        <div className={style.createGameForm__div_input}>
+          <input
+            className={style.createGameForm__div_input_input}
+            type='text'
+            placeholder="enter videogame's name"
+            onChange={(event) => nameChangeHandler(event)}
+          />
+          <input
+            className={style.createGameForm__div_input_input}
+            type='text'
+            placeholder="enter description's name"
+            onChange={(event) => descriptionChangeHandler(event)}
+          />
+          <input
+            className={style.createGameForm__div_input_input}
+            type='text'
+            placeholder="enter link's game"
+            onChange={(event) => imageChangeHandler(event)}
+          />
+          <input
+            className={style.createGameForm__div_input_input}
+            type='number'
+            placeholder="enter rating's game"
+            min='0.25'
+            max='5'
+            step='0.25'
+            onChange={(event) => ratingChangeHandler(event)}
+          />
+          <input
+            className={style.createGameForm__input_date}
+            onChange={(event) => dateChangeHandler(event)}
+            type='date'
+            max={getDateActually()}
+          />
         </div>
-        <div>
+        <div className={style.createGameForm__div_genresAndPlatforms}>
           <div>
             <div>
               <h3 className={style.createGameForm__div_genres_h3}>genres</h3>
             </div>
             <div className={style.createGameForm__div_genres}>
-              <select>
-                {infoGame.allGenres.map((element) => {
-                  return <option>{element.name}</option>;
-                })}
-              </select>
+              {infoGame.allGenres.map((element, index) => {
+                return (
+                  <div
+                    className={style.createGameForm__div_genres_map}
+                    key={index}
+                  >
+                    <div>
+                      <label>{element.name}</label>
+                    </div>
+                    <div
+                      className={style.createGameForm__div_genres_map_div_input}
+                    >
+                      <input
+                        onChange={(event) => genresChangeHandler(event)}
+                        type='checkbox'
+                        name={element.name}
+                        id={element.id}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
-          <div>
+          <hr className={style.createGameForm_hr} />
+          <div className={style.createGameForm__div_genresAndPlatforms}>
             <div>
               <h3 className={style.createGameForm__div_genres_h3}>platforms</h3>
             </div>
             <div className={style.createGameForm__div_genres}>
-              <select>
-                {infoGame.allPlatforms.map((element) => {
-                  return <option>{element.name}</option>;
-                })}
-              </select>
+              {infoGame.allPlatforms.map((element, index) => {
+                return (
+                  <div
+                    className={style.createGameForm__div_genres_map}
+                    key={index}
+                  >
+                    <div>
+                      <label>{element.name}</label>
+                    </div>
+                    <div
+                      className={style.createGameForm__div_genres_map_div_input}
+                    >
+                      <input
+                        onChange={(event) => platformsChangeHandler(event)}
+                        type='checkbox'
+                        name={element.name}
+                        id={element.id}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

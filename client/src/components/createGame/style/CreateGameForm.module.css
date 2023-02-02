@@ -1,22 +1,51 @@
 .createGameForm__div{
   padding-top: 1em;
   color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .createGameForm__div_h1{
   font-size: 2em;
   margin-bottom: 1em;
+}
+
+.createGameForm__form{
+  background-color: #000000;
+  border-radius: 1em;
+  width: 40em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.createGameForm__form__input{
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.createGameForm__div__flex{
+  margin-bottom: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.createGameForm__div_input{
+.createGameForm__div__flex_label_input{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .createGameForm__div_input_input{
+  margin: 1em 0 0 1em;
   text-align: center;
   box-shadow: 0 0 17px 0  #ffffff5f;
   color: #ffffff;
@@ -29,6 +58,14 @@
 
 .createGameForm__div_input_input::placeholder{
   color: #ffffff;
+}
+
+.createGameForm__div_input_p_error{
+  color: #ff0000;
+}
+
+.createGameForm__div_input_p_validate{
+  color: #00ff00;
 }
 
 .createGameForm__input_date{
