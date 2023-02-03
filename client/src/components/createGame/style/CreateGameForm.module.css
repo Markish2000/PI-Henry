@@ -12,14 +12,21 @@
   margin-bottom: 1em;
 }
 
+.createGameForm__form__prev{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .createGameForm__form{
   background-color: #000000;
   border-radius: 1em;
+  padding-bottom: 2em;
   width: 40em;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 .createGameForm__form__input{
@@ -39,7 +46,7 @@
 
 .createGameForm__div__flex_label_input{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
@@ -107,6 +114,17 @@
   flex-wrap: wrap;
 }
 
+.createGameForm__select{
+  color: #ffffff;
+  width: 45em;
+  height: 2em;
+  background-color: #121212;
+  font-size: 0.8em;
+  text-align: center;
+  border-radius: 1em;
+  border-color: #6C07C7
+}
+
 .createGameForm__div_genres_map{
   font-size: 1.2em;
   display: flex;
@@ -151,6 +169,12 @@
   padding: 0.5em;
   font-size: 1.5em;
   border-radius: 1em;
+}
+
+.createGameForm__div_input_p_wd{
+  display: flex;
+  margin-left: 2em;
+  width: 20em;
 }
 
 .createGameForm_buttonSubmit__error{
