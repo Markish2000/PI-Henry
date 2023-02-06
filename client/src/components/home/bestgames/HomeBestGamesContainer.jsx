@@ -16,15 +16,13 @@ const HomeBestGamesContainer = () => {
   return (
     <div className={style.homeBestGamesContainer__div}>
       <h3 className={style.homeBestGamesContainer__div__h3}>Best games</h3>
-      {games.bestGames.map((element, index) => (
-        <NavLink to={`/games/${element.id}`}>
-          <div key={index}>
-            <HomeBestGamesCard
-              name={element.name}
-              image={element.image}
-              genres={element.genres}
-            />
-          </div>
+      {games.bestGames.map((element) => (
+        <NavLink key={element.id} to={`/games/${element.id}`}>
+          <HomeBestGamesCard
+            name={element.name}
+            image={element.image}
+            genres={element.genres}
+          />
         </NavLink>
       ))}
     </div>

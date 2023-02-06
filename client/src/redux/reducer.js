@@ -17,6 +17,7 @@ import {
   DESCENDING_RATING,
   ASCENDING_ALPHABET,
   DESCENDING_ALPHABET,
+  CLEAR_BY_SEARCH,
   FILTER_PAGINATION_BY_SEARCH,
   INITIAL_PAGINATING_DETAIL,
   PAGINATING_DYNAMIC_DETAIL,
@@ -74,6 +75,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         filterBySearch: action.payload,
+      };
+
+    case CLEAR_BY_SEARCH:
+      return {
+        ...state,
+        filterBySearch: [],
       };
 
     case FILTER_BY_SEARCH_VALUE:

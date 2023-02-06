@@ -32,6 +32,9 @@ const CreateGameForm = () => {
 
   const nameChangeHandler = (event) => {
     const nameValue = event.target.value;
+    if (!nameValue.match(/^[a-zA-Z]+$/)) {
+      event.target.value = nameValue.substring(0, nameValue.length - 1);
+    }
     if (nameValue === '') {
       setCreateGameError({ ...createGameError, name: '' });
     } else if (nameValue.length < 4) {

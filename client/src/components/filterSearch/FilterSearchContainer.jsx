@@ -14,22 +14,26 @@ const FilterSearchContainer = () => {
           <h2>{`You typed: " ${result.filterBySearchValue} "`}</h2>
         </div>
       </div>
-      <div className={style.filterSearchContainer__div_cards}>
-        {result.filterBySearch.map((game, index) => (
-          <NavLink to={`/games/${game.id}`}>
-            <div key={index}>
-              <GamesCard
-                id={game.id}
-                key={game.id}
-                name={game.name}
-                image={game.image}
-                genres={game.genres}
-                rating={game.rating}
-              />
-            </div>
-          </NavLink>
-        ))}
-      </div>
+      {result.filterBySearch.length ? (
+        <div className={style.filterSearchContainer__div_cards}>
+          {result.filterBySearch.map((game, index) => (
+            <NavLink to={`/games/${game.id}`}>
+              <div key={index}>
+                <GamesCard
+                  id={game.id}
+                  key={game.id}
+                  name={game.name}
+                  image={game.image}
+                  genres={game.genres}
+                  rating={game.rating}
+                />
+              </div>
+            </NavLink>
+          ))}
+        </div>
+      ) : (
+        <h2>{`there is no " ${result.filterBySearchValue} ", in our database, try searching for another video game.`}</h2>
+      )}
     </div>
   );
 };

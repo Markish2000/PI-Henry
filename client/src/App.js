@@ -23,31 +23,33 @@ function App() {
       ) : loading ? (
         <SpinnerContainer />
       ) : (
-        <div className={style.videoGamesContainer__div}>
-          <div className={style.videoGamesContainer__navBarContainer}>
-            <NavBarContainer />
-          </div>
-          <div className={style.videoGamesContainer__homeContainer}>
-            <HeaderContainer />
-            <Switch>
-              <Route exact path='/' render={() => <HomeContainer />} />
-              <Route exact path='/games' render={() => <GamesContainer />} />
-              <Route
-                path='/games/:id'
-                render={({ match }) => <ItemDetail id={match.params.id} />}
-              />
-              <Route
-                exact
-                path='/createGame'
-                render={() => <CreateGameContainer />}
-              />
-              <Route
-                exact
-                path='/search'
-                render={() => <FilterSearchContainer />}
-              />
-              <Route exact path='*' render={() => <Error404 />} />
-            </Switch>
+        <div>
+          <div className={style.videoGamesContainer__div}>
+            <div className={style.videoGamesContainer__navBarContainer}>
+              <NavBarContainer />
+            </div>
+            <div className={style.videoGamesContainer__homeContainer}>
+              <HeaderContainer setLoading={setLoading} />
+              <Switch>
+                <Route exact path='/' render={() => <HomeContainer />} />
+                <Route exact path='/games' render={() => <GamesContainer />} />
+                <Route
+                  path='/games/:id'
+                  render={({ match }) => <ItemDetail id={match.params.id} />}
+                />
+                <Route
+                  exact
+                  path='/createGame'
+                  render={() => <CreateGameContainer />}
+                />
+                <Route
+                  exact
+                  path='/search'
+                  render={() => <FilterSearchContainer />}
+                />
+                <Route exact path='*' render={() => <Error404 />} />
+              </Switch>
+            </div>
           </div>
         </div>
       )}

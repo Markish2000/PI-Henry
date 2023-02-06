@@ -20,14 +20,14 @@ const GamesContainer = () => {
     dispatch(initialPaginating());
   }, [dispatch]);
 
-  const decrementClickHandler = () => {
+  const handleDecrement = () => {
     if (cardArray.paginatingAccumulator > 0) {
       dispatch(decrementAccumulator());
       dispatch(paginatingDynamic());
     }
   };
 
-  const incrementClickHandler = () => {
+  const handleIncrement = () => {
     if (cardArray.paginatingAccumulator < 6) {
       dispatch(incrementAccumulator());
       dispatch(paginatingDynamic());
@@ -44,12 +44,10 @@ const GamesContainer = () => {
         loop
         muted={true}
       ></video>
-      <div>
-        <GamesCardFilterContainer />
-      </div>
+      <GamesCardFilterContainer />
       <div className={style.gamesContainer__div_button}>
         <button
-          onClick={() => decrementClickHandler()}
+          onClick={() => handleDecrement()}
           className={
             cardArray.paginatingAccumulator === 0
               ? style.gamesContainer__div_button_pd_stop
@@ -62,7 +60,7 @@ const GamesContainer = () => {
           {cardArray.paginatingAccumulator}
         </p>
         <button
-          onClick={() => incrementClickHandler()}
+          onClick={() => handleIncrement()}
           className={
             cardArray.paginatingAccumulator === 6
               ? style.gamesContainer__div_button_pd_stop
@@ -73,12 +71,10 @@ const GamesContainer = () => {
         </button>
       </div>
       <div className={style.gamesContainer__div_flex}>
-        {cardArray.paginating.map((game, index) => (
-          <NavLink to={`/games/${game.id}`}>
-            <div className={style.gamesContainer__div_map} key={index}>
+        {cardArray.paginating.map((game) => (
+          <NavLink key={game.id} to={`/games/${game.id}`}>
+            <div className={style.gamesContainer__div_map}>
               <GamesCard
-                id={game.id}
-                key={game.id}
                 name={game.name}
                 image={game.image}
                 genres={game.genres}

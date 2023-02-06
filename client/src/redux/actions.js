@@ -5,6 +5,7 @@ export const GET_DETAIL = 'GET_DETAIL';
 export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
 export const FILTER_BY_PLATFORM = 'FILTER_BY_PLATFORM';
 export const FILTER_BY_SEARCH = 'FILTER_BY_SEARCH';
+export const CLEAR_BY_SEARCH = 'CLEAR_BY_SEARCH';
 export const FILTER_BY_SEARCH_VALUE = 'FILTER_BY_SEARCH_VALUE';
 export const GET_ALL_GENRES = 'GET_ALL_GENRES';
 export const GET_ALL_PLATFORMS = 'GET_ALL_PLATFORMS';
@@ -76,10 +77,20 @@ export const filterByPlatforms = (platform) => {
 
 export const filterBySearch = (value) => {
   return async (dispatch) => {
-    const response = await axios.get(
-      `http://localhost:3001/games?name=${value}`
-    );
-    dispatch({ type: 'FILTER_BY_SEARCH', payload: response.data });
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/games?name=${value}`
+      );
+      dispatch({ type: 'FILTER_BY_SEARCH', payload: response.data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const clearBySearch = () => {
+  return {
+    type: CLEAR_BY_SEARCH,
   };
 };
 
@@ -92,15 +103,23 @@ export const filterBySearchValue = (valueInput) => {
 
 export const getAllGenres = () => {
   return async (dispatch) => {
-    const response = await axios.get('http://localhost:3001/genres');
-    dispatch({ type: 'GET_ALL_GENRES', payload: response.data });
+    try {
+      const response = await axios.get('http://localhost:3001/genres');
+      dispatch({ type: 'GET_ALL_GENRES', payload: response.data });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
 export const getAllPlatforms = () => {
   return async (dispatch) => {
-    const response = await axios.get('http://localhost:3001/platforms');
-    dispatch({ type: 'GET_ALL_PLATFORMS', payload: response.data });
+    try {
+      const response = await axios.get('http://localhost:3001/platforms');
+      dispatch({ type: 'GET_ALL_PLATFORMS', payload: response.data });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
@@ -128,8 +147,6 @@ export const decrementAccumulator = () => {
   };
 };
 
-// !!
-
 export const initialPaginatingDetail = () => {
   return {
     type: INITIAL_PAGINATING_DETAIL,
@@ -153,8 +170,6 @@ export const decrementAccumulatorDetail = () => {
     type: DECREMENT_ACCUMULATOR_DETAIL,
   };
 };
-
-// !!
 
 export const ascendingRating = () => {
   return {

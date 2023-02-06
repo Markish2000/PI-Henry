@@ -1,40 +1,85 @@
-.homeBestGamesCard__div{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media only screen and (min-width: 0px) and (max-width: 420px) {
+  .homeBestGamesCard__div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .homeBestGamesCard__div:hover{
+    border-radius: 1em;
+    padding-left: 1em;
+    color: #ffffff;
+    transform: scale(1.1);
+    background-color: #6C07C7;
+  }
+
+  .homeBestGamesCard__div_img{
+    padding-top: 1em;
+    display: flex;
+    align-items: center;
+    width: 22em;
+  }
+
+  .homeBestGamesCard__div__img{
+    border-radius: 0.5em;
+  }
+
+  .homeBestGamesCard__div__h6__p{
+    margin-left: 1em;
+  }
+
+  .homeBestGamesCard__div__h6{
+    color: #ffffff;
+    font-size: 1.1em;
+    margin: 0;
+    padding-top: 1em;
+  }
+
+  .homeBestGamesCard__div__p{
+    color: #6F747A;
+    font-size: 1em;
+  }
 }
 
-.homeBestGamesCard__div:hover{
-  border-radius: 1em;
-  padding-left: 1em;
-  color: #ffffff;
-  transform: scale(1.1);
-  background-color: #6C07C7;
-}
+@media only screen and (min-width: 769px) {
+  .homeBestGamesCard__div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.homeBestGamesCard__div_img{
-  padding-top: 0.4em;
-  display: flex;
-  align-items: center;
-  width: 17em;
-}
+  .homeBestGamesCard__div:hover{
+    border-radius: 1em;
+    padding-left: 1em;
+    color: #ffffff;
+    transform: scale(1.1);
+    background-color: #6C07C7;
+  }
 
-.homeBestGamesCard__div__img{
-  border-radius: 0.5em;
-}
+  .homeBestGamesCard__div_img{
+    padding-top: 0.4em;
+    display: flex;
+    align-items: center;
+    width: 17em;
+  }
 
-.homeBestGamesCard__div__h6__p{
-  margin-left: 1em;
-}
+  .homeBestGamesCard__div__img{
+    border-radius: 0.5em;
+  }
 
-.homeBestGamesCard__div__h6{
-  color: #ffffff;
-  font-size: 1.1em;
-  margin: 0;
-  padding-top: 1em;
-}
+  .homeBestGamesCard__div__h6__p{
+    margin-left: 1em;
+  }
 
-.homeBestGamesCard__div__p{
-  color: #6F747A;
-  font-size: 1em;
+  .homeBestGamesCard__div__h6{
+    color: #ffffff;
+    font-size: 1.1em;
+    margin: 0;
+    padding-top: 1em;
+  }
+
+  .homeBestGamesCard__div__p{
+    color: #6F747A;
+    font-size: 1em;
+  }
 }

@@ -4,11 +4,11 @@ import imgRating from './assets/rating.png';
 import notFavoriteImg from './assets/notFavorite.png';
 import favoriteImg from './assets/favorite.png';
 
-const GamesCard = ({ id, name, image, genres, rating }) => {
+const GamesCard = ({ name, image, genres, rating }) => {
   const imageClickHandler = () => {};
 
   return (
-    <div key={id} className={style.gamesCard__div}>
+    <div className={style.gamesCard__div}>
       <div className={style.gamesCard__div_h3_img}>
         <div>
           <img

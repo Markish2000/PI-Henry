@@ -1,28 +1,54 @@
-.homeCards__div_forza{
-  width: 70em;
-  height: 40em;
-  background-image: url('../assets/forza.jpg');
-  background-size: cover;
-  border-radius: 0.5em;
-  position: relative;
-  filter: opacity(0.6); 
+@media only screen and (min-width: 0px) and (max-width: 420px) {
+  .homeCards__div_forza{
+    width: 100%;
+    height: 14em;
+    background-image: url('../assets/forza.jpg');
+    background-size: cover;
+    position: relative;
+    filter: opacity(0.6); 
+  }
+
+  .homeCards__div_gta{
+    margin-top: 1em;
+    width: 100%;
+    height: 14em;
+    background-image: url('../assets/gtav.jpg');
+    background-size: cover;
+    position: relative;
+    filter: opacity(0.6); 
+  }
+
+  .homeCards__div_gta_img{
+    display: none;
+  }
 }
 
-.homeCards__div_gta{
-  margin-top: 4em;
-  width: 70em;
-  height: 40em;
-  background-image: url('../assets/gtav.jpg');
-  background-size: cover;
-  border-radius: 0.5em;
-  position: relative;
-  filter: opacity(0.6); 
-}
+@media only screen and (min-width: 769px) {
+  .homeCards__div_forza{
+    width: 70em;
+    height: 40em;
+    background-image: url('../assets/forza.jpg');
+    background-size: cover;
+    border-radius: 0.5em;
+    position: relative;
+    filter: opacity(0.6); 
+  }
 
-.homeCards__div_gta_img{
-  position: absolute;
-  z-index: 1;
-  margin: 1em 0 0 2em;
-  height: 13em;
-}
+  .homeCards__div_gta{
+    margin-top: 4em;
+    width: 70em;
+    height: 40em;
+    background-image: url('../assets/gtav.jpg');
+    background-size: cover;
+    border-radius: 0.5em;
+    position: relative;
+    filter: opacity(0.6); 
+  }
 
+  .homeCards__div_gta_img{
+    position: absolute;
+    z-index: 1;
+    margin: 1em 0 0 2em;
+    height: 13em;
+  }
+}

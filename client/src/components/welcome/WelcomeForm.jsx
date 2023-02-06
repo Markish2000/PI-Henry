@@ -22,6 +22,9 @@ const WelcomeForm = () => {
 
   const nameChangeHandler = (event) => {
     const nameValue = event.target.value;
+    if (!nameValue.match(/^[a-zA-Z]+$/)) {
+      event.target.value = nameValue.substring(0, nameValue.length - 1);
+    }
     if (nameValue === '') {
       setError({ ...error, name: '' });
     } else if (nameValue.length < 3) {
@@ -34,6 +37,9 @@ const WelcomeForm = () => {
 
   const lastNameChangeHandler = (event) => {
     const lastNameValue = event.target.value;
+    if (!lastNameValue.match(/^[a-zA-Z]+$/)) {
+      event.target.value = lastNameValue.substring(0, lastNameValue.length - 1);
+    }
     if (lastNameValue === '') {
       setError({ ...error, lastName: '' });
     } else if (lastNameValue.length < 4) {
@@ -58,7 +64,7 @@ const WelcomeForm = () => {
     dispatch(changeModal(false));
     localStorage.setItem(
       'users',
-      JSON.stringify(`${form.name} ${form.lastName}`)
+      JSON.stringify(`${form.name} ${form.lastName}`).replace(/"/g, '')
     );
     localStorage.setItem('modals', JSON.stringify(false));
     history.push('/');

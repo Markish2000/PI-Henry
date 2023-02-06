@@ -2,27 +2,34 @@ import style from './style/HeaderContainer.module.css';
 import perfil from './assets/perfil.jpg';
 import search from './assets/search.png';
 import { useDispatch } from 'react-redux';
-import { filterBySearch, filterBySearchValue } from '../../redux/actions';
+import {
+  clearBySearch,
+  filterBySearch,
+  filterBySearchValue,
+} from '../../redux/actions';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-const HeaderContainer = () => {
+const HeaderContainer = ({ setLoading }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [inputSearch, setInputSearch] = useState({
     search: '',
   });
   const infoUser = localStorage.getItem('users');
-  const infoUserChange = infoUser.replace(/"/g, '');
+  const infoUserChange = infoUser;
   const inputChangeHandler = (event) => {
     const inputValue = event.target.value;
     setInputSearch({ ...inputSearch, search: inputValue });
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
-    dispatch(filterBySearch(inputSearch.search));
-    dispatch(filterBySearchValue(inputSearch.search));
+    setLoading(true);
+    await dispatch(clearBySearch());
+    await dispatch(filterBySearch(inputSearch.search));
+    await dispatch(filterBySearchValue(inputSearch.search));
+    setLoading(false);
     history.push('/search');
   };
 
