@@ -44,7 +44,6 @@ const ItemDetail = () => {
     <div>
       {infoDetail.detail?.map((element, index) => (
         <div key={index} className={style.itemDetail__div}>
-          {console.log(element)}
           <div className={style.itemDetail__div_div}>
             <div className={style.itemDetail__div_img}>
               <div className={style.itemDetail__div_img_h3}>
@@ -146,12 +145,9 @@ const ItemDetail = () => {
           </div>
         </div>
         <div className={style.itemDetail__div_games_flex}>
-          {infoDetail.paginatingDetail.map((elementK, index) => (
-            <NavLink to={`/games/${elementK.id}`}>
-              <div
-                key={index}
-                className={style.itemDetail__div_games_flex_column}
-              >
+          {infoDetail.paginatingDetail.map((elementK) => (
+            <NavLink key={elementK.id} to={`/games/${elementK.id}`}>
+              <div className={style.itemDetail__div_games_flex_column}>
                 <img
                   loading='lazy'
                   src={elementK.image}
