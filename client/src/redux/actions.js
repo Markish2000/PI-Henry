@@ -26,12 +26,8 @@ export const DECREMENT_ACCUMULATOR_DETAIL = 'DECREMENT_ACCUMULATOR_DETAIL';
 
 export const getAllGames = () => {
   return async (dispatch) => {
-    try {
-      const response = await axios.get('http://localhost:3001/games');
-      dispatch({ type: 'GET_ALL_GAMES', payload: response.data });
-    } catch (error) {
-      console.log(error);
-    }
+    const response = await axios.get('http://localhost:3001/games');
+    dispatch({ type: 'GET_ALL_GAMES', payload: response.data });
   };
 };
 
@@ -50,14 +46,10 @@ export const changeModal = (payload) => {
 
 export const getDetail = (id) => {
   return async (dispatch) => {
-    try {
-      const response = await axios.get(`http://localhost:3001/games/${id}`);
-      const array = [];
-      array.push(response.data);
-      dispatch({ type: 'GET_DETAIL', payload: array });
-    } catch (error) {
-      console.log(error);
-    }
+    const response = await axios.get(`http://localhost:3001/games/${id}`);
+    const array = [];
+    array.push(response.data);
+    dispatch({ type: 'GET_DETAIL', payload: array });
   };
 };
 
@@ -77,14 +69,10 @@ export const filterByPlatforms = (platform) => {
 
 export const filterBySearch = (value) => {
   return async (dispatch) => {
-    try {
-      const response = await axios.get(
-        `http://localhost:3001/games?name=${value}`
-      );
-      dispatch({ type: 'FILTER_BY_SEARCH', payload: response.data });
-    } catch (error) {
-      console.log(error);
-    }
+    const response = await axios.get(
+      `http://localhost:3001/games?name=${value}`
+    );
+    dispatch({ type: 'FILTER_BY_SEARCH', payload: response.data });
   };
 };
 
@@ -103,23 +91,15 @@ export const filterBySearchValue = (valueInput) => {
 
 export const getAllGenres = () => {
   return async (dispatch) => {
-    try {
-      const response = await axios.get('http://localhost:3001/genres');
-      dispatch({ type: 'GET_ALL_GENRES', payload: response.data });
-    } catch (error) {
-      console.log(error);
-    }
+    const response = await axios.get('http://localhost:3001/genres');
+    dispatch({ type: 'GET_ALL_GENRES', payload: response.data });
   };
 };
 
 export const getAllPlatforms = () => {
   return async (dispatch) => {
-    try {
-      const response = await axios.get('http://localhost:3001/platforms');
-      dispatch({ type: 'GET_ALL_PLATFORMS', payload: response.data });
-    } catch (error) {
-      console.log(error);
-    }
+    const response = await axios.get('http://localhost:3001/platforms');
+    dispatch({ type: 'GET_ALL_PLATFORMS', payload: response.data });
   };
 };
 
@@ -204,15 +184,11 @@ export const filterPaginationBySearch = (value) => {
 
 export const createGameByPost = async (newGame) => {
   return async (dispatch) => {
-    try {
-      const response = await axios({
-        url: 'http://localhost:3001/games',
-        method: 'POST',
-        data: newGame,
-      });
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
+    const response = await axios({
+      url: 'http://localhost:3001/games',
+      method: 'POST',
+      data: newGame,
+    });
+    return response;
   };
 };

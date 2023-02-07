@@ -26,21 +26,22 @@ const getInfoApi = async () => {
 };
 
 const getInfoBySearch = async (name) => {
-  let gamesSearch = [];
   const response = await axios.get(
     `https://api.rawg.io/api/games?key=${API_KEY}&search=${name}`
   );
-  response.data.results.map((element) => {
-    gamesSearch.push({
-      id: element.id,
-      name: element.name,
-      image: element.background_image,
-      genres: element.genres.map((genre) => genre.name).join(', '),
-      rating: element.rating,
-      platforms: element.platforms.map((e) => e.platform.name).join(', '),
-    });
-  });
-  return gamesSearch;
+  const joinElements = (elements) =>
+    elements.map(({ name }) => name).join(', ');
+
+  return response.data.results.map(
+    ({ id, name, background_image, genres, rating, platforms }) => ({
+      id,
+      name,
+      image: background_image,
+      genres: joinElements(genres),
+      rating,
+      platforms: joinElements(platforms),
+    })
+  );
 };
 
 const getInfoDB = async () => {
@@ -68,25 +69,14 @@ const getInfoDB = async () => {
 };
 
 const allInfoGames = async () => {
-  const infoApi = await getInfoApi();
-  const infoDB = await getInfoDB();
-  const allInfo = infoDB.concat(infoApi);
-  return allInfo;
+  const [infoApi, infoDB] = await Promise.all([getInfoApi(), getInfoDB()]);
+  return [...infoDB, ...infoApi];
 };
 
 const infoById = async (id) => {
+  let data;
   if (typeof id === 'string' && id.length > 8) {
-    let newDBArray = {
-      id: '',
-      name: '',
-      description: '',
-      released: '',
-      rating: '',
-      platform: '',
-      image: '',
-      genres: '',
-    };
-    const data_db = await Videogame.findAll({
+    const [data_db] = await Videogame.findAll({
       where: { id },
       include: [
         {
@@ -98,38 +88,34 @@ const infoById = async (id) => {
         },
       ],
     });
-    console.log(data_db.platform);
-    data_db.map((element) => {
-      newDBArray = {
-        id: element.id,
-        name: element.name,
-        description: element.description,
-        released: element.released,
-        rating: element.rating,
-        platform: element.platform,
-        image: element.image,
-        genres: element.genres.map((genre) => genre.name),
-      };
-    });
-    console.log(newDBArray);
-    return newDBArray;
-  } else {
-    let url_Id = `https://api.rawg.io/api/games/${id}?key=${API_KEY}`;
-    const gamesLoaded = await axios.get(url_Id);
-    const element = gamesLoaded.data;
-    const allInformation = {
-      id: element.id,
-      name: element.name,
-      image: element.background_image,
-      imageExtra: element.background_image_additional,
-      description: element.description_raw,
-      released: element.released,
-      rating: element.rating,
-      platform: element.platforms.map((element) => element.platform.name),
-      genres: element.genres.map((element) => element.name),
+
+    data = {
+      id: data_db.id,
+      name: data_db.name,
+      description: data_db.description,
+      released: data_db.released,
+      rating: data_db.rating,
+      platform: data_db.platform,
+      image: data_db.image,
+      genres: data_db.genres.map((genre) => genre.name),
     };
-    return allInformation;
+  } else {
+    const url_Id = `https://api.rawg.io/api/games/${id}?key=${API_KEY}`;
+    const { data: gamesLoaded } = await axios.get(url_Id);
+
+    data = {
+      id: gamesLoaded.id,
+      name: gamesLoaded.name,
+      image: gamesLoaded.background_image,
+      imageExtra: gamesLoaded.background_image_additional,
+      description: gamesLoaded.description_raw,
+      released: gamesLoaded.released,
+      rating: gamesLoaded.rating,
+      platform: gamesLoaded.platforms.map((element) => element.platform.name),
+      genres: gamesLoaded.genres.map((element) => element.name),
+    };
   }
+  return data;
 };
 
 const createGame = async (

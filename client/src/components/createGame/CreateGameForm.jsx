@@ -25,7 +25,7 @@ const CreateGameForm = () => {
     description: '',
     image: '',
     rating: '',
-    released: 'Invalid released',
+    released: '',
     genres: '',
     platform: '',
   });
@@ -49,6 +49,11 @@ const CreateGameForm = () => {
     const descriptionValue = event.target.value;
     if (descriptionValue === '') {
       setCreateGameError({ ...createGameError, description: '' });
+    } else if (descriptionValue[0] === ' ') {
+      setCreateGameError({
+        ...createGameError,
+        description: 'Invalid description',
+      });
     } else if (descriptionValue.length < 4) {
       setCreateGameError({
         ...createGameError,
@@ -62,6 +67,24 @@ const CreateGameForm = () => {
 
   const imageChangeHandler = (event) => {
     const imageValue = event.target.value;
+    const imageRegEx = /(http(s?))\:\/\//gi;
+    if (imageValue && !imageRegEx.test(imageValue)) {
+      setCreateGameError({
+        ...createGameError,
+        image: 'Invalid image',
+      });
+      return;
+    } else if (imageValue && imageValue.includes(' ')) {
+      setCreateGameError({
+        ...createGameError,
+        image: 'Invalid image',
+      });
+      return;
+    } else if (imageValue.length === 0) {
+      setCreateGameError({ ...createGameError, image: '' });
+    } else {
+      setCreateGameError({ ...createGameError, image: null });
+    }
     setCreateGame({ ...createGame, image: imageValue });
   };
 
@@ -94,6 +117,15 @@ const CreateGameForm = () => {
 
   const dateChangeHandler = (event) => {
     const dateValue = event.target.value;
+    const currentDate = new Date();
+    const enteredDate = new Date(dateValue);
+    if (enteredDate > currentDate) {
+      setCreateGameError({
+        ...createGameError,
+        released: 'Invalid released',
+      });
+      return;
+    }
     if (dateValue) {
       setCreateGameError({ ...createGameError, released: null });
     }
@@ -114,13 +146,8 @@ const CreateGameForm = () => {
         genres: createGame.genres.filter((element) => element !== genresValue),
       });
     }
-    if (createGame.genres === '') {
+    if (createGame.genres.length === 0) {
       setCreateGameError({ ...createGameError, genres: '' });
-    } else if (createGame.genres.length < 4) {
-      setCreateGameError({
-        ...createGameError,
-        genres: 'Invalid genres',
-      });
     } else {
       setCreateGameError({ ...createGameError, genres: null });
     }
@@ -144,10 +171,10 @@ const CreateGameForm = () => {
     }
     if (createGame.platform === '') {
       setCreateGameError({ ...createGameError, platform: '' });
-    } else if (createGame.platform.length < 4) {
+    } else if (createGame.platform.length === 0) {
       setCreateGameError({
         ...createGameError,
-        platform: 'Invalid platform',
+        platform: '',
       });
     } else {
       setCreateGameError({ ...createGameError, platform: null });
@@ -246,16 +273,19 @@ const CreateGameForm = () => {
                 />
               </div>
               <div className={style.createGameForm__div_input_p_wd}>
-                {createGameError.rating === 'Invalid rating' ? (
+                {createGameError.image === 'Invalid image' ? (
                   <p className={style.createGameForm__div_input_p_error}>
-                    the rating should be between 0,25 and 5
+                    The image address is'n an https or http or includes a space
                   </p>
-                ) : createGameError.rating === null ? (
+                ) : createGameError.image === null ? (
                   <p className={style.createGameForm__div_input_p_validate}>
-                    rating's videogame correct
+                    image's videogame correct
                   </p>
                 ) : (
-                  <p>the rating should be between 0,25 and 5</p>
+                  <p>
+                    The image address must be https or http and must not have
+                    spaces.
+                  </p>
                 )}
               </div>
             </div>
@@ -297,13 +327,13 @@ const CreateGameForm = () => {
                 />
               </div>
               <div className={style.createGameForm__div_input_p_wd}>
-                {createGameError.rating === 'Invalid rating' ? (
+                {createGameError.released === 'Invalid released' ? (
                   <p className={style.createGameForm__div_input_p_error}>
                     {`the released game must be maximum: ${getDateActuallyOrder()}`}
                   </p>
-                ) : createGameError.rating === null ? (
+                ) : createGameError.released === null ? (
                   <p className={style.createGameForm__div_input_p_validate}>
-                    released's videogame correct
+                    date's videogame correct
                   </p>
                 ) : (
                   <p>{`the released game must be maximum: ${getDateActuallyOrder()}`}</p>
@@ -341,6 +371,13 @@ const CreateGameForm = () => {
                     </div>
                   );
                 })}
+                {createGameError.genres === null ? (
+                  <p className={style.createGameForm__div_input_p_validate}>
+                    genres's videogame correct
+                  </p>
+                ) : (
+                  <p>the genres's videogame must have more than 4 letters</p>
+                )}
               </div>
             </div>
             <div>
