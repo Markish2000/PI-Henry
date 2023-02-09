@@ -69,10 +69,14 @@ export const filterByPlatforms = (platform) => {
 
 export const filterBySearch = (value) => {
   return async (dispatch) => {
-    const response = await axios.get(
-      `http://localhost:3001/games?name=${value}`
-    );
-    dispatch({ type: 'FILTER_BY_SEARCH', payload: response.data });
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/games?name=${value}`
+      );
+      dispatch({ type: 'FILTER_BY_SEARCH', payload: response.data });
+    } catch (error) {
+      console.error(error);
+    }
   };
 };
 
