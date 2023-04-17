@@ -1,4 +1,4 @@
-import style from './style/HeaderContainer.module.css';
+import style from './style/headerContainer.module.css';
 import perfil from './assets/perfil.jpg';
 import search from './assets/search.png';
 import { useDispatch } from 'react-redux';
